@@ -1,0 +1,59 @@
+h1 {
+  font-family: "Roboto Slab", serif;
+  color: rgb(209, 138, 123);
+}
+/* //-----------------NAVLINKS-------------------// */
+.navbar-item,
+.navbar-link {
+  padding: 8px 2px !important;
+  margin: 20px;
+  height: 30px;
+  border: 3px solid transparent;
+}
+
+/* //-----------------NAVLINKS ON HOVER------------------// */
+.navbar-link.is-active,
+.navbar-link:focus,
+.navbar-link:focus-within,
+.navbar-link:hover,
+a.navbar-item.is-active,
+a.navbar-item:focus,
+a.navbar-item:focus-within,
+a.navbar-item:hover {
+  border-bottom: solid rgb(209, 138, 123) !important;
+  color: black;
+  background-color: transparent;
+  transition: 0.5s;
+}
+
+/* //-----------------NAVLINKS ON ACTIVE-------------------// */
+.navbar-link.is-active,
+.navbar-link:focus,
+.navbar-link:focus-within,
+.navbar-link:active,
+a.navbar-item.is-active,
+a.navbar-item:focus,
+a.navbar-item:focus-within,
+a.navbar-item:active {
+  border: solid rgb(209, 138, 123) !important;
+  color: black;
+  background-color: transparent;
+}
+
+/* //-----------------LOG IN/SIGN UP-------------------// */
+.buttons {
+  padding: 20px;
+}
+
+.is-primary {
+  background-color: rgb(209, 138, 123) !important;
+}
+.is-primary:hover {
+  background-color: rgb(196, 118, 103) !important;
+}
+.is-light {
+  background-color: rgba(241, 226, 223, 0.6) !important;
+}
+.is-light:hover {
+  background-color: rgba(241, 226, 223, 0.9) !important;
+}
