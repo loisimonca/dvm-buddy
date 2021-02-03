@@ -2,6 +2,9 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const routes = require("./routes");
+//use API routes
+app.use(routes);
 //Add middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -18,16 +21,9 @@ app.get("/api/config", (req, res) => {
   });
 });
 
-//test drive for react app
-app.get("/api/test", (req, res) => {
-  res.json({
-    name: "song",
-  });
-});
-
 //add mongoDB & mongoose
 const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/dvm-buddy", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/dvm-buddy", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
