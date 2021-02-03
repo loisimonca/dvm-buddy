@@ -1,59 +1,130 @@
 h1 {
   font-family: "Roboto Slab", serif;
   color: rgb(209, 138, 123);
+  padding-left: 30px;
+  padding-right: 30px;
 }
 /* //-----------------NAVLINKS-------------------// */
-.navbar-item,
-.navbar-link {
-  padding: 8px 2px !important;
-  margin: 20px;
+.link {
+  padding: 15px 2px !important;
+  margin: 20px 10px;
   height: 30px;
   border: 3px solid transparent;
 }
 
+.navbar-burger {
+  margin-right: 0;
+  margin-left: 0;
+  margin-top: 10px;
+}
+.btn {
+  padding: 20px 15px !important;
+  margin: 20px 10px;
+  height: 30px;
+  border-radius: 8px !important;
+}
+
+.signUp {
+  background-color: rgb(209, 138, 123) !important;
+  color: white;
+  font-weight: bolder;
+  margin-right: 0;
+}
+
+.logIn {
+  background-color: rgba(241, 226, 223, 0.6) !important;
+  font-weight: bolder;
+  margin-left: 0;
+}
 /* //-----------------NAVLINKS ON HOVER------------------// */
-.navbar-link.is-active,
-.navbar-link:focus,
-.navbar-link:focus-within,
-.navbar-link:hover,
-a.navbar-item.is-active,
-a.navbar-item:focus,
-a.navbar-item:focus-within,
-a.navbar-item:hover {
+.link.is-active,
+.link:focus,
+.link:focus-within,
+.link:hover,
+a.link.is-active,
+a.link:focus,
+a.link:focus-within,
+a.link:hover {
   border-bottom: solid rgb(209, 138, 123) !important;
   color: black;
   background-color: transparent;
   transition: 0.5s;
 }
 
+.signUp:hover {
+  background-color: rgb(196, 118, 103) !important;
+  color: white !important;
+}
+
+.logIn:hover {
+  background-color: rgba(241, 226, 223, 0.9) !important;
+  color: black !important;
+}
+
+.navbar-main:hover {
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.05);
+}
 /* //-----------------NAVLINKS ON ACTIVE-------------------// */
-.navbar-link.is-active,
-.navbar-link:focus,
-.navbar-link:focus-within,
-.navbar-link:active,
-a.navbar-item.is-active,
-a.navbar-item:focus,
-a.navbar-item:focus-within,
-a.navbar-item:active {
+.link.is-active,
+.link:focus,
+.link:focus-within,
+.link:active,
+a.link.is-active,
+a.link:focus,
+a.link:focus-within,
+a.link:active {
   border: solid rgb(209, 138, 123) !important;
   color: black;
   background-color: transparent;
 }
 
 /* //-----------------LOG IN/SIGN UP-------------------// */
-.buttons {
-  padding: 20px;
-}
 
-.is-primary {
-  background-color: rgb(209, 138, 123) !important;
-}
-.is-primary:hover {
-  background-color: rgb(196, 118, 103) !important;
-}
-.is-light {
-  background-color: rgba(241, 226, 223, 0.6) !important;
-}
-.is-light:hover {
-  background-color: rgba(241, 226, 223, 0.9) !important;
+@media screen and (max-width: 1023px) {
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .navbar-brand {
+    min-width: 100%;
+  }
+  .navbar-menu {
+    margin-left: auto;
+    min-width: 100%;
+  }
+  a.link {
+    border: solid 2px;
+    border-color: rgb(196, 118, 103);
+    padding-bottom: 35px !important;
+    text-align: center;
+    display: block;
+  }
+  .is-pulled-left {
+    float: none !important;
+  }
+  a.link:active {
+    background-color: rgba(241, 226, 223, 0.6) !important;
+  }
+  .btn {
+    border: solid 2px !important;
+    border-color: rgb(196, 118, 103) !important;
+    padding-bottom: 35px !important;
+    padding-top: 10px !important;
+    text-align: center;
+    display: block;
+    margin: 20px 10px;
+    border-radius: 0px !important;
+    background-color: white !important;
+    color: black;
+    font-weight: lighter;
+  }
+  a.btn:hover {
+    background-color: white !important;
+    color: black !important;
+    font-weight: normal;
+  }
+  a.btn:active {
+    background-color: rgba(241, 226, 223, 0.6) !important;
+  }
 }
