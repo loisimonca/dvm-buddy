@@ -2,7 +2,16 @@ h1 {
   font-family: "Roboto Slab", serif;
   color: rgb(209, 138, 123);
   padding-left: 30px;
-  padding-right: 30px;
+  padding-right: 5px;
+}
+.navbar {
+  border-bottom: solid 4px rgba(241, 226, 223, 0.9) !important;
+}
+
+.navbar-brand,
+.navbar-tabs {
+  float: left !important;
+  margin-right: 0px !important;
 }
 /* //-----------------NAVLINKS-------------------// */
 .link {
@@ -11,11 +20,11 @@ h1 {
   height: 30px;
   border: 3px solid transparent;
 }
-
 .navbar-burger {
-  margin-right: 0;
-  margin-left: 0;
-  margin-top: 10px;
+  display: block transparent;
+  margin-right: 5px;
+  margin-left: auto;
+  margin-top: 20px;
 }
 .btn {
   padding: 20px 15px !important;
@@ -86,9 +95,7 @@ a.link:active {
     display: flex;
     flex-wrap: wrap;
   }
-  .navbar-brand {
-    min-width: 100%;
-  }
+
   .navbar-menu {
     margin-left: auto;
     min-width: 100%;
@@ -106,6 +113,10 @@ a.link:active {
   a.link:active {
     background-color: rgba(241, 226, 223, 0.6) !important;
   }
+  a.link:hover {
+    background-color: rgba(241, 226, 223, 0.6) !important;
+  }
+
   .btn {
     border: solid 2px !important;
     border-color: rgb(196, 118, 103) !important;
@@ -116,15 +127,20 @@ a.link:active {
     margin: 20px 10px;
     border-radius: 0px !important;
     background-color: white !important;
-    color: black;
-    font-weight: lighter;
+    color: rgb(39, 39, 39);
+    font-weight: normal;
   }
   a.btn:hover {
-    background-color: white !important;
+    background-color: rgba(241, 226, 223, 0.6) !important;
     color: black !important;
-    font-weight: normal;
   }
   a.btn:active {
     background-color: rgba(241, 226, 223, 0.6) !important;
+  }
+}
+@media screen and (max-width: 400px) {
+  h1 {
+    transform: scale(0.75);
+    padding-left: 0px;
   }
 }
