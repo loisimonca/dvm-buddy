@@ -30,20 +30,20 @@ const Navbar = () => {
 
         <div id="navbarBasicExample" className="navbar-menu ">
           <div className="navbar-start is-pulled-left">
-            <a className="navbar-item">Reservation</a>
+            <a className="navbar-item" href="/">Reservation</a>
 
-            <a className="navbar-item fill">Side Walker</a>
-            <a className="navbar-item">Pet Sitter</a>
-            <a className="navbar-item">Boarding</a>
+            <a className="navbar-item fill" href="/">Side Walker</a>
+            <a className="navbar-item" href="/">Pet Sitter</a>
+            <a className="navbar-item" href="/">Boarding</a>
           </div>
 
           <div className="nav-left">
             <div className="navbar-item">
               <div className="buttons">
-                <a className="button is-primary">
+                <a className="button is-primary" href="/">
                   <strong>Sign up</strong>
                 </a>
-                <a className="button is-light">Log in</a>
+                <a className="button is-light" href="/">Log in</a>
               </div>
             </div>
           </div>
