@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Router, Route, Switch } from 'react-router'
 import "./App.css";
 import API from "./utils/API";
 import Navbar from "./component/Navbar/Navbar";
@@ -21,7 +22,7 @@ function App() {
   );
 }
 
-<BrowserRouter>
+<Router>
     <div>
         <Navbar/>
         <Switch>
@@ -30,6 +31,6 @@ function App() {
             <Route path="*" render={() => <Redirect to="/" />} />
         </Switch>
     </div>
-</BrowserRouter>
+</Router>
 
 export default App;
