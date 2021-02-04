@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import API from "./utils/API";
 import Navbar from "./component/Navbar/Navbar";
+import Login from "./component/Login/Login";
 function App() {
   //express server api route test (user info)
   //data from mongoDB will be displayed on the console
@@ -13,6 +14,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <Login />
     </>
   );
 }
