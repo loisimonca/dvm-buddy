@@ -6,7 +6,7 @@ function App() {
   //express server api route test (user info)
   //data from mongoDB will be displayed on the console
   useEffect(() => {
-    API.getEmployee()
+    API.getClassified()
       .then((response) => console.log(response.data))
       .catch((err) => console.log(err));
   });
