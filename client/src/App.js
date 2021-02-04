@@ -1,22 +1,25 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import API from "./utils/API";
 import Navbar from "./component/Navbar/Navbar";
+import CustomerAccount from "./component/CustomerAccount/CustomerAccount";
+import Home from "./component/Home/Home";
 import Login from "./component/Login/Login";
-import CustomerAccount from "./component/CustomerAccount/CustomerAccount"
 import CustomerPage from "./component/CustomerPage/CustomerPage"
+
 function App() {
-  //express server api route test (user info)
-  //data from mongoDB will be displayed on the console
-  useEffect(() => {
-    API.getClassified()
-      .then((response) => console.log(response.data))
-      .catch((err) => console.log(err));
-  });
   return (
     <>
-      <Navbar />
-      <Login />
+      <Router>
+        <div>
+          <Navbar />
+          <Login />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/CustomerAccount" component={CustomerAccount} />
+          </Switch>
+        </div>
+      </Router>
     </>
   );
 }

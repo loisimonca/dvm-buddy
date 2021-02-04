@@ -1,5 +1,6 @@
 import React from "react";
 import "./Navbar.css";
+import {NavLink} from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -22,7 +23,7 @@ const Navbar = () => {
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
-        <div id="navbarBasicExample" class="navbar-menu">
+        <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start is-pulled-left">
             <a className="navbar-item link" href="/">
               Reservation
@@ -38,9 +39,9 @@ const Navbar = () => {
               Boarding
             </a>
           </div>
-          <a className=" navbar-item btn signUp" href="/">
+          <NavLink className=" navbar-item btn signUp" to="/CustomerAccount">
             Sign up
-          </a>
+          </NavLink>
           <a className="navbar-item btn logIn" href="/">
             Log in
           </a>
