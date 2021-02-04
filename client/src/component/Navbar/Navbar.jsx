@@ -30,13 +30,22 @@ const Navbar = () => {
 
         <div id="navbarBasicExample" class="navbar-menu">
           <div className="navbar-start is-pulled-left">
-            <a className="navbar-item link">Reservation</a>
+            <a className="navbar-item" href="/">Reservation</a>
 
-            <a className="navbar-item link">Side Walker</a>
-            <a className="navbar-item link">Pet Sitter</a>
-            <a className="navbar-item link">Boarding</a>
-            <a className="navbar-item btn signUp">Sign up</a>
-            <a className="navbar-item btn logIn">Log in</a>
+            <a className="navbar-item fill" href="/">Side Walker</a>
+            <a className="navbar-item" href="/">Pet Sitter</a>
+            <a className="navbar-item" href="/">Boarding</a>
+          </div>
+
+          <div className="nav-left">
+            <div className="navbar-item">
+              <div className="buttons">
+                <a className="button is-primary" href="/">
+                  <strong>Sign up</strong>
+                </a>
+                <a className="button is-light" href="/">Log in</a>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
