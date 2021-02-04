@@ -24,8 +24,7 @@ function App() {
   );
 }
 
-{
-  /* <BrowserRouter>
+<BrowserRouter>
   <div>
     <Navbar />
     <Switch>
@@ -34,7 +33,6 @@ function App() {
       <Route path="*" render={() => <Redirect to="/" />} />
     </Switch>
   </div>
-</BrowserRouter>; */
-}
+</BrowserRouter>;
 
 export default App;
