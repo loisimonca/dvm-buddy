@@ -6,47 +6,44 @@ const Navbar = () => {
     <div>
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <a className="navbar-main" href="/">
-            {/* <img
-              src="https://bulma.io/images/bulma-logo.png"
-              width="112"
-              height="28"
-            /> */}
+          <a className="navbar-main is-pulled-left" href="/">
             <h1 className="is-size-1">DVM Buddy</h1>
-          </a>
-
-          <a
-            role="button"
-            className="navbar-burger is-right"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
           </a>
         </div>
 
+        <a
+          role="button"
+          className="navbar-burger is-pulled-right"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
         <div id="navbarBasicExample" class="navbar-menu">
           <div className="navbar-start is-pulled-left">
-            <a className="navbar-item" href="/">Reservation</a>
+            <a className="navbar-item link" href="/">
+              Reservation
+            </a>
 
-            <a className="navbar-item fill" href="/">Side Walker</a>
-            <a className="navbar-item" href="/">Pet Sitter</a>
-            <a className="navbar-item" href="/">Boarding</a>
+            <a className="navbar-item link" href="/">
+              Side Walker
+            </a>
+            <a className="navbar-item link" href="/">
+              Pet Sitter
+            </a>
+            <a className="navbar-item link" href="/">
+              Boarding
+            </a>
           </div>
-
-          <div className="nav-left">
-            <div className="navbar-item">
-              <div className="buttons">
-                <a className="button is-primary" href="/">
-                  <strong>Sign up</strong>
-                </a>
-                <a className="button is-light" href="/">Log in</a>
-              </div>
-            </div>
-          </div>
+          <a className=" navbar-item btn signUp" href="/">
+            Sign up
+          </a>
+          <a className="navbar-item btn logIn" href="/">
+            Log in
+          </a>
         </div>
       </nav>
     </div>
