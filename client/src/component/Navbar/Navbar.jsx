@@ -1,15 +1,15 @@
 import React from "react";
 import "./Navbar.css";
-import {NavLink} from 'react-router-dom'
+import { NavLink, Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div>
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <a className="navbar-main is-pulled-left" href="/">
+          <Link to="/" className="navbar-main is-pulled-left">
             <h1 className="is-size-1">DVM Buddy</h1>
-          </a>
+          </Link>
         </div>
 
         <a
@@ -25,26 +25,26 @@ const Navbar = () => {
         </a>
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start is-pulled-left">
-            <a className="navbar-item link" href="/">
+            <Link to="/" className="navbar-item link">
               Reservation
-            </a>
+            </Link>
 
-            <a className="navbar-item link" href="/">
+            <Link to="/" className="navbar-item link">
               Side Walker
-            </a>
-            <a className="navbar-item link" href="/">
+            </Link>
+            <Link to="/" className="navbar-item link">
               Pet Sitter
-            </a>
-            <a className="navbar-item link" href="/">
+            </Link>
+            <Link to="/" className="navbar-item link">
               Boarding
-            </a>
+            </Link>
           </div>
           <NavLink className=" navbar-item btn signUp" to="/CustomerAccount">
             Sign up
           </NavLink>
-          <a className="navbar-item btn logIn" href="/">
+          <Link to="/" className="navbar-item btn logIn">
             Log in
-          </a>
+          </Link>
         </div>
       </nav>
     </div>

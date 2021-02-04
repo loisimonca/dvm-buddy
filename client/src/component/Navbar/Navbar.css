@@ -117,6 +117,16 @@ a.link:active {
     background-color: rgba(241, 226, 223, 0.6) !important;
   }
 
+  .signUp:active {
+    background-color: rgb(196, 118, 103) !important;
+    color: white !important;
+  }
+
+  .logIn:active {
+    background-color: rgba(241, 226, 223, 0.9) !important;
+    color: black !important;
+  }
+
   .btn {
     border: solid 2px !important;
     border-color: rgb(196, 118, 103) !important;
