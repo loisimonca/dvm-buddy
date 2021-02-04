@@ -6,7 +6,7 @@ const Navbar = () => {
     <div>
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <a className="navbar-item" href="https://bulma.io">
+          <a className="navbar-main" href="/">
             {/* <img
               src="https://bulma.io/images/bulma-logo.png"
               width="112"
@@ -17,7 +17,7 @@ const Navbar = () => {
 
           <a
             role="button"
-            className="navbar-burger"
+            className="navbar-burger is-right"
             aria-label="menu"
             aria-expanded="false"
             data-target="navbarBasicExample"
@@ -28,29 +28,40 @@ const Navbar = () => {
           </a>
         </div>
 
-        <div id="navbarBasicExample" className="navbar-menu ">
+        <div id="navbarBasicExample" class="navbar-menu">
           <div className="navbar-start is-pulled-left">
-            <a className="navbar-item">Reservation</a>
+            <a className="navbar-item link">Reservation</a>
 
-            <a className="navbar-item fill">Side Walker</a>
-            <a className="navbar-item">Pet Sitter</a>
-            <a className="navbar-item">Boarding</a>
-          </div>
-
-          <div className="nav-left">
-            <div className="navbar-item">
-              <div className="buttons">
-                <a className="button is-primary">
-                  <strong>Sign up</strong>
-                </a>
-                <a className="button is-light">Log in</a>
-              </div>
-            </div>
+            <a className="navbar-item link">Side Walker</a>
+            <a className="navbar-item link">Pet Sitter</a>
+            <a className="navbar-item link">Boarding</a>
+            <a className="navbar-item btn signUp">Sign up</a>
+            <a className="navbar-item btn logIn">Log in</a>
           </div>
         </div>
       </nav>
     </div>
   );
 };
-
+document.addEventListener("DOMContentLoaded", () => {
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(
+    document.querySelectorAll(".navbar-burger"),
+    0
+  );
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+    // Add a click event on each of them
+    $navbarBurgers.forEach((el) => {
+      el.addEventListener("click", () => {
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle("is-active");
+        $target.classList.toggle("is-active");
+      });
+    });
+  }
+});
 export default Navbar;
