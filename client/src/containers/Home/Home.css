@@ -1,0 +1,50 @@
+body {
+  background-image: url("./backgroundImage1.jpg");
+  background-size: cover;
+  height: 900px;
+}
+h2 {
+  font-family: "Roboto Slab", serif;
+  color: rgb(190, 126, 113);
+  padding-top: 50px;
+}
+h3 {
+  line-height: 2 !important;
+}
+
+.subtitle strong {
+  color: black;
+  font-weight: 600;
+}
+.container {
+  width: 50% !important;
+  background-color: rgba(241, 226, 223, 0.36) !important;
+  margin-top: 80px;
+  padding: 0px 40px 0px 40px;
+}
+.buttons {
+  padding-top: 70px;
+}
+.button {
+  background-color: rgba(218, 177, 170, 0.9) !important;
+  border: none;
+  margin-bottom: 40px !important;
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+}
+
+.button:hover {
+  background-color: rgb(196, 118, 103) !important;
+}
+@media screen and (max-width: 700px) {
+  body {
+    background-image: url("./backgroundImage2.jpg");
+  }
+  .buttons {
+    flex-direction: column-reverse;
+  }
+  .container {
+    margin-top: 50px;
+    width: 80% !important;
+  }
+}
