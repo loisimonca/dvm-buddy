@@ -25,17 +25,17 @@ function App() {
   );
 }
 
-{
-  /* <BrowserRouter>
-  <div>
-    <Navbar />
-    <Switch>
-      <Route exact path="/" component={CustomerAccount} />
-      <Route path="/CustomerPage" component={CustomerPage} />
-      <Route path="*" render={() => <Redirect to="/" />} />
-    </Switch>
-  </div>
-</BrowserRouter>; */
-}
+
+<Router>
+    <div>
+        <Navbar/>
+        <Switch>
+            <Route exact path="/" component={CustomerAccount}/>
+            <Route path="/CustomerPage" component={CustomerPage} />                         
+            <Route path="*" render={() => <Redirect to="/" />} />
+        </Switch>
+    </div>
+</Router>
+
 
 export default App;
