@@ -1,6 +1,13 @@
 const router = require("express").Router();
 const employeeController = require("../../controllers/employeeController");
-//Matches with '/api/user
+var adminPassport = require("../../config/adminPassport");
+//Matches with '/api/employee
+router
+  .route("/login")
+  .post(adminPassport.authenticate("local"), function (req, res) {
+    res.json(req.body);
+  });
+
 router
   .route("/")
   .get(employeeController.findAll)
