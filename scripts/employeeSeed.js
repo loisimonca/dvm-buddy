@@ -8,6 +8,7 @@ const employeeSeed = [
     lastName: "Gabor",
     tel: 2463416346,
     email: "test2@gmail.com",
+    password: "bbbb",
   },
 ];
 

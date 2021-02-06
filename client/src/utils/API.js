@@ -7,6 +7,9 @@ export default {
   createUser: function (newUser) {
     return axios.post("/api/users", newUser);
   },
+  userLogin: function (data) {
+    return axios.post("/api/users/login", data);
+  },
   getEmployee: function () {
     return axios.get("/api/employee");
   },

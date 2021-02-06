@@ -1,6 +1,13 @@
 const router = require("express").Router();
 const userController = require("../../controllers/userController");
+var passport = require("../../config/passport");
 //Matches with '/api/user
+router
+  .route("/login")
+  .post(passport.authenticate("local"), function (req, res) {
+    res.json(req.body);
+  });
+
 router.route("/").get(userController.findAll).post(userController.create);
 
 router
