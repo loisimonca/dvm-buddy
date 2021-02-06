@@ -20,9 +20,10 @@ module.exports = {
     
     // Creates a new record from a submitted form
     const newAppointment = new db.Appointment({
-      name: requestBody.name,
-      email: requestBody.email,
-      phone: requestBody.phone,
+      // name: requestBody.name,
+      // email: requestBody.email,
+      // phone: requestBody.phone,
+      user: requestBody._id,
       slots: newSlot._id
     });
 
