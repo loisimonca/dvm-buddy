@@ -27,26 +27,28 @@ function UserLogin() {
     return (
         <>
         <div className='login-container container'>
-            <h1 className='login-header'>Log in to Your Account</h1>
-            <div className="user-login-container">
-                <div className='user-login-left'>
+            <div className='login-inner-container'>
+                <h1><i className="login-page-icon fas fa-paw"></i>DVM Buddy</h1>
+                <h1 className='login-header'>Log in to Your Account</h1>
+                <div className="user-login-container">
                     <form onSubmit={handleLogIn}>
                         <div className="user-login-with-account">
-                            <input type="text" id='user-email' name="user-login-email"/>
+                            <input type="text" className='user-login-input' id='user-email' name="user-login-email" placeholder="User email"/>
                         </div>
                         <div className="user-login-with-account">
-                            <input type="password" id='user-password' name="user-login-password"/>
+                            <input type="password" className='user-login-input' id='user-password' name="user-login-password" placeholder="User Password"/>
                         </div>
                         <div>
-                            <button type='submit'>Log in</button>
+                            <button className='login-submit-button' type='submit'>LOGIN</button>
                         </div>
                     </form>
+                    <div>
+                        <GoogleLogin className="user-login-with-google" clientId={clientId} buttonText='Google Login' onSuccess={onSuccess} onFailure={onFailure} cookiePolicy={'single_host_origin'} style={{marginTop: '100px'}} isSignedIn={true} />
+                    </div>
                 </div>
-                <div>
-                    <GoogleLogin clientId={clientId} buttonText='Login' onSuccess={onSuccess} onFailure={onFailure} cookiePolicy={'single_host_origin'} style={{marginTop: '100px'}} isSignedIn={true} />
-                </div>
+                <footer className='login-page-footer'>Need an account? <Link to='/CustomerAccount'>Sign Up</Link></footer>
+                <div className='login-page-back-to-home'><Link className='login-page-back-to-home-link' to='/'><i className="login-page-icon far fa-hand-point-left"></i>Back to Home Page</Link></div>
             </div>
-            <footer>Need an account? <Link to='/CustomerAccount'>Sign Up</Link></footer>
         </div>
         </>
     )

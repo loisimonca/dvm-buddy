@@ -1,13 +1,83 @@
 .login-container {
+  background-color: rgba(141, 140, 140, 0.795);
+  width: 50%;
+  margin-top: 80px;
   color: #111;
+  text-align: center;
 }
-.user-login-container {
-  display: flex;
-}
-.user-login-left {
-  display: flex;
-  flex-direction: column;
+.login-page-icon {
+  font-size: larger;
+  margin-right: 5px;
 }
 .login-header {
   color: black;
+  font-size: 20px;
+  text-align: center;
+}
+.login-inner-container {
+  padding: 5%;
+}
+.user-login-container {
+  margin: 20px 0;
+}
+.user-login-with-account {
+  margin: 20px 0;
+}
+.user-login-with-account > input {
+  padding-left: 10px;
+  font-size: 15px;
+  width: 100%;
+  max-width: 350px;
+  border: 1px solid white;
+  border-radius: 0.3rem;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0);
+}
+.user-login-with-google {
+  width: 100%;
+  max-width: 350px;
+}
+.user-login-with-google > span {
+  color: #111;
+  font-size: 15px;
+}
+.user-login-input:focus {
+  outline: none;
+}
+.user-login-with-account ::placeholder {
+  color: rgb(223, 217, 217);
+  opacity: 1;
+}
+.login-submit-button {
+  max-width: 350px;
+  width: 100%;
+  height: 40px;
+  margin: 10px 0 30px 0;
+  border-radius: 0.3rem;
+  border: none;
+  background-color: rgba(40, 40, 233, 0.76);
+  color: white;
+  font-size: 15px;
+}
+.login-submit-button:hover {
+  background-color: rgba(70, 70, 216, 0.856);
+}
+.login-page-footer {
+  font-weight: 700;
+}
+.login-page-back-to-home {
+  margin: 20px 0;
+  font-weight: 500;
+}
+.login-page-back-to-home-link {
+  color: black;
+}
+
+@media screen and (min-width: 620px) {
+  .login-container {
+    background-color: rgba(141, 140, 140, 0.438);
+  }
+  .login-inner-container {
+    padding: 80px 60px;
+  }
 }
