@@ -3,6 +3,8 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const routes = require("./routes");
+const passport = require("./config/passport");
+const session = require("express-session");
 //Add middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -10,8 +12,6 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-//use API routes
-app.use(routes);
 //temporary route for test
 app.get("/api/config", (req, res) => {
   res.json({
@@ -19,6 +19,18 @@ app.get("/api/config", (req, res) => {
   });
 });
 
+//user authentication
+app.use(
+  session({
+    secret: "very secret this is",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+//use API routes
+app.use(routes);
 //add mongoDB & mongoose
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/dvm-buddy", {

@@ -8,6 +8,7 @@ const userSeed = [
     lastName: "Yim",
     tel: 1234561234,
     email: "test@gmail.com",
+    password: "aaaa",
     emergencyName: "Tim",
     emergencyTel: 3451234253,
     petName: "happy",

@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import  { Redirect } from 'react-router-dom'
 import "./CustomerAccount.css";
 import API from "../../utils/API";
 
@@ -34,15 +33,11 @@ const CustomerAccount = () => {
     }
   }
   //redirect to the home page after submit 
-  const [redirect, setRedirect] = useState(null);
   const handleSubmit = function(e){
     e.preventDefault()
     API.createUser(userInfo)
-    .then(res =>setRedirect("/"))
+    .then(res=> window.location.replace('/'))
     .catch(err => console.log(err))
-  }
-  if(redirect){
-    return <Redirect to={redirect} />
   }
   //confirm password
   const [pwdConfirm, setPwdConfirm] = useState();
@@ -51,9 +46,7 @@ const CustomerAccount = () => {
     setPwdConfirm(e.target.value);
   }
   if(userInfo){
-    if(pwdConfirm === userInfo.password){
-      console.log(pwdConfirm)
-    }else{
+    if(pwdConfirm !== userInfo.password){
       console.log('not match')
     }
   }

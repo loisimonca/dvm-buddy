@@ -1,46 +1,13 @@
-/* -----------------------login/sign up card------------------- */
-.card {
-  width: 60%;
-  margin: auto;
-  margin-top: 70px;
-  margin-bottom: 40px;
+.login-container {
+  color: #111;
 }
-.tabs li.is-active a {
-  font-weight: bold;
-  color: rgb(209, 138, 123);
+.user-login-container {
+  display: flex;
 }
-
-.container {
-  width: 80%;
+.user-login-left {
+  display: flex;
+  flex-direction: column;
 }
-
-.title {
-  padding-bottom: 40px;
-  font-family: "Roboto Slab", serif;
-  color: rgb(209, 138, 123);
-}
-
-/* -----------------------FORM BUTTONS------------------- */
-
-.email {
-  margin-bottom: 30px !important;
-}
-
-.button {
-  margin-bottom: 30px;
-}
-
-.submit {
-  background-color: rgb(209, 138, 123) !important;
-  font-weight: 700;
-}
-.submit:hover {
-  background-color: rgb(196, 118, 103) !important;
-}
-.cancel {
-  background-color: rgba(241, 226, 223, 0.6) !important;
-  color: black !important;
-}
-.cancel:hover {
-  background-color: rgba(241, 226, 223, 0.9) !important;
+.login-header {
+  color: black;
 }

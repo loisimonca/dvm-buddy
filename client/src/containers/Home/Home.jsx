@@ -18,10 +18,10 @@ const Home = () => {
           <Link to="/CustomerAccount" className="button ">
             Create Account
           </Link>
-          <Link to="/" className="button ">
+          <Link to="/UserLogin" className="button ">
             User Login
           </Link>
-          <Link to="/" className="button ">
+          <Link to="/AdminLogin" className="button ">
             Admin Login
           </Link>
         </div>
