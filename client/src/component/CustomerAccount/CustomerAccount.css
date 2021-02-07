@@ -1,0 +1,24 @@
+
+  .create-container {
+    background-color: rgba(241, 226, 223, 0.5);
+    width: 50%;
+    margin-top: 80px;
+    color: #111;
+    text-align: center;
+    display: flex;
+    column-gap: 20px;
+    justify-content: space-between;
+  
+  }
+
+  .create-inner-container {
+    padding: 5%;
+  }
+
+  .user-create-container {
+    margin: 20px 0;
+  }
+
+  .user-create-with-account {
+    margin: 20px 0;
+  }
