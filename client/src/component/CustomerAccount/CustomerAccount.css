@@ -1,24 +1,98 @@
+.create-account-wrap {
+  padding-bottom: 50px;
+  text-align: center;
+}
+.create-account-container {
+  background-color: rgba(241, 226, 223, 0.671);
+  width: 95%;
+  margin-top: 10px;
+  color: #111;
+  column-gap: 20px;
+  justify-content: space-between;
+  padding: 5%;
+}
+.account-create-header {
+  padding: 0;
+  color: black;
+  font-size: 28px;
+}
+.input-container > small {
+  color: rgba(243, 6, 6, 0.692);
+  font-size: 15px;
+}
+.input-container {
+  margin: 20px 0;
+  width: 100%;
+}
+.create-account-error {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+.create-account-pass {
+  flex-direction: row;
+}
+.input-container > input {
+  padding-left: 20px;
+  font-size: 15px;
+  height: 40px;
+  width: 90%;
+  border: none;
+  border-radius: 0.5rem;
+  margin-right: 10px;
+  background-color: rgba(255, 255, 255, 0.644);
+}
+.input-container > input:focus {
+  outline-color: skyblue;
+}
+.input-container > textarea {
+  font-size: 15px;
+  font-size: 15px;
+  padding-left: 20px;
+  width: 90%;
+  height: 80px;
+  resize: none;
+  border: none;
+  border-radius: 0.5rem;
+  margin-right: 10px;
+  background-color: rgba(255, 255, 255, 0.644);
+}
+.input-container > textarea:focus {
+  outline-color: skyblue;
+}
 
-  .create-container {
-    background-color: rgba(241, 226, 223, 0.5);
+.user-create-container {
+  margin: 20px 0;
+}
+
+.user-create-with-account {
+  margin: 20px 0;
+}
+.create-account-pet-title {
+  color: black;
+  font-size: 20px;
+}
+.create-page-icon {
+  margin-right: 10px;
+}
+.create-account-submit-btn {
+  border: none;
+  background-color: rgba(197, 98, 52, 0.733);
+  width: 90%;
+  padding: 10px 0;
+  border-radius: 0.5rem;
+  font-size: large;
+  font-weight: bold;
+  color: whitesmoke;
+}
+.create-account-submit-btn:hover {
+  background-color: rgba(197, 98, 52, 0.993);
+}
+@media screen and (min-width: 970px) {
+  .create-account-container {
     width: 50%;
-    margin-top: 80px;
-    color: #111;
-    text-align: center;
-    display: flex;
-    column-gap: 20px;
-    justify-content: space-between;
-  
   }
-
-  .create-inner-container {
-    padding: 5%;
+  .input-container > small {
+    color: rgba(243, 6, 6, 0.692);
   }
-
-  .user-create-container {
-    margin: 20px 0;
-  }
-
-  .user-create-with-account {
-    margin: 20px 0;
-  }
+}
