@@ -4,7 +4,7 @@ import "./Home.css";
 
 const Home = () => {
   return (
-    <div className="home-wrap">
+    <div className='home-wrap'>
       <div className="home-container container">
         <h2 className="home-title has-text-centered">Welcome to MDV Buddy!</h2>
         <h3 className="home-subtitle has-text-centered is-uppercase">

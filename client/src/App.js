@@ -14,14 +14,11 @@ function App() {
       <Router>
         <div>
           <Navbar />
-          {/* <Login /> */}
           <Switch>
-            {/* <Route exact path="/" component={Home} /> */}
             <Route exact path="/" component={Home} />
             <Route exact path="/Boarding" component={Boarding} />
             <Route exact path="/CustomerAccount" component={CustomerAccount} />
             <Route exact path="/Login" component={Login} />
-            {/* <Route exact path="/AdminLogin" component={AdminLogin} /> */}
             <Route path="*" render={() => <Redirect to="/" />} />
           </Switch>
         </div>
