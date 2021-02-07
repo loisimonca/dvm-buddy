@@ -33,68 +33,64 @@ function UserLogin() {
         }
       })
       .catch((err) => {
-        console.log("Incorrect username or password");
+        alert("Incorrect email address or password");
       });
   };
   return (
-    <>
-      <div className="login-container container">
-        <div className="login-inner-container">
-          <h1 className="is-size-3">
-            <i className="login-page-icon fas fa-paw"></i>DVM Buddy
-          </h1>
-          <h1 className="login-header">Log in to Your Account</h1>
-          <div className="user-login-container">
-            <form onSubmit={handleLogIn}>
-              <div className="user-login-with-account">
-                <input
-                  type="text"
-                  className="user-login-input"
-                  id="user-email"
-                  name="user-login-email"
-                  placeholder="User email"
-                />
-              </div>
-              <div className="user-login-with-account">
-                <input
-                  type="password"
-                  className="user-login-input"
-                  id="user-password"
-                  name="user-login-password"
-                  placeholder="User Password"
-                />
-              </div>
-              <div>
-                <button className="login-submit-button" type="submit">
-                  LOGIN
-                </button>
-              </div>
-            </form>
-            <div>
-              <GoogleLogin
-                className="user-login-with-google"
-                clientId={clientId}
-                buttonText="Login with Google"
-                onSuccess={onSuccess}
-                onFailure={onFailure}
-                cookiePolicy={"single_host_origin"}
-                style={{ marginTop: "100px" }}
-                isSignedIn={true}
+    <div className="login-wrap">
+      <div className="login-inner-container container">
+        <i className="login-page-icon fas fa-paw"></i>
+        <h1 className="login-header">Log in to Your Account</h1>
+        <div className="user-login-container">
+          <form onSubmit={handleLogIn}>
+            <div className="user-login-with-account">
+              <input
+                type="text"
+                className="user-login-input"
+                id="user-email"
+                name="user-login-email"
+                placeholder="User email"
               />
             </div>
-          </div>
-          <footer className="login-page-footer">
-            Need an account? <Link to="/CustomerAccount">Sign Up</Link>
-          </footer>
-          <div className="login-page-back-to-home">
-            <Link className="login-page-back-to-home-link" to="/">
-              <i className="login-page-icon far fa-hand-point-left"></i>Back to
-              Home Page
-            </Link>
+            <div className="user-login-with-account">
+              <input
+                type="password"
+                className="user-login-input"
+                id="user-password"
+                name="user-login-password"
+                placeholder="User Password"
+              />
+            </div>
+            <div>
+              <button className="login-submit-button" type="submit">
+                LOGIN
+              </button>
+            </div>
+          </form>
+          <div>
+            <GoogleLogin
+              className="user-login-with-google"
+              clientId={clientId}
+              buttonText="Google Login"
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+              cookiePolicy={"single_host_origin"}
+              style={{ marginTop: "100px" }}
+              isSignedIn={true}
+            />
           </div>
         </div>
+        <footer className="login-page-footer">
+          Need an account? <Link to="/CustomerAccount">Sign Up</Link>
+        </footer>
+        <div className="login-page-back-to-home">
+          <Link className="login-page-back-to-home-link" to="/">
+            <i className="login-page-icon far fa-hand-point-left"></i>Back to
+            Home Page
+          </Link>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 
