@@ -1,5 +1,5 @@
 .login-container {
-  background-color: rgba(141, 140, 140, 0.795);
+  background-color: rgba(241, 226, 223, 0.5) !important;
   width: 50%;
   margin-top: 80px;
   color: #111;
@@ -36,6 +36,9 @@
 .user-login-with-google {
   width: 100%;
   max-width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .user-login-with-google > span {
   color: #111;

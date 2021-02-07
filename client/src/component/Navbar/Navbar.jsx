@@ -4,23 +4,35 @@ import { NavLink, Link } from "react-router-dom";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
-  const handleClick = () => {setClick(!click)};
+  const handleClick = () => {
+    setClick(!click);
+  };
   const closeMobileMenu = () => setClick(false);
-
 
   return (
     <div>
-      <nav className="navbar" role="navigation" aria-label="main navigation" >
+      <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <Link to="/" className="navbar-main is-pulled-left" onClick={closeMobileMenu}>
-            <h1 className="is-size-1">DVM Buddy</h1> 
+          <Link
+            to="/"
+            className="navbar-main is-pulled-left"
+            onClick={closeMobileMenu}
+          >
+            <h1 className="is-size-1">
+              {" "}
+              <i className="fas fa-paw"></i> DVM Buddy
+            </h1>
           </Link>
         </div>
 
         <a
-          onClick ={handleClick}
+          onClick={handleClick}
           role="button"
-          className={click ? "navbar-burger is-pulled-right is-active" : "navbar-burger is-pulled-right"}
+          className={
+            click
+              ? "navbar-burger is-pulled-right is-active"
+              : "navbar-burger is-pulled-right"
+          }
           aria-label="menu"
           aria-expanded="false"
           data-target="navbarBasicExample"
@@ -29,7 +41,10 @@ const Navbar = () => {
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
-        <div id="navbarBasicExample" className={click? "navbar-menu is-active":"navbar-menu"}>
+        <div
+          id="navbarBasicExample"
+          className={click ? "navbar-menu is-active" : "navbar-menu"}
+        >
           <div className="navbar-start is-pulled-left">
             <Link to="/" className="navbar-item link" onClick={closeMobileMenu}>
               Reservation
@@ -41,14 +56,29 @@ const Navbar = () => {
             <Link to="/" className="navbar-item link" onClick={closeMobileMenu}>
               Pet Sitter
             </Link>
-            <Link to="/" className="navbar-item link" onClick={closeMobileMenu}>
+            <Link
+              to="/boarding"
+              className="navbar-item link"
+              onClick={closeMobileMenu}
+            >
               Boarding
             </Link>
+            <Link to="/" className="navbar-item link" onClick={closeMobileMenu}>
+              Account
+            </Link>
           </div>
-          <NavLink className=" navbar-item btn signUp" to="/CustomerAccount" onClick={closeMobileMenu}>
+          <NavLink
+            className=" navbar-item btn signUp"
+            to="/CustomerAccount"
+            onClick={closeMobileMenu}
+          >
             Sign up
           </NavLink>
-          <Link to="/" className="navbar-item btn logIn" onClick={closeMobileMenu}>
+          <Link
+            to="/Login"
+            className="navbar-item btn logIn"
+            onClick={closeMobileMenu}
+          >
             Log in
           </Link>
         </div>

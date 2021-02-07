@@ -3,9 +3,8 @@ import "./CustomerAccount.css";
 import API from "../../utils/API";
 
 const CustomerAccount = () => {
-  const [userInfo, setUserInfo] = useState({userType: "User"})
-  const handleChange = function(e){
-
+  const [userInfo, setUserInfo] = useState({ userType: "User" });
+  const handleChange = function (e) {
     e.preventDefault();
     const value = e.target.value;
     const id = e.target.name;
@@ -55,7 +54,7 @@ const CustomerAccount = () => {
     <>
       <div className="create-container container">
         <div className="create-inner-container">
-          <h1>
+          <h1 className="is-size-3">
             <i className="create-page-icon fas fa-paw"></i>DVM Buddy
           </h1>
           <h1 className="create-header">Create your account</h1>

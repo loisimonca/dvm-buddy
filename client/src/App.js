@@ -5,7 +5,8 @@ import "./App.css";
 import Navbar from "./component/Navbar/Navbar";
 import CustomerAccount from "./component/CustomerAccount/CustomerAccount";
 import Login from "./component/Login/Login.jsx";
-import Home from "./containers/Home/Home";
+import Home from "./component/Home/Home";
+import Boarding from "./component/Boarding/Boarding";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Switch>
             {/* <Route exact path="/" component={Home} /> */}
             <Route exact path="/" component={Home} />
+            <Route exact path="/Boarding" component={Boarding} />
             <Route exact path="/CustomerAccount" component={CustomerAccount} />
             <Route exact path="/Login" component={Login} />
             {/* <Route exact path="/AdminLogin" component={AdminLogin} /> */}
