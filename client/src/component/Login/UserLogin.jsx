@@ -22,7 +22,19 @@ function UserLogin() {
             password: password
         })
         // redirect to the account page
-        .then(res => window.location.replace('/'))
+        .then(res => {
+            const data = res.data.userType
+            if(data ==='User'){
+                console.log('welcome user')
+                window.location.replace('/')
+            }else if(data==="Employee"){
+                console.log('Welcome Employee')
+                window.location.replace('/')
+            }
+        })
+        .catch(err =>{
+            console.log('Incorrect username or password');
+        })
     }
     return (
         <>
