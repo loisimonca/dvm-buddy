@@ -4,9 +4,7 @@ import { Redirect } from "react-router-dom";
 import "./App.css";
 import Navbar from "./component/Navbar/Navbar";
 import CustomerAccount from "./component/CustomerAccount/CustomerAccount";
-import AdminLogin from "./component/Login/AdminLogin";
-import UserLogin from "./component/Login/UserLogin";
-// import CustomerPage from "./component/CustomerPage/CustomerPage";
+import Login from "./component/Login/Login.jsx";
 import Home from "./containers/Home/Home";
 
 function App() {
@@ -20,8 +18,8 @@ function App() {
             {/* <Route exact path="/" component={Home} /> */}
             <Route exact path="/" component={Home} />
             <Route exact path="/CustomerAccount" component={CustomerAccount} />
-            <Route exact path="/UserLogin" component={UserLogin} />
-            <Route exact path="/AdminLogin" component={AdminLogin} />
+            <Route exact path="/Login" component={Login} />
+            {/* <Route exact path="/AdminLogin" component={AdminLogin} /> */}
             <Route path="*" render={() => <Redirect to="/" />} />
           </Switch>
         </div>

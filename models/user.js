@@ -4,6 +4,7 @@ var bcrypt = require("bcryptjs");
 const SALT_WORK_FACTOR = 10;
 
 const userSchema = new Schema({
+  userType: { type: String, required: true },
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   tel: { type: Number, required: true },
@@ -17,8 +18,8 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   emergencyName: { type: String, required: true },
   emergencyTel: { type: Number, required: true },
-  petName: { type: String, require: true },
-  petType: { type: String, require: true },
+  petName: { type: String },
+  petType: { type: String },
   petBreed: { type: String },
   addInfo: { type: String },
 });

@@ -3,8 +3,9 @@ import "./CustomerAccount.css";
 import API from "../../utils/API";
 
 const CustomerAccount = () => {
-  const [userInfo, setUserInfo] = useState();
-  const handleChange = function (e) {
+  const [userInfo, setUserInfo] = useState({userType: "User"})
+  const handleChange = function(e){
+
     e.preventDefault();
     const value = e.target.value;
     const id = e.target.name;
