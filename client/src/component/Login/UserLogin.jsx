@@ -33,14 +33,13 @@ function UserLogin() {
             }
         })
         .catch(err =>{
-            console.log('Incorrect username or password');
+            alert('Incorrect email address or password')
         })
     }
     return (
-        <>
-        <div className='login-container container'>
-            <div className='login-inner-container'>
-                <h1><i className="login-page-icon fas fa-paw"></i>DVM Buddy</h1>
+        <div className='login-wrap'>
+            <div className='login-inner-container container'>
+                <i className="login-page-icon fas fa-paw"></i>
                 <h1 className='login-header'>Log in to Your Account</h1>
                 <div className="user-login-container">
                     <form onSubmit={handleLogIn}>
@@ -62,7 +61,6 @@ function UserLogin() {
                 <div className='login-page-back-to-home'><Link className='login-page-back-to-home-link' to='/'><i className="login-page-icon far fa-hand-point-left"></i>Back to Home Page</Link></div>
             </div>
         </div>
-        </>
     )
 }
 

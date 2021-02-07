@@ -1,26 +1,32 @@
 body {
   background-image: url("./backgroundImage1.jpg");
   background-size: cover;
-  height: 900px;
+  height: 100%;
 }
-h2 {
+.home-wrap {
+  padding-bottom: 80px;
+}
+.home-title {
+  font-size: 40px;
   font-family: "Roboto Slab", serif;
   color: rgb(190, 126, 113);
-  padding-top: 50px;
+  padding: 50px 0 35px 0;
 }
 h3 {
   line-height: 2 !important;
 }
 
-.subtitle strong {
+.home-subtitle strong {
   color: black;
   font-weight: 600;
+  font-size: 25px;
 }
 .home-container {
-  width: 50% !important;
-  background-color: rgba(241, 226, 223, 0.5) !important;
+  width: 80% !important;
+  background-color: rgba(241, 226, 223, 0.719) !important;
   margin-top: 80px;
   padding: 0px 40px 0px 40px;
+  margin-bottom: 100px;
 }
 .buttons {
   padding-top: 70px;
@@ -40,11 +46,20 @@ h3 {
   body {
     background-image: url("./backgroundImage2.jpg");
   }
+  .home-title {
+    font-size: 35px;
+    font-family: "Roboto Slab", serif;
+    color: rgb(190, 126, 113);
+    padding: 50px 0 20px 0;
+  }
   .buttons {
     flex-direction: column-reverse;
   }
-  .container {
+  .home-container {
     margin-top: 50px;
-    width: 80% !important;
+    width: 95% !important;
+  }
+  .home-subtitle strong {
+    font-size: 18px;
   }
 }
