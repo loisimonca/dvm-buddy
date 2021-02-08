@@ -4,9 +4,9 @@ import "./Home.css";
 
 const Home = () => {
   return (
-    <div className='home-wrap'>
+    <div className="home-wrap">
       <div className="home-container container">
-        <h2 className="home-title has-text-centered">Welcome to MDV Buddy!</h2>
+        <h2 className="home-title has-text-centered">Welcome to DVM Buddy!</h2>
         <h3 className="home-subtitle has-text-centered is-uppercase">
           <strong>
             Your one-stop-shop for all your pet's needs! Here, you can easily
