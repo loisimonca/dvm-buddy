@@ -12,12 +12,14 @@ const CustomerAccount = () => {
       setUserInfo({ ...userInfo, firstName: value });
     } else if (id === "l-name") {
       setUserInfo({ ...userInfo, lastName: value });
+    } else if (id === "u-name") {
+      setUserInfo({ ...userInfo, username: value });
+    } else if (id === "password") {
+      setUserInfo({ ...userInfo, password: value });
     } else if (id === "tel") {
       setUserInfo({ ...userInfo, tel: parseInt(value) });
     } else if (id === "email") {
       setUserInfo({ ...userInfo, email: value });
-    } else if (id === "password") {
-      setUserInfo({ ...userInfo, password: value });
     } else if (id === "emergency-name") {
       setUserInfo({ ...userInfo, emergencyName: value });
     } else if (id === "emergency-tel") {
