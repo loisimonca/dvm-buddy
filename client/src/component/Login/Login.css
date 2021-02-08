@@ -34,14 +34,6 @@
   height: 40px;
   background-color: rgba(255, 255, 255, 0);
 }
-.user-login-with-google {
-  width: 100%;
-  max-width: 350px;
-}
-.user-login-with-google > span {
-  color: #111;
-  font-size: 15px;
-}
 .user-login-input:focus {
   outline: none;
 }
@@ -52,7 +44,7 @@
   max-width: 350px;
   width: 100%;
   height: 40px;
-  margin: 10px 0 30px 0;
+  margin: 10px 0;
   border-radius: 0.3rem;
   border: none;
   background-color: rgba(40, 40, 233, 0.76);
@@ -61,6 +53,23 @@
 }
 .login-submit-button:hover {
   background-color: rgba(70, 70, 216, 0.856);
+}
+.google-login {
+  width: 100%;
+  max-width: 350px;
+  height: 40px;
+  border-radius: 4px;
+  background: #db3236;
+  color: white;
+  border: 0px transparent;
+  text-align: center;
+}
+.fa-google {
+  margin-right: 10px;
+}
+.google-login:hover {
+  background: #db3236;
+  opacity: 0.8;
 }
 .login-page-footer {
   font-weight: 700;
@@ -72,7 +81,6 @@
 .login-page-back-to-home-link {
   color: black;
 }
-
 @media screen and (min-width: 970px) {
   .login-inner-container {
     margin-top: 50px;

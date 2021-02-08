@@ -1,8 +1,11 @@
-h1 {
+.nav-title {
   font-family: "Roboto Slab", serif;
   color: rgb(209, 138, 123);
   padding-left: 30px;
   padding-right: 5px;
+  width: 100%;
+  font-size: 3rem;
+  height: 100%;
 }
 .navbar {
   border-bottom: solid 4px rgba(241, 226, 223, 0.9) !important;
@@ -39,12 +42,12 @@ h1 {
   font-weight: bolder;
   margin-right: 0;
 }
-
 .logIn {
   background-color: rgba(241, 226, 223, 0.6) !important;
   font-weight: bolder;
   margin-left: 0;
 }
+
 /* //-----------------NAVLINKS ON HOVER------------------// */
 .link.is-active,
 .link:focus,
@@ -91,6 +94,15 @@ a.link:active {
 /* //-----------------LOG IN/SIGN UP-------------------// */
 
 @media screen and (max-width: 1023px) {
+  .nav-title {
+    transform: scale(0.75);
+    padding-left: 0px;
+  }
+  .navbar-burger {
+    margin-right: 5px;
+    margin-left: auto;
+    margin-top: 10px;
+  }
   .navbar {
     display: flex;
     flex-wrap: wrap;
@@ -138,9 +150,15 @@ a.link:active {
     color: black;
   }
 }
-@media screen and (max-width: 400px) {
-  h1 {
+@media screen and (max-width: 620px) {
+  .nav-title {
+    font-size: 2.4rem;
     transform: scale(0.75);
     padding-left: 0px;
+  }
+  .navbar-burger {
+    margin-right: 5px;
+    margin-left: auto;
+    margin-top: 5px;
   }
 }
