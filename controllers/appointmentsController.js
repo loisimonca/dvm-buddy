@@ -9,7 +9,8 @@ module.exports = {
   },
     findOne: (req,res) => {
       console.log(req.params.id)
-      db.Appointment.findOne({customer: req.params.id})
+      db.Appointment.find({customer: req.params.id})
+      .populate("slots")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
     },

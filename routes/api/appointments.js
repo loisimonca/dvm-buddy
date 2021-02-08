@@ -8,6 +8,7 @@ router
 .post(appointmentsController.create);
 
 router.route("/:email").get(appointmentsController.findOne);
+router.route("/:id").delete(appointmentsController.delete);
 
 
 

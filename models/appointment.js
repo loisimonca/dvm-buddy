@@ -7,7 +7,7 @@ const appointmentSchema = new Schema({
     },
     slots: { 
       type: Schema.ObjectId, 
-      ref: "slot" },
+      ref: "Slot" },
     created_at: {
       type: Date,
       default: Date.now(),
