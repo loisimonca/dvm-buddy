@@ -7,6 +7,12 @@ module.exports = {
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
   },
+    findOne: (req,res) => {
+      console.log(req.params.id)
+      db.Appointment.findOne({customer: req.params.id})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+    },
   create: (req, res) => {
     const requestBody = req.body;
     console.log(requestBody);
@@ -21,9 +27,8 @@ module.exports = {
     // Creates a new record from a submitted form
     const newAppointment = new db.Appointment({
       // name: requestBody.name,
-      // email: requestBody.email,
       // phone: requestBody.phone,
-      user: requestBody._id,
+      email: requestBody.email,
       slots: newSlot._id
     });
 

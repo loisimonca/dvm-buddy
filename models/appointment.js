@@ -2,13 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const appointmentSchema = new Schema({
-    customer: {
-        type: Schema.ObjectId,
-        ref: "user"
+    email: {
+        type: String,
     },
     slots: { 
       type: Schema.ObjectId, 
-      ref: "Slot" },
+      ref: "slot" },
     created_at: {
       type: Date,
       default: Date.now(),
