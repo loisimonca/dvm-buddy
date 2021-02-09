@@ -24,7 +24,10 @@ function UserFacebookLogin() {
     const componentClicked = () => console.log("clicked");
     let fbContent;
     if(state.isLoggedIn){
-        setValue("true")
+        const userType = {userType: "User"}
+        const sendData = Object.assign(state, userType);
+        localStorage.setItem('user', JSON.stringify(sendData));
+        window.location.replace('/');
         fbContent =(
             <div style={{width: '400px', margin: 'auto', background: '#f4f4f4', padding:'20px'}}>
                 <img src={state.picture} alt={state.name} />
