@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import "./Navbar.css";
 import { NavLink, Link } from "react-router-dom";
 import {UserContext } from '../../utils/UserContext';
@@ -7,6 +7,18 @@ import BeforeLoginNav from './BeforeLoginNav';
 
 const Navbar = () => {
   const {value, setValue} = useContext(UserContext);
+  useEffect(()=>{
+    const data = JSON.parse(localStorage.getItem('user'));
+    if(data){
+      if(data.userType==="User"){
+        setValue("User")
+      }else if(data.userType ==='Employee'){
+        setValue("Employee")
+      }
+    }else{
+      setValue(false)
+    }
+  })
   const [click, setClick] = useState(false);
   const handleClick = () => {
     setClick(!click);
@@ -27,7 +39,9 @@ const Navbar = () => {
             </h1>
           </Link>
         </div>
-        {value? <AfterLoginNav handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/> : <BeforeLoginNav  handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/>}
+        {value==="User" && <AfterLoginNav handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/>}
+        {value==="Employee" && <AfterLoginNav handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/> }
+        {value===false && <BeforeLoginNav  handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/>}
       </nav>
     </div>
   );

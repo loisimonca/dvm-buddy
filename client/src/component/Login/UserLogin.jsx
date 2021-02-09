@@ -22,14 +22,16 @@ console.log(value)
       .then((res) => {
         setValue("true")
         console.log(res.data)
-        // const data = res.data.userType;
-        // if (data === "User") {
-        //   console.log("welcome user");
-        //   // window.location.replace("/");
-        // } else if (data === "Employee") {
-        //   console.log("Welcome Employee");
-        //   // window.location.replace("/");
-        // }
+        const data = res.data.userType;
+        if (data === "User") {
+          console.log("welcome user");
+          localStorage.setItem('user', JSON.stringify(res.data));
+          window.location.replace('/');
+        } else if (data === "Employee") {
+          console.log("Welcome Employee");
+          localStorage.setItem('user', JSON.stringify(res.data))
+          window.location.replace('/');
+        }
       })
       .catch((err) => {
         alert("Incorrect email address or password");
