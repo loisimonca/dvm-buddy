@@ -16,8 +16,6 @@ const CustomerAccount = () => {
       setUserInfo({ ...userInfo, lastName: value });
     } else if (id === "u-name") {
       setUserInfo({ ...userInfo, username: value });
-    } else if (id === "password") {
-      setUserInfo({ ...userInfo, password: value });
     } else if (id === "tel") {
       if (value==="" || numberOnly.test(value) === false) {
         setMatch({...match, tel: false})
@@ -26,9 +24,6 @@ const CustomerAccount = () => {
         setUserInfo({ ...userInfo, tel: parseInt(value) })
       }
     } else if (id === "email") {
-<<<<<<< HEAD
-      setUserInfo({ ...userInfo, email: value });
-=======
       if(value===""|| emailVal.test(value) === false){
         setMatch({...match, email: false})
       }else{
@@ -42,7 +37,6 @@ const CustomerAccount = () => {
         setMatch({ ...match, pwd: true})
         setUserInfo({ ...userInfo, password: value });
       }
->>>>>>> main
     } else if (id === "emergency-name") {
       setUserInfo({ ...userInfo, emergencyName: value });
     } else if (id === "emergency-tel") {
@@ -142,7 +136,7 @@ const CustomerAccount = () => {
                 <input
                   autoComplete='off'
                   type="password"
-                  name="password"
+                  name="pwdConfirm"
                   placeholder="Confirm Password"
                   onChange={confirmPassword}
                 />
