@@ -9,6 +9,12 @@ module.exports = {
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
   },
+  remove: function (req, res) {
+    console.log(req.params.id);
+    db.Appointment.findByIdAndDelete(req.params.id)
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
+  },
   create: (req, res) => {
     db.Slot.create(req.body)
       .then(console.log(req.body))
