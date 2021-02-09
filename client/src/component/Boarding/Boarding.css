@@ -5,4 +5,13 @@
 
 .zipcode-input {
   width: 200px;
+  margin: 10px;
+}
+.distance-input {
+  margin: 10px;
+  width: 200px;
+}
+
+.searchDistance {
+  margin-top: 10px;
 }
