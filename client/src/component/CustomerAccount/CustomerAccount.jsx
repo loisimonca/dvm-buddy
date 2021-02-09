@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./CustomerAccount.css";
 import API from "../../utils/API";
+import {numberOnly, pwdMustContain, emailVal} from './regexSet';
 
 const CustomerAccount = () => {
-  const [userInfo, setUserInfo] = useState();
-  const handleChange = function (e) {
+  const [match, setMatch ] = useState(false);
+  const [userInfo, setUserInfo] = useState({userType: "User"})
+  const handleChange = function(e){
     e.preventDefault();
     const value = e.target.value;
     const id = e.target.name;
@@ -17,9 +19,30 @@ const CustomerAccount = () => {
     } else if (id === "password") {
       setUserInfo({ ...userInfo, password: value });
     } else if (id === "tel") {
-      setUserInfo({ ...userInfo, tel: parseInt(value) });
+      if (value==="" || numberOnly.test(value) === false) {
+        setMatch({...match, tel: false})
+      }else{
+        setMatch({ ...match, tel:true})
+        setUserInfo({ ...userInfo, tel: parseInt(value) })
+      }
     } else if (id === "email") {
+<<<<<<< HEAD
       setUserInfo({ ...userInfo, email: value });
+=======
+      if(value===""|| emailVal.test(value) === false){
+        setMatch({...match, email: false})
+      }else{
+        setMatch({...match, email: true})
+        setUserInfo({ ...userInfo, email: value });
+      }
+    } else if (id === "password") {
+      if(value==="" || pwdMustContain.test(value) === false){
+        setMatch({...match, pwd: false})
+      }else{
+        setMatch({ ...match, pwd: true})
+        setUserInfo({ ...userInfo, password: value });
+      }
+>>>>>>> main
     } else if (id === "emergency-name") {
       setUserInfo({ ...userInfo, emergencyName: value });
     } else if (id === "emergency-tel") {
@@ -34,32 +57,40 @@ const CustomerAccount = () => {
       setUserInfo({ ...userInfo, addInfo: value });
     }
   };
+  let errorMsg;
   //redirect to the home page after submit
   const handleSubmit = function (e) {
     e.preventDefault();
     API.createUser(userInfo)
-      .then((res) => window.location.replace("/"))
+      .then((res) => {
+        console.log(res)
+        if(res.data === "Email must be unique"){
+          errorMsg= res.data
+          alert(errorMsg)
+        }else if(res.data ==='Something went wrong, please try again'){
+          errorMsg = res.data
+          alert(errorMsg)
+        }else{
+          window.location.replace('/')
+        }
+      })
       .catch((err) => console.log(err));
   };
   //confirm password
-  const [pwdConfirm, setPwdConfirm] = useState();
   const confirmPassword = function (e) {
     e.preventDefault();
-    setPwdConfirm(e.target.value);
-  };
-  if (userInfo) {
-    if (pwdConfirm !== userInfo.password) {
-      console.log("not match");
+    if(e.target.value === userInfo.password){
+      setMatch({...match, password: true})
     }
-  }
+    else{
+      setMatch({...match, password: false})
+    }
+  };
   return (
-    <>
-      <div className="create-container container">
-        <div className="create-inner-container">
-          <h1>
-            <i className="create-page-icon fas fa-paw"></i>DVM Buddy
-          </h1>
-          <h1 className="create-header">Create your account</h1>
+    <div className='create-account-wrap'>
+        <div className="create-account-container container">
+          <i className="create-page-icon fas fa-paw"></i>
+          <h1 className="account-create-header">Create your account</h1>
           <div className="user-create-container">
             <form onSubmit={handleSubmit}>
               <div className="input-container">
@@ -85,6 +116,7 @@ const CustomerAccount = () => {
                   placeholder="Phone Number"
                   onChange={handleChange}
                 />
+                  {match.tel? <small className='create-account-pass'>✔</small > : <small className='create-account-error'>Numbers only</small>}
               </div>
               <div className="input-container">
                 <input
@@ -93,23 +125,28 @@ const CustomerAccount = () => {
                   placeholder="E-mail"
                   onChange={handleChange}
                 />
+                  {match.email? <small className='create-account-pass'>✔</small> : <small className='create-account-error'>Not valid email address</small>}
               </div>
 
               <div className="input-container">
                 <input
+                  autoComplete='off'
                   type="password"
                   name="password"
                   placeholder="Password"
                   onChange={handleChange}
                 />
+                  {match.pwd? <small className='create-account-pass'>✔</small> : <small className='create-account-error'>Minimum eight characters, at least one letter, one number and one special character</small>}
               </div>
               <div className="input-container">
                 <input
+                  autoComplete='off'
                   type="password"
                   name="password"
-                  placeholder="Confirm"
+                  placeholder="Confirm Password"
                   onChange={confirmPassword}
                 />
+                  {match.password? <small className='create-account-pass'>Password match</small> : <small className='create-account-error'>Password is not match</small>}
               </div>
               <div className="input-container">
                 <input
@@ -127,18 +164,9 @@ const CustomerAccount = () => {
                   onChange={handleChange}
                 />
               </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div className="create-container container">
-        <div className="create-inner-container">
-          <h1>
-            <i className="create-page-icon fas fa-paw"></i>DVM Buddy
-          </h1>
-          <h1 className="create-header">Pet Info</h1>
-          <div className="user-create-container">
-            <form onSubmit={handleSubmit}>
+              <h1 className='create-account-pet-title'>
+                <i className="create-page-icon fas fa-paw"></i>Pet Information
+              </h1>
               <div className="input-container">
                 <input
                   type="text"
@@ -166,16 +194,15 @@ const CustomerAccount = () => {
               <div className="input-container">
                 <textarea
                   name="add-info"
-                  placeholder="Additonal info about pet"
+                  placeholder="Additional info about pet"
                   onChange={handleChange}
                 ></textarea>
               </div>
-              <input type="submit" value="Submit" />
+              <input className="create-account-submit-btn" type="submit" value="Submit" />
             </form>
           </div>
         </div>
-      </div>
-    </>
+    </div>
   );
 };
 

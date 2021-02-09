@@ -4,10 +4,25 @@ const db = require("../models");
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/dvm-buddy");
 const userSeed = [
   {
+    userType: "Employee",
     firstName: "Songhee",
     lastName: "Yim",
     tel: 1234561234,
     email: "test@gmail.com",
+    password: "aaaa",
+    emergencyName: "Tim",
+    emergencyTel: 3451234253,
+    petName: "",
+    petType: "",
+    petBreed: "",
+    addInfo: "",
+  },
+  {
+    userType: "customer",
+    firstName: "Peter",
+    lastName: "Pan",
+    tel: 1234561234,
+    email: "peterpan@gmail.com",
     password: "aaaa",
     emergencyName: "Tim",
     emergencyTel: 3451234253,

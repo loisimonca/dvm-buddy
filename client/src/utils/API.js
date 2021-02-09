@@ -10,9 +10,6 @@ export default {
   userLogin: function (data) {
     return axios.post("/api/users/login", data);
   },
-  getEmployee: function () {
-    return axios.get("/api/employee");
-  },
   getClassified: function () {
     return axios.get("/api/classified");
   },

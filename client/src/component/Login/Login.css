@@ -1,9 +1,13 @@
-.login-container {
-  background-color: rgba(141, 140, 140, 0.795);
-  width: 50%;
-  margin-top: 80px;
+.login-wrap {
+  margin-top: 10px;
   color: #111;
   text-align: center;
+  padding-bottom: 50px;
+}
+.login-inner-container {
+  padding: 5%;
+  background-color: rgba(241, 226, 223, 0.671);
+  width: 95%;
 }
 .login-page-icon {
   font-size: larger;
@@ -13,9 +17,6 @@
   color: black;
   font-size: 20px;
   text-align: center;
-}
-.login-inner-container {
-  padding: 5%;
 }
 .user-login-container {
   margin: 20px 0;
@@ -28,31 +29,22 @@
   font-size: 15px;
   width: 100%;
   max-width: 350px;
-  border: 1px solid white;
+  border: 1px solid rgba(124, 121, 121, 0.897);
   border-radius: 0.3rem;
   height: 40px;
   background-color: rgba(255, 255, 255, 0);
-}
-.user-login-with-google {
-  width: 100%;
-  max-width: 350px;
-}
-.user-login-with-google > span {
-  color: #111;
-  font-size: 15px;
 }
 .user-login-input:focus {
   outline: none;
 }
 .user-login-with-account ::placeholder {
-  color: rgb(223, 217, 217);
-  opacity: 1;
+  color: rgba(124, 121, 121, 0.897);
 }
 .login-submit-button {
   max-width: 350px;
   width: 100%;
   height: 40px;
-  margin: 10px 0 30px 0;
+  margin: 10px 0;
   border-radius: 0.3rem;
   border: none;
   background-color: rgba(40, 40, 233, 0.76);
@@ -61,6 +53,23 @@
 }
 .login-submit-button:hover {
   background-color: rgba(70, 70, 216, 0.856);
+}
+.google-login {
+  width: 100%;
+  max-width: 350px;
+  height: 40px;
+  border-radius: 4px;
+  background: #db3236;
+  color: white;
+  border: 0px transparent;
+  text-align: center;
+}
+.fa-google {
+  margin-right: 10px;
+}
+.google-login:hover {
+  background: #db3236;
+  opacity: 0.8;
 }
 .login-page-footer {
   font-weight: 700;
@@ -72,12 +81,10 @@
 .login-page-back-to-home-link {
   color: black;
 }
-
-@media screen and (min-width: 620px) {
-  .login-container {
-    background-color: rgba(141, 140, 140, 0.438);
-  }
+@media screen and (min-width: 970px) {
   .login-inner-container {
+    margin-top: 50px;
     padding: 80px 60px;
+    width: 50%;
   }
 }
