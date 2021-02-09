@@ -4,32 +4,48 @@ const db = require("../models");
 module.exports = {
   findAll: (req, res) => {
     db.Appointment.find(req.query)
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err));
+      .populate("slots")
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
   },
-    findOne: (req,res) => {
-      console.log(req.params.id)
-      db.Appointment.findOne({customer: req.params.id})
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-    },
+  findOne: (req, res) => {
+    console.log(req.params.id);
+    db.Appointment.find({ email: req.params.email })
+      .populate("slots")
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
+  },
+  findOneById: (req, res) => {
+    console.log(req.params.id);
+    db.Appointment.findById(req.params.id)
+      .populate("slots")
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
+  },
+
+  remove: function (req, res) {
+    console.log(req.params.id);
+    db.Appointment.findByIdAndDelete(req.params.id)
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
+  },
   create: (req, res) => {
     const requestBody = req.body;
     console.log(requestBody);
 
     const newSlot = new db.Slot({
       slot_time: requestBody.slot_time,
-      slot_date: requestBody.slot_date
+      slot_date: requestBody.slot_date,
     });
     // db.Slot.create(newSlot)
     newSlot.save();
-    
+
     // Creates a new record from a submitted form
     const newAppointment = new db.Appointment({
       // name: requestBody.name,
       // phone: requestBody.phone,
       email: requestBody.email,
-      slots: newSlot._id
+      slots: newSlot._id,
     });
 
     // const nexmo = new Nexmo({
@@ -64,7 +80,5 @@ module.exports = {
       //   }
       // });
     });
-  }
+  },
 };
-
-
