@@ -1,18 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
-import { GoogleLogin } from "react-google-login";
 import API from "../../utils/API";
+import UserGoogleLogin from './UserGoogleLogin';
+// import UserGoogleLogout from './UserGoogleLogout';
+import UserFacebookLogin from './UserFacebookLogin';
+import {UserContext } from '../../utils/UserContext';
 
-const clientId = "YOUR_CLIENT_ID.apps.googleusercontent.com";
-//Will work on the google login after deploy the page.
 function UserLogin() {
-  const onSuccess = (res) => {
-    console.log("[Login Success] currentUser: ", res.profileObj);
-  };
-  const onFailure = (res) => {
-    console.log("[Login failed] res: ", res);
-  };
+  const {value, setValue} = useContext(UserContext);
+console.log(value)
   const handleLogIn = (e) => {
     e.preventDefault();
     const email = document.getElementById("user-email").value;
@@ -23,14 +20,16 @@ function UserLogin() {
     })
       // redirect to the account page
       .then((res) => {
-        const data = res.data.userType;
-        if (data === "User") {
-          console.log("welcome user");
-          window.location.replace("/");
-        } else if (data === "Employee") {
-          console.log("Welcome Employee");
-          window.location.replace("/");
-        }
+        setValue("true")
+        console.log(res.data)
+        // const data = res.data.userType;
+        // if (data === "User") {
+        //   console.log("welcome user");
+        //   // window.location.replace("/");
+        // } else if (data === "Employee") {
+        //   console.log("Welcome Employee");
+        //   // window.location.replace("/");
+        // }
       })
       .catch((err) => {
         alert("Incorrect email address or password");
@@ -54,6 +53,7 @@ function UserLogin() {
             </div>
             <div className="user-login-with-account">
               <input
+                autoComplete='off'
                 type="password"
                 className="user-login-input"
                 id="user-password"
@@ -67,18 +67,8 @@ function UserLogin() {
               </button>
             </div>
           </form>
-          <div>
-            <GoogleLogin
-              className="user-login-with-google"
-              clientId={clientId}
-              buttonText="Google Login"
-              onSuccess={onSuccess}
-              onFailure={onFailure}
-              cookiePolicy={"single_host_origin"}
-              style={{ marginTop: "100px" }}
-              isSignedIn={true}
-            />
-          </div>
+            <UserGoogleLogin/>
+            <UserFacebookLogin />
         </div>
         <footer className="login-page-footer">
           Need an account? <Link to="/CustomerAccount">Sign Up</Link>

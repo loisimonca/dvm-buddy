@@ -14,22 +14,26 @@ const CustomerAccount = () => {
       setUserInfo({ ...userInfo, firstName: value });
     } else if (id === "l-name") {
       setUserInfo({ ...userInfo, lastName: value });
+    } else if (id === "u-name") {
+      setUserInfo({ ...userInfo, username: value });
+    } else if (id === "password") {
+      setUserInfo({ ...userInfo, password: value });
     } else if (id === "tel") {
-      if (value==="" || numberOnly.test(value) == false) {
+      if (value==="" || numberOnly.test(value) === false) {
         setMatch({...match, tel: false})
       }else{
         setMatch({ ...match, tel:true})
         setUserInfo({ ...userInfo, tel: parseInt(value) })
       }
     } else if (id === "email") {
-      if(value===""|| emailVal.test(value) == false){
+      if(value===""|| emailVal.test(value) === false){
         setMatch({...match, email: false})
       }else{
         setMatch({...match, email: true})
         setUserInfo({ ...userInfo, email: value });
       }
     } else if (id === "password") {
-      if(value=="" || pwdMustContain.test(value) == false){
+      if(value==="" || pwdMustContain.test(value) === false){
         setMatch({...match, pwd: false})
       }else{
         setMatch({ ...match, pwd: true})
@@ -122,6 +126,7 @@ const CustomerAccount = () => {
 
               <div className="input-container">
                 <input
+                  autoComplete='off'
                   type="password"
                   name="password"
                   placeholder="Password"
@@ -131,6 +136,7 @@ const CustomerAccount = () => {
               </div>
               <div className="input-container">
                 <input
+                  autoComplete='off'
                   type="password"
                   name="password"
                   placeholder="Confirm Password"
