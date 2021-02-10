@@ -1,15 +1,15 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
-import UserGoogleLogin from './UserGoogleLogin';
+import UserGoogleLogin from "./UserGoogleLogin";
 // import UserGoogleLogout from './UserGoogleLogout';
-import UserFacebookLogin from './UserFacebookLogin';
-import {UserContext } from '../../utils/UserContext';
+import UserFacebookLogin from "./UserFacebookLogin";
+import { UserContext } from "../../utils/UserContext";
 
 function UserLogin() {
-  const {value, setValue} = useContext(UserContext);
-console.log(value)
+  const { value, setValue } = useContext(UserContext);
+  console.log(value);
   const handleLogIn = (e) => {
     e.preventDefault();
     const email = document.getElementById("user-email").value;
@@ -20,17 +20,17 @@ console.log(value)
     })
       // redirect to the account page
       .then((res) => {
-        setValue("true")
-        console.log(res.data)
+        setValue("true");
+        console.log(res.data);
         const data = res.data.userType;
         if (data === "User") {
           console.log("welcome user");
-          localStorage.setItem('user', JSON.stringify(res.data));
-          window.location.replace('/');
+          localStorage.setItem("user", JSON.stringify(res.data));
+          window.location.replace("/");
         } else if (data === "Employee") {
           console.log("Welcome Employee");
-          localStorage.setItem('user', JSON.stringify(res.data))
-          window.location.replace('/');
+          localStorage.setItem("user", JSON.stringify(res.data));
+          window.location.replace("/");
         }
       })
       .catch((err) => {
@@ -40,8 +40,8 @@ console.log(value)
   return (
     <div className="login-wrap">
       <div className="login-inner-container container">
-        <i className="login-page-icon fas fa-paw"></i>
-        <h1 className="login-header">Log in to Your Account</h1>
+        <i className="login-page-icon is-size-4 fas fa-paw"></i>
+        <h1 className="login-header  is-size-4 ">Log in to Your Account</h1>
         <div className="user-login-container">
           <form onSubmit={handleLogIn}>
             <div className="user-login-with-account">
@@ -55,7 +55,7 @@ console.log(value)
             </div>
             <div className="user-login-with-account">
               <input
-                autoComplete='off'
+                autoComplete="off"
                 type="password"
                 className="user-login-input"
                 id="user-password"
@@ -69,8 +69,8 @@ console.log(value)
               </button>
             </div>
           </form>
-            <UserGoogleLogin/>
-            <UserFacebookLogin />
+          <UserGoogleLogin />
+          <UserFacebookLogin />
         </div>
         <footer className="login-page-footer">
           Need an account? <Link to="/CustomerAccount">Sign Up</Link>

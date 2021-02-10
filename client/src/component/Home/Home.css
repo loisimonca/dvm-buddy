@@ -22,21 +22,24 @@ h3 {
   font-size: 25px;
 }
 .home-container {
-  width: 80% !important;
+  width: 60% !important;
   background-color: rgba(241, 226, 223, 0.719) !important;
   margin-top: 80px;
   padding: 0px 40px 0px 40px;
   margin-bottom: 100px;
+  border-radius: 0.3rem;
 }
 .buttons {
   padding-top: 70px;
 }
 .button {
-  background-color: rgba(218, 177, 170, 0.9) !important;
+  background-color: rgba(202, 141, 131, 0.9) !important;
   border: none;
+  font: bold !important;
   margin-bottom: 40px !important;
   margin-left: 20px !important;
   margin-right: 20px !important;
+  color: white;
 }
 
 .button:hover {
