@@ -8,6 +8,7 @@
   padding: 5%;
   background-color: rgba(241, 226, 223, 0.671);
   width: 95%;
+  border-radius: 0.3rem;
 }
 .login-page-icon {
   font-size: larger;
@@ -17,6 +18,8 @@
   color: black;
   font-size: 20px;
   text-align: center;
+  font-family: "Roboto Slab", serif;
+  margin-bottom: 50px;
 }
 .user-login-container {
   margin: 20px 0;
@@ -41,20 +44,26 @@
   color: rgba(124, 121, 121, 0.897);
 }
 .login-submit-button {
+  font-family: Rockwell;
+  font-weight: 600;
   max-width: 350px;
   width: 100%;
   height: 40px;
   margin: 10px 0;
   border-radius: 0.3rem;
   border: none;
-  background-color: rgba(40, 40, 233, 0.76);
+  background-color: rgb(209, 138, 123);
   color: white;
   font-size: 15px;
+  padding: 0px !important;
+  margin-top: 30px;
 }
 .login-submit-button:hover {
-  background-color: rgba(70, 70, 216, 0.856);
+  background-color: rgb(167, 99, 86);
 }
 .google-login {
+  font-size: medium;
+  font-weight: bold;
   width: 100%;
   max-width: 350px;
   height: 40px;
@@ -70,6 +79,24 @@
 .google-login:hover {
   background: #db3236;
   opacity: 0.8;
+}
+.fa-facebook {
+  margin-right: 10px;
+}
+.kep-login-facebook {
+  width: 100%;
+  text-align: center !important;
+  vertical-align: middle;
+  max-width: 350px;
+  height: 40px;
+  border-radius: 4px !important;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  padding: 0 !important;
+  font-size: medium !important;
+}
+.kep-login-facebook:hover {
+  background-color: rgb(80, 140, 197) !important;
 }
 .login-page-footer {
   font-weight: 700;
