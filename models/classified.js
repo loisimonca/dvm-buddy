@@ -13,6 +13,7 @@ const classifiedSchema = new Schema({
     unique: true,
     required: "Email address is required",
   },
+  zipCode: { type: Number, required: true },
 });
 
 const Classified = mongoose.model("Classified", classifiedSchema);
