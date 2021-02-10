@@ -1,0 +1,52 @@
+.serviceContainer {
+  height: 900px;
+}
+.serviceForm {
+  margin-top: 50px;
+  width: 100%;
+}
+.dropdown {
+  height: 40px;
+  width: 220px;
+  background-color: white;
+  border: white;
+  border-radius: 4px;
+  padding: 10px;
+  font-weight: bolder;
+  font-size: 15px;
+  color: black !important;
+}
+.dropdown-content {
+  padding-right: 20px;
+}
+.fa-angle-down {
+  margin-left: 7px;
+}
+a.dropdown-item {
+  margin-left: 10px;
+  padding-left: 30px;
+}
+a.dropdown-item.is-active,
+button.dropdown-item.is-active {
+  background-color: rgba(231, 224, 223, 0.6);
+
+  color: black;
+}
+
+a.dropdown-item:hover,
+button.dropdown-item:hover {
+  background-color: rgba(231, 224, 223, 0.2);
+
+  color: black;
+}
+
+@media screen and (max-width: 400px) {
+  .dropdown {
+    width: 200px !important;
+    font-size: 13px;
+  }
+  .searchService {
+    width: 60px;
+    margin-left: 0px !important;
+  }
+}
