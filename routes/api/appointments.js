@@ -1,14 +1,16 @@
 const router = require("express").Router();
 const appointmentsController = require("../../controllers/appointmentsController");
 
-
 router
 .route("/")
-.get(appointmentsController.findAll)
+.get(appointmentsController.findAllAvail)
 .post(appointmentsController.create);
 
-router.route("/:id").get(appointmentsController.findOneById);
-router.route("/:id").delete(appointmentsController.remove);
+router.route("/:userId").get(appointmentsController.findApptByCust);
+router.route("/:apptId").delete(appointmentsController.delete);
+router.route("/").put(appointmentsController.setAppointment);
+
+
 
 
 
