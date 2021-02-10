@@ -7,7 +7,7 @@ import CustomerAccount from "./component/CustomerAccount/CustomerAccount";
 import Login from "./component/Login/Login.jsx";
 import Home from "./component/Home/Home";
 import Boarding from "./component/Boarding/Boarding"
-import CustomerPage from "./component/CustomerPage/customerPage";
+import CustomerPage from "./component/CustomerPage/CustomerPage";
 import { UserContext } from "./utils/UserContext";
 
 function App() {
