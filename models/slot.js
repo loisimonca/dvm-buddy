@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const slotSchema = new Schema({
-  slot_time: String,
   slot_date: String,
+  slot_time: String,
   user: {
     type: Schema.ObjectId,
     ref: "user"
