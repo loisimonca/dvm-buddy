@@ -6,7 +6,6 @@ import Navbar from "./component/Navbar/Navbar";
 import CustomerAccount from "./component/CustomerAccount/CustomerAccount";
 import Login from "./component/Login/Login.jsx";
 import Home from "./component/Home/Home";
-import Boarding from "./component/Boarding/Boarding";
 import { UserContext } from "./utils/UserContext";
 import PetServices from "./component/PetServices/PetServices";
 
@@ -20,7 +19,6 @@ function App() {
             <Navbar />
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route exact path="/Boarding" component={Boarding} />
               <Route exact path="/PetServices" component={PetServices} />
               <Route
                 exact

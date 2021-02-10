@@ -1,29 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Wrapper from "../Wrapper/Wrapper";
-import * as API from "../Wrapper/API.js";
 import "./PetServices.css";
 import BoardingCard from "../BoardingCard/BoardingCard";
-// import zipcodes from "zipcodes";
-// import zipcodes from "zipcodes-nearby";
-
-// var zipcodes = require("@scope/zipcodes-nearby");
-// var zipcodes = require("zipcodes-nearby");
-
+import API from '../../utils/API'
 const PetServices = () => {
   const [allServices, setAllServices] = useState([]);
   const [boarderServices, setBoarderServices] = useState([]);
   const [walkerServices, setWalkerServices] = useState([]);
   const [sitterServices, setSitterServices] = useState([]);
-  // const [boarders, setBoarders] = useState([]);
-  // const [zip, setZip] = useState("");
-  // const [distance, setDistance] = useState("");
-  // const [sortedBoarders, setSortedBoarders] = useState([]);
+
+  const [zip, setZip] = useState("");
+  const [distance, setDistance] = useState("");
 
   useEffect(() => {
-    API.getDeveloper
+    API.getClassified()
       .then((res) => {
-        setAllServices(res);
+        setAllServices(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -37,24 +30,22 @@ const PetServices = () => {
     });
     setWalkerServices(filteredServices);
   };
-  // const handleZipInputChange = (e) => {
-  //   setZip(e.target.value);
-  //   console.log(zip);
-  // };
+  
+  const handleZipInputChange = (e) => {
+    setZip(e.target.value);
+  }
+  const handleDistanceInputChange = (e) => {
+    setDistance(e.target.value);
+  };
 
-  // const handleDistanceInputChange = (e) => {
-  //   setDistance(e.target.value);
-  //   console.log(distance);
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const newSortedBoarders = zipcodes.near("95020", 10000, {
-  //     datafile: "./zipcodes.csv",
-  //   });
-
-  //   console.log(newSortedBoarders);
-  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    API.getZipCode(zip, distance)
+    .then(res => {
+      setAllServices(res.data)
+    })
+    .catch(err => console.log(err))
+  };
 
   document.addEventListener("DOMContentLoaded", function () {
     var $dropdowns = getAll(".dropdown:not(.is-hoverable)");
@@ -87,7 +78,6 @@ const PetServices = () => {
       return Array.prototype.slice.call(document.querySelectorAll(selector), 0);
     }
   });
-
   // const myFunction = (e) => {
   //   if (document.querySelector("#dropdownList a.active") !== null) {
   //     document
@@ -101,43 +91,50 @@ const PetServices = () => {
     <div className="serviceContainer">
       <Wrapper>
         <form className="serviceForm container has-text-centered">
-          <div class="dropdown">
-            <div class="dropdown-trigger">
+          <div className="dropdown">
+            <div className="dropdown-trigger">
               <a
-                class="dropdownButton"
+                className="dropdownButton"
                 aria-haspopup="true"
                 aria-controls="dropdown-menu"
               >
                 <span>Select type of pet service</span>
-                <span class="icon is-small">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                <span className="icon is-small">
+                  <i className="fas fa-angle-down" aria-hidden="true"></i>
                 </span>
               </a>
             </div>
-            <div class="dropdown-menu " id="dropdown-menu" role="menu">
-              <div id="dropdownList" class="dropdown-content has-text-centered">
-                <Link class="dropdown-item" onClick={handleWalkerService}>
+            <div className="dropdown-menu " id="dropdown-menu" role="menu">
+              <div id="dropdownList" className="dropdown-content has-text-centered">
+                <Link className="dropdown-item" onClick={handleWalkerService}>
                   Walker
                 </Link>
-                <Link class="dropdown-item is-active">Boarder</Link>
+                <Link className="dropdown-item is-active">Boarder</Link>
 
-                <Link to="/" class="dropdown-item">
+                <Link to="/" className="dropdown-item">
                   Sitter
                 </Link>
               </div>
             </div>
           </div>
-          {/* <input
-          className="input distance-input"
-          type="number"
-          name="distance"
-          value={distance}
-          onChange={handleDistanceInputChange}
-          placeholder="50 Miles Radius"
-        /> */}
+
+          <input
+            className="service-input zipcode-input"
+            type="number"
+            name="zip"
+            onChange={handleZipInputChange}
+            placeholder="Search by Zipcode"
+          />
+          <input
+            className="service-input distance-input"
+            type="number"
+            name="distance"
+            onChange={handleDistanceInputChange}
+            placeholder="50 Miles Radius"
+          />
 
           <button
-            //  onClick={handleSubmit}
+             onClick={handleSubmit}
             className="button searchService"
           >
             <strong>Search</strong>
@@ -146,11 +143,11 @@ const PetServices = () => {
 
         {allServices.map((serve) => [
           <BoardingCard
-            service={serve.service}
+            service={serve.category}
             name={serve.name}
-            zip={serve.zip}
-            key={serve.id}
-            phone={serve.phone}
+            zip={serve.zipCode}
+            key={serve._id}
+            phone={serve.tel}
           />,
         ])}
       </Wrapper>
