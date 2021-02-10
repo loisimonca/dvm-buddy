@@ -9,17 +9,18 @@ const Home = () => {
         <h2 className="home-title has-text-centered">Welcome to DVM Buddy!</h2>
         <h3 className="home-subtitle has-text-centered is-uppercase">
           <strong>
-            Your one-stop-shop for all your pet's needs! Here, you can easily
-            schedule vet appointments, find pet sitters and more.
+            Your one-stop-shop for all your pet's needs! <br />
+            Here, you can easily schedule vet appointments,
+            <br /> find pet sitters and more.
           </strong>
         </h3>
 
-        <div className="buttons is-centered">
+        <div className="buttons homeButton is-centered">
           <Link to="/CustomerAccount" className="button ">
-            Create Account
+            <strong>Create Account</strong>
           </Link>
-          <Link to="/Login" className="button ">
-            Login
+          <Link to="/Login" className="button  homeButton">
+            <strong>Login</strong>
           </Link>
         </div>
       </div>
