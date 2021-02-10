@@ -36,14 +36,15 @@ const Boarding = () => {
     console.log(distance);
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const newSortedBoarders = zipcodes.near("95020", 10000, {
-  //     datafile: "./zipcodes.csv",
-  //   });
-
-  //   console.log(newSortedBoarders);
-  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    API.getZipCode(zip, distance)
+    .then(res => {
+      console.log(res.data)
+      setBoarders(res.data)
+    })
+    .catch(err => console.log(err))
+  };
 
   return (
     <Wrapper>
