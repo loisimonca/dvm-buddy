@@ -6,7 +6,8 @@ import Navbar from "./component/Navbar/Navbar";
 import CustomerAccount from "./component/CustomerAccount/CustomerAccount";
 import Login from "./component/Login/Login.jsx";
 import Home from "./component/Home/Home";
-import Boarding from "./component/Boarding/Boarding";
+import Boarding from "./component/Boarding/Boarding"
+import CustomerPage from "./component/CustomerPage/customerPage";
 import { UserContext } from "./utils/UserContext";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/Boarding" component={Boarding} />
+              <Route exact path="/CustomerPage" component={CustomerPage} />
               <Route
                 exact
                 path="/CustomerAccount"
