@@ -13,4 +13,7 @@ export default {
   getClassified: function () {
     return axios.get("/api/classified");
   },
+  getZipCode: function (currentZip, distance) {
+    return axios.get(`/api/classified/zipcode/${currentZip}/${distance}`);
+  },
 };

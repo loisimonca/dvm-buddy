@@ -14,8 +14,12 @@ function UserGoogleLogin() {
     const onSuccess = (res) =>{
         console.log("[Login Success] currentUser: ", res.profileObj );
         setValue("true")
+        const userType = {userType: "User"}
         //initializing the setup
         refreshTokenSetup(res);
+        const sendData = Object.assign(res.profileObj, userType)
+        localStorage.setItem('user', JSON.stringify(sendData));
+        window.location.replace('/');
     };
     const onFailure = (res) =>{
         console.log("[Login failed] res: ", res);
