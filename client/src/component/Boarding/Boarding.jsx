@@ -34,6 +34,7 @@ const Boarding = () => {
     e.preventDefault();
     API.getZipCode(zip, distance)
     .then(res => {
+      console.log(res.data)
       setBoarders(res.data)
     })
     .catch(err => console.log(err))
