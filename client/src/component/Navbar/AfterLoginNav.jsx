@@ -1,7 +1,19 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./Navbar.css";
 import { NavLink, Link } from "react-router-dom";
+import { UserContext } from '../../utils/UserContext'
+
 function AfterLoginNav({ handleClick, click, closeMobileMenu }) {
+  // const history = useHistory();
+  const {value, setValue, setToken} = useContext(UserContext)
+  const handleLogout = (e)=>{
+    e.preventDefault();
+    localStorage.setItem("data", null);
+    localStorage.setItem("token", null);
+    setValue(null)
+    setToken(null)
+    window.location.replace('/')
+  }
   return (
     <>
       <div
@@ -40,20 +52,14 @@ function AfterLoginNav({ handleClick, click, closeMobileMenu }) {
             Account
           </Link>
         </div>
+        {}
         <NavLink
           className=" navbar-item btn logOut"
-          to="/CustomerAccount"
-          onClick={closeMobileMenu}
+          to="/"
+          onClick={handleLogout}
         >
           Log out
         </NavLink>
-        {/* <Link
-            to="/Login"
-            className="navbar-item btn logIn"
-            onClick={closeMobileMenu}
-          >
-            Log in
-          </Link> */}
       </div>
     </>
   );

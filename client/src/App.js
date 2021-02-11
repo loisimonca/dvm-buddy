@@ -13,12 +13,13 @@ import { UserContext } from "./utils/UserContext";
 import PetServices from "./component/PetServices/PetServices";
 
 function App() {
-  const [value, setValue] = useState(false);
+  const [token, setToken] = useState(null);
+  const [value, setValue] = useState({});
   return (
     <>
       <Router>
         <div>
-          <UserContext.Provider value={{ value, setValue }}>
+          <UserContext.Provider value={{ value, setValue, token, setToken }}>
             <Navbar />
             <Switch>
               <Route exact path="/" component={Home} />
