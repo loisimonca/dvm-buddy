@@ -1,25 +1,28 @@
 import React, {useContext} from 'react'
 import {GoogleLogin} from 'react-google-login';
 import {UserContext } from '../../utils/UserContext';
-
 //Refresh token
 import {refreshTokenSetup} from '../../utils/refreshToken';
+// import {useHistory} from 'react-router-dom';
 
 const clientId = "32479969633-uog46n0h5g22l1rps60k0cvbluuq3ni6.apps.googleusercontent.com"
 
 function UserGoogleLogin() {
-    const {value, setValue} = useContext(UserContext);
-
-    //google login  
+    const {setValue, setToken} = useContext(UserContext);
+    // const history = useHistory();
     const onSuccess = (res) =>{
         console.log("[Login Success] currentUser: ", res.profileObj );
-        setValue("true")
         const userType = {userType: "User"}
+        const domain = {domain: 'google'}
         //initializing the setup
         refreshTokenSetup(res);
-        const sendData = Object.assign(res.profileObj, userType)
-        localStorage.setItem('user', JSON.stringify(sendData));
-        window.location.replace('/');
+        const userToken = res.tokenObj.id_token
+        const sendData = Object.assign(res.profileObj, userType, domain)
+        localStorage.setItem('token', JSON.stringify(userToken))
+        localStorage.setItem('data', JSON.stringify(sendData))
+        setToken(userToken)
+        setValue(sendData)
+        window.location.replace("/")
     };
     const onFailure = (res) =>{
         console.log("[Login failed] res: ", res);

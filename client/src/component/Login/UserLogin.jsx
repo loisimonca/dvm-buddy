@@ -6,10 +6,12 @@ import UserGoogleLogin from "./UserGoogleLogin";
 // import UserGoogleLogout from './UserGoogleLogout';
 import UserFacebookLogin from "./UserFacebookLogin";
 import { UserContext } from "../../utils/UserContext";
+// import {useHistory } from 'react-router-dom'
 
 function UserLogin() {
-  const { value, setValue } = useContext(UserContext);
-  console.log(value);
+  const { setValue, setToken } = useContext(UserContext);
+  // const history = useHistory()
+
   const handleLogIn = (e) => {
     e.preventDefault();
     const email = document.getElementById("user-email").value;
@@ -20,18 +22,11 @@ function UserLogin() {
     })
       // redirect to the account page
       .then((res) => {
-        setValue("true");
-        console.log(res.data);
-        const data = res.data.userType;
-        if (data === "User") {
-          console.log("welcome user");
-          localStorage.setItem("user", JSON.stringify(res.data));
-          window.location.replace("/");
-        } else if (data === "Employee") {
-          console.log("Welcome Employee");
-          localStorage.setItem("user", JSON.stringify(res.data));
-          window.location.replace("/");
-        }
+        localStorage.setItem('token', JSON.stringify(res.data.token))
+        localStorage.setItem('data', JSON.stringify(res.data.data))
+        setToken(res.data.token)
+        setValue(res.data.data)
+        window.location.replace('/')
       })
       .catch((err) => {
         alert("Incorrect email address or password");

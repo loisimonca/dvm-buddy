@@ -5,7 +5,10 @@ var passport = require("../../config/passport");
 router
   .route("/login")
   .post(passport.authenticate("local"), function (req, res) {
-    res.json(req.user);
+    res.json({
+      data: req.user,
+      token: "banana",
+    });
   });
 
 router.route("/").get(userController.findAll).post(userController.create);
