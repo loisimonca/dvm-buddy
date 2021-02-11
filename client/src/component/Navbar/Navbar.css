@@ -42,6 +42,12 @@
   font-weight: bolder;
   margin-right: 0;
 }
+.logOut {
+  background-color: rgb(209, 138, 123) !important;
+  color: white;
+  font-weight: bolder;
+  margin-right: 20px;
+}
 .logIn {
   background-color: rgba(241, 226, 223, 0.6) !important;
   font-weight: bolder;
@@ -72,7 +78,10 @@ a.link:hover {
   background-color: rgba(241, 226, 223, 0.9) !important;
   color: black !important;
 }
-
+.logOut:hover {
+  background-color: rgb(196, 118, 103) !important;
+  color: white !important;
+}
 .navbar-main:hover {
   transition: all 0.2s ease-in-out;
   transform: scale(1.05);
