@@ -79,10 +79,13 @@ const AppointmentPage = () => {
         <h1 className="title"> Available Schedules</h1>
         <div className="container">
           <div className="column is-half">
+            <label for="appointment-filter" className="label">Search from:</label>
+            <hr></hr>
             <input 
             type="date" 
             defaultValue={defaultDate} 
             onChange={(e) => filterAppointments(e.target.value)}
+            name="appointment-filter"
             />
           </div>
           <div className="column is-four-fifths">{createTable()}</div>
