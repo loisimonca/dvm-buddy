@@ -42,4 +42,7 @@ export default {
   createAppt: function (data) {
     return axios.post("/api/appointments/", data);
   },
+  findOneAppt: function (apptId) {
+    return axios.get(`/api/appointments/${apptId}`)
+  }
 };
