@@ -11,15 +11,13 @@ const AppointmentPage = () => {
   useEffect(() => {
     API.getAvailAppts()
       .then((response) => {
-        const filteredData = response.data.filter((appointment) => appointment.apptDate >= defaultDate && appointment.apptTime > defaultTime);
 
+        const filteredData = response.data.filter((appointment) => appointment.apptDate >= defaultDate && appointment.apptTime > defaultTime);
         setAppointments(filteredData);
 
       })
       .catch((err) => console.log(err));
   }, []);
-
-
 
   //table that holds all available appointments
   function createTable() {
@@ -64,7 +62,7 @@ const AppointmentPage = () => {
   return (
     <div className="container">
       <section className="section">
-        <h1 className="title"> Available Appointments</h1>
+        <h1 className="title"> Available Schedules</h1>
         <div className="container">
           <div className="column is-half">
             <input type="date" name="" id="" defaultValue={defaultDate} />
