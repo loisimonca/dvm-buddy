@@ -10,6 +10,12 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   //works
+  findOneAppt: (req,res) => {
+    db.Appointment.findById(req.params.id)
+    .then((dbModel) => res.json(dbModel))
+    .catch((err) => res.status(422).json(err));
+  },
+  //works
   findApptByCust: (req, res) => {
     db.Appointment.find({})
       .where({ user: mongoose.Types.ObjectId(req.params.id) })

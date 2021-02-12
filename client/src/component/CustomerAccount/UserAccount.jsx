@@ -19,7 +19,9 @@ const UserAccount = () => {
     const id = e.target.name;
     if(id === 'account-for-manager-or-user'){
         setEmployeeCode(value);
+
         if(value === EmployeeAccountCode){
+
           setUserInfo({...userInfo, userType: "Employee"})
         }
     }
@@ -108,3 +110,4 @@ const UserAccount = () => {
 };
 
 export default UserAccount;
+
