@@ -5,23 +5,25 @@ import axios from "axios";
 
 const AppointmentPage = () => {
   const [appointments, setAppointments] = useState([]);
-  const defaultDate = moment().add(1, "D").format("YYYY-MM-DD");
+  const defaultDate = moment().format("YYYY-MM-DD");
+  const defaultTime = moment().format("hh:mm");
 
   useEffect(() => {
     API.getAvailAppts()
       .then((response) => {
-        setAppointments(response.data);
-        // createTable(response.data);
+        const filteredData = response.data.filter((appointment) => appointment.apptDate >= defaultDate && appointment.apptTime > defaultTime);
+
+        setAppointments(filteredData);
+
       })
       .catch((err) => console.log(err));
   }, []);
 
+
+
   //table that holds all available appointments
   function createTable() {
-    // const apptData = setAppointments((state) => {
-    //   console.log("appointments state is ", state);
-    //   return state;
-    // });
+  
 
     const table = [];
 
@@ -62,7 +64,7 @@ const AppointmentPage = () => {
   return (
     <div className="container">
       <section className="section">
-        <h1 className="title"> Available Schedules</h1>
+        <h1 className="title"> Available Appointments</h1>
         <div className="container">
           <div className="column is-half">
             <input type="date" name="" id="" defaultValue={defaultDate} />
