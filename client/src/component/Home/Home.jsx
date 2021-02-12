@@ -16,7 +16,7 @@ const Home = () => {
         </h3>
 
         <div className="buttons homeButton is-centered">
-          <Link to="/CustomerAccount" className="button ">
+          <Link to="/UserAccount" className="button ">
             <strong>Create Account</strong>
           </Link>
           <Link to="/Login" className="button  homeButton">

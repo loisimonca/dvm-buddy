@@ -12,16 +12,13 @@ function UserGoogleLogin() {
     // const history = useHistory();
     const onSuccess = (res) =>{
         console.log("[Login Success] currentUser: ", res.profileObj );
-        const userType = {userType: "User"}
-        const domain = {domain: 'google'}
         //initializing the setup
         refreshTokenSetup(res);
         const userToken = res.tokenObj.id_token
-        const sendData = Object.assign(res.profileObj, userType, domain)
         localStorage.setItem('token', JSON.stringify(userToken))
-        localStorage.setItem('data', JSON.stringify(sendData))
+        localStorage.setItem('type', JSON.stringify("User"))
         setToken(userToken)
-        setValue(sendData)
+        setValue("User")
         window.location.replace("/")
     };
     const onFailure = (res) =>{
