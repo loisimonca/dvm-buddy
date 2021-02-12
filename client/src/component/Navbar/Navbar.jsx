@@ -37,6 +37,7 @@ const Navbar = () => {
             </h1>
           </Link>
         </div>
+      
         {token === null && <BeforeLoginNav  handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/>}
         {token !== null && (
           value=="User" 

@@ -6,6 +6,8 @@ import Navbar from "./component/Navbar/Navbar";
 import UserAccount from "./component/CustomerAccount/UserAccount";
 import Login from "./component/Login/Login.jsx";
 import Home from "./component/Home/Home";
+import ScheduleApptPage from "./component/AppointmentPage/AppointmentPage";
+
 import AccountManage from "./component/AccountManage/AccountManage";
 import CustomerPage from "./component/CustomerPage/CustomerPage";
 
@@ -25,6 +27,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/CustomerPage" component={CustomerPage} />
               <Route exact path="/PetServices" component={PetServices} />
+              <Route exact path="/Appointments" component = {ScheduleApptPage} />
               <Route exact path="/UserAccount" component={UserAccount} />
               <Route exact path="/AccountManage" component={AccountManage} />
               <Route exact path="/Login" component={Login} />
