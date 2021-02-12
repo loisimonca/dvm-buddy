@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import {UserContext } from '../../utils/UserContext';
 import AfterLoginNav from './AfterLoginNav';
 import BeforeLoginNav from './BeforeLoginNav';
+import EmployeeNavbar from './EmployeeNavbar';
 
 const Navbar = () => {
-  const {setValue, setToken} = useContext(UserContext);
-  const [status, setStatus] = useState({data: {}, token: null})
+  const {value, setValue, token, setToken} = useContext(UserContext);
 
   const [click, setClick] = useState(false);
   const handleClick = () => {
@@ -17,10 +17,9 @@ const Navbar = () => {
 
   useEffect(()=>{
     const userToken = JSON.parse(localStorage.getItem("token"))
-    const userData = JSON.parse(localStorage.getItem("data"))
+    const userType = JSON.parse(localStorage.getItem("type"))
     if(userToken){
-      setStatus({data: userData, token: userToken})
-      setValue(userData)
+      setValue(userType)
       setToken(userToken)
     }
   },[])
@@ -38,12 +37,12 @@ const Navbar = () => {
             </h1>
           </Link>
         </div>
-        {}
-        {status.token === null && <BeforeLoginNav  handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/>}
-        {status.token !== null && (
-          status.data.userType==="User" 
+      
+        {token === null && <BeforeLoginNav  handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/>}
+        {token !== null && (
+          value=="User" 
           ? <AfterLoginNav handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/> 
-          : <AfterLoginNav handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/>
+          : <EmployeeNavbar handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/>
         )}
       </nav>
     </div>

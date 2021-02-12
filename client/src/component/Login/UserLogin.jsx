@@ -6,11 +6,11 @@ import UserGoogleLogin from "./UserGoogleLogin";
 // import UserGoogleLogout from './UserGoogleLogout';
 import UserFacebookLogin from "./UserFacebookLogin";
 import { UserContext } from "../../utils/UserContext";
-// import {useHistory } from 'react-router-dom'
+// verify login at the front
+import jwt from 'jsonwebtoken';
 
 function UserLogin() {
   const { setValue, setToken } = useContext(UserContext);
-  // const history = useHistory()
 
   const handleLogIn = (e) => {
     e.preventDefault();
@@ -22,10 +22,30 @@ function UserLogin() {
     })
       // redirect to the account page
       .then((res) => {
-        localStorage.setItem('token', JSON.stringify(res.data.token))
-        localStorage.setItem('data', JSON.stringify(res.data.data))
-        setToken(res.data.token)
-        setValue(res.data.data)
+        console.log(res.data.token)
+        console.log(res)
+        jwt.verify(res.data.token, process.env.REACT_APP_JWT_SIGNATURE, (err, decoded) =>{
+          if(err){
+            console.log(err)
+          }else{
+            if(res.data.type === 'User'){
+              setToken(res.data.token)
+              setValue("User")
+              localStorage.setItem('token', JSON.stringify(res.data.token))
+              localStorage.setItem('type', JSON.stringify("User"))
+            }else if(res.data.type ==='Employee'){
+              setToken(res.data.token)
+              setValue("Employee")
+              localStorage.setItem('token', JSON.stringify(res.data.token))
+              localStorage.setItem('type', JSON.stringify("Employee"))
+            }else if(res.data.type === 'Manager'){
+              setToken(res.data.token)
+              setValue("Manager")
+              localStorage.setItem("token",JSON.stringify(res.data.token))
+              localStorage.setItem('type', "Manager")
+            }
+          }
+        })
         window.location.replace('/')
       })
       .catch((err) => {

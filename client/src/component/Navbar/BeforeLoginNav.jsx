@@ -26,7 +26,7 @@ function BeforeLoginNav({ handleClick, click, closeMobileMenu }) {
         <div className="container is-pulled-right"></div>
         <NavLink
           className=" navbar-item btn before-signup signUp"
-          to="/CustomerAccount"
+          to="/UserAccount"
           onClick={closeMobileMenu}
         >
           Sign Up
