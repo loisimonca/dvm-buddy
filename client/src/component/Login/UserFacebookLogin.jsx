@@ -24,15 +24,13 @@ function UserFacebookLogin() {
             domain: response.graphDomain
         })
         localStorage.setItem('token', JSON.stringify(response.accessToken))
+        localStorage.setItem('type', JSON.stringify('User'))
         setToken(response.accessToken)
+        setValue("User")
       }
     const componentClicked = () => console.log("clicked");
     let fbContent;
     if(state.isLoggedIn){
-        const userType = {userType: "User"}
-        const sendData = Object.assign(state, userType);
-        localStorage.setItem('data', JSON.stringify(sendData))
-        setValue(sendData)
         // history.push("/")
         window.location.replace('/')
         fbContent =(

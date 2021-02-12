@@ -1,4 +1,6 @@
 const db = require("../models");
+const jwt = require("jsonwebtoken");
+
 module.exports = {
   findAll: function (req, res) {
     db.User.find(req.query)
@@ -13,7 +15,12 @@ module.exports = {
   create: function (req, res) {
     db.User.create(req.body)
       .then((user) => {
-        res.json(user);
+        const token = jwt.sign({ _id: user._id }, process.env.JWT_SIGNATURE, {
+          expiresIn: 60 * 60,
+        });
+        res.json({
+          token: token,
+        });
       })
       .catch((error, doc, next) => {
         if (

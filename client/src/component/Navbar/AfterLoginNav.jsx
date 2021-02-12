@@ -5,13 +5,13 @@ import { UserContext } from '../../utils/UserContext'
 
 function AfterLoginNav({ handleClick, click, closeMobileMenu }) {
   // const history = useHistory();
-  const {value, setValue, setToken} = useContext(UserContext)
+  const {setValue, setToken} = useContext(UserContext)
   const handleLogout = (e)=>{
     e.preventDefault();
-    localStorage.setItem("data", null);
     localStorage.setItem("token", null);
-    setValue(null)
+    localStorage.setItem("type", null);
     setToken(null)
+    setValue(null)
     window.location.replace('/')
   }
   return (
@@ -48,7 +48,7 @@ function AfterLoginNav({ handleClick, click, closeMobileMenu }) {
             Pet Services
           </Link>
 
-          <Link to="/" className="navbar-item link" onClick={closeMobileMenu}>
+          <Link to="/AccountManage" className="navbar-item link" onClick={closeMobileMenu}>
             Account
           </Link>
         </div>
