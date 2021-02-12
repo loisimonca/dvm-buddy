@@ -41,7 +41,7 @@ const Navbar = () => {
         {}
         {status.token === null && <BeforeLoginNav  handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/>}
         {status.token !== null && (
-          status.data.userType=="User" 
+          status.data.userType==="User" 
           ? <AfterLoginNav handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/> 
           : <AfterLoginNav handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/>
         )}

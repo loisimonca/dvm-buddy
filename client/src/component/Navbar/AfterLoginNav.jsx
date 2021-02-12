@@ -37,8 +37,8 @@ function AfterLoginNav({ handleClick, click, closeMobileMenu }) {
         className={click ? "navbar-menu is-active" : "navbar-menu"}
       >
         <div className="navbar-start is-pulled-left">
-          <Link to="/" className="navbar-item link" onClick={closeMobileMenu}>
-            Reservations
+          <Link to="/ScheduleAppointments" className="navbar-item link" onClick={closeMobileMenu}>
+            Schedule Appointments
           </Link>
           <Link
             to="/petservices"

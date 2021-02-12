@@ -18,7 +18,7 @@ export default {
   },
   //grabs all available appointments to display
   getAvailAppts: function () {
-    return axios.get("/api/appointments/available");
+    return axios.get("/api/appointments");
   },
   //needs _id from user collection
   getApptByCustomer: function (userId) {
