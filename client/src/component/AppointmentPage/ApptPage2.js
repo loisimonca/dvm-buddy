@@ -3,11 +3,10 @@ import API from "../../utils/API";
 import moment from "moment";
 import { set } from "mongoose";
 
-
-const  AppointmentPage = () => {
+const AppointmentPage = () => {
   // const [availAppts, setAvailAppts] = useState([]);
   // const startDate = moment().add(1, "d").format("YYYY-MM-DD");
-  
+
   // const getAppointments =  () => {
   //   API.getAvailAppts()
   //   .then((response) => {
@@ -20,7 +19,6 @@ const  AppointmentPage = () => {
   // useEffect(() => {
   //   getAppointments();
   // },[]);
-
 
   // function createTable() {
   //   const table = [];
@@ -58,8 +56,7 @@ const  AppointmentPage = () => {
   //   return table;
   // }
 
-  return
-  (
+  return;
   <div className="container">
     {/* <section className="section">
       <h1 className="title">Available Schedules</h1>
@@ -70,8 +67,7 @@ const  AppointmentPage = () => {
         <div className="column is-one-third"> {createTable()} </div>
       </div>
     </section> */}
-  </div>
-  );
+  </div>;
 };
 
 export default AppointmentPage;

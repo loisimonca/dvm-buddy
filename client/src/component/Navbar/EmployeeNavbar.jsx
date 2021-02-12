@@ -4,13 +4,15 @@ import { NavLink, Link } from "react-router-dom";
 import { UserContext } from '../../utils/UserContext'
 
 function EmployeeNavbar({ handleClick, click, closeMobileMenu }) {
-    const {setValue, setToken} = useContext(UserContext)
+    const {setValue, setToken, setUserId} = useContext(UserContext)
     const handleLogout = (e)=>{
       e.preventDefault();
       localStorage.setItem("token", null);
       localStorage.setItem("type", null);
+      localStorage.setItem('userId', null)
       setToken(null)
       setValue(null)
+      setUserId(null)
       window.location.replace('/')
     }
     return (

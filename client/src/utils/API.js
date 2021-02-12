@@ -16,6 +16,9 @@ export default {
   getClassified: function () {
     return axios.get("/api/classified");
   },
+  updateUserById: function (userId, data) {
+    return axios.put(`/api/users/${userId}`, data);
+  },
   getZipCode: function (currentZip, distance) {
     return axios.get(`/api/classified/zipcode/${currentZip}/${distance}`);
   },
