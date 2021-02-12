@@ -7,7 +7,7 @@ import CustomerAccount from './CustomerAccount'
 import EmployeeAccount from './EmployeeAccount'
 
 const UserAccount = () => {
-  const {setValue, setToken} = useContext(UserContext)
+  const {setValue, setToken, setUserId} = useContext(UserContext)
   const [match, setMatch] = useState(false);
   const [userInfo, setUserInfo] = useState({ userType: "User" });
   const [employeeCode, setEmployeeCode] = useState(null)
@@ -19,7 +19,9 @@ const UserAccount = () => {
     const id = e.target.name;
     if(id === 'account-for-manager-or-user'){
         setEmployeeCode(value);
-        setUserInfo({...userInfo, userType: "Employee"})
+        if(value === EmployeeAccountCode){
+          setUserInfo({...userInfo, userType: "Employee"})
+        }
     }
     if (id === "f-name") {
       setUserInfo({ ...userInfo, firstName: value });
@@ -75,17 +77,13 @@ const UserAccount = () => {
           errorMsg = res.data;
           alert(errorMsg);
         } else {
-            if(employeeCode===EmployeeAccountCode){
-                setToken(res.data.token)
-                setValue("Employee")
-                localStorage.setItem('token', JSON.stringify(res.data.token))
-                localStorage.setItem('type', JSON.stringify("Employee"))
-            }else{
-                setToken(res.data.token)
-                setValue("User")
-                localStorage.setItem('token', JSON.stringify(res.data.token))
-                localStorage.setItem('type', JSON.stringify("User"))
-            }
+          
+          setToken(res.data.token)
+          setValue(res.data.userType)
+          setUserId(res.data.userId)
+          localStorage.setItem('token', JSON.stringify(res.data.token))
+          localStorage.setItem('type', JSON.stringify(res.data.userType))
+          localStorage.setItem('userId', JSON.stringify(res.data.userId))
           window.location.replace("/");
         }
       })
