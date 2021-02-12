@@ -13,7 +13,7 @@ function AccountManage() {
         .then(res =>{
             setUserData(res.data)
         })
-    },[token])
+    },[value])
 
 
     return (
