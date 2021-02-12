@@ -15,10 +15,18 @@ const AppointmentPage = () => {
 
         const filteredData = response.data.filter((appointment) => appointment.apptDate >= defaultDate && appointment.apptTime > defaultTime);
         setAppointments(filteredData);
+        
 
       })
       .catch((err) => console.log(err));
   }, []);
+
+
+  const filterAppointments = (date) => {
+    console.log("date input is ", date)
+   const filteredData = appointments.filter((appointment) => appointment.apptDate >= date && appointment.apptTime > defaultTime);
+        setAppointments(filteredData);
+  }
 
   //table that holds all available appointments
   function createTable() {
@@ -44,9 +52,8 @@ const AppointmentPage = () => {
     newAppointmentArray[slots].map((item) => {
 
       children.push(
-        <li className="button is-small m-1" 
-        key={item.id} 
-        value={item.id}
+        <li className="button is-small m-1"  data-id={item.id} key={item.id} 
+        
         >
           {" "}
           {item.time}{" "}
@@ -57,10 +64,11 @@ const AppointmentPage = () => {
 
     table.push(
       <ul className="box">
-        <h1 className="title"> {dateHeader} </h1> {children}{" "}
+        <h1 className="title"> {moment(dateHeader,"YYYY-MM-DD").format("dddd, MMMM Do YYYY")} </h1> {children}{" "}
       </ul>
     );
   }
+
   // console.log(table);
   return table;
   }
@@ -71,7 +79,11 @@ const AppointmentPage = () => {
         <h1 className="title"> Available Schedules</h1>
         <div className="container">
           <div className="column is-half">
-            <input type="date" name="" id="" defaultValue={defaultDate} />
+            <input 
+            type="date" 
+            defaultValue={defaultDate} 
+            onChange={(e) => filterAppointments(e.target.value)}
+            />
           </div>
           <div className="column is-four-fifths">{createTable()}</div>
         </div>
