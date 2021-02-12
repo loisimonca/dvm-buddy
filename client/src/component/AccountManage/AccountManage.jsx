@@ -1,20 +1,24 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import {UserContext} from '../../utils/UserContext';
 import EmployeeAccountManage from './EmployeeAccountManage';
 import UserAccountManage from './UserAccountManage'
 import API from '../../utils/API';
-import jwt_decode from "jwt-decode";
+import './AccountManage.css'
 
 function AccountManage() {
-    const {value, token}  = useContext(UserContext);
-    if(token){
-        const decodedId = jwt_decode(token);
-        console.log(decodedId)
-    }
+    const {value, token, userId}  = useContext(UserContext);
+    const [userData, setUserData] = useState({})
+    useEffect(() =>{
+        API.getUserById(userId)
+        .then(res =>{
+            setUserData(res.data)
+        })
+    },[token])
+
 
     return (
         <div>
-            {value==="User" ? <UserAccountManage/> : <EmployeeAccountManage />}
+            {value==="User" ? <UserAccountManage userData={userData}setUserData={setUserData} />  : <EmployeeAccountManage userData={userData}setUserData={setUserData}/>}
         </div>
     )
 }
