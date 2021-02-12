@@ -19,7 +19,9 @@ module.exports = {
           expiresIn: 60 * 60,
         });
         res.json({
+          userType: user.userType,
           token: token,
+          userId: user._id,
         });
       })
       .catch((error, doc, next) => {
