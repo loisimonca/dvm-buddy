@@ -10,7 +10,7 @@ import { UserContext } from "../../utils/UserContext";
 import jwt from 'jsonwebtoken';
 
 function UserLogin() {
-  const { setValue, setToken } = useContext(UserContext);
+  const { setValue, setToken, setUserId, setDomain } = useContext(UserContext);
 
   const handleLogIn = (e) => {
     e.preventDefault();
@@ -31,18 +31,19 @@ function UserLogin() {
             if(res.data.type === 'User'){
               setToken(res.data.token)
               setValue("User")
+              setUserId(res.data.id)
+              setDomain('Local')
               localStorage.setItem('token', JSON.stringify(res.data.token))
               localStorage.setItem('type', JSON.stringify("User"))
+              localStorage.setItem('userId', JSON.stringify(res.data.id));
+              localStorage.setItem('domain', JSON.stringify("Local"));
             }else if(res.data.type ==='Employee'){
               setToken(res.data.token)
               setValue("Employee")
+              setUserId(res.data.id)
               localStorage.setItem('token', JSON.stringify(res.data.token))
               localStorage.setItem('type', JSON.stringify("Employee"))
-            }else if(res.data.type === 'Manager'){
-              setToken(res.data.token)
-              setValue("Manager")
-              localStorage.setItem("token",JSON.stringify(res.data.token))
-              localStorage.setItem('type', "Manager")
+              localStorage.setItem('userId', JSON.stringify(res.data.id));
             }
           }
         })

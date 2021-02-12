@@ -17,17 +17,30 @@ import PetServices from "./component/PetServices/PetServices";
 function App() {
   const [token, setToken] = useState(null);
   const [value, setValue] = useState(null);
+  const [userId, setUserId] = useState(null);
+  const [domain, setDomain] = useState(null);
   return (
     <>
       <Router>
         <div>
-          <UserContext.Provider value={{ value, setValue, token, setToken }}>
+          <UserContext.Provider
+            value={{
+              value,
+              setValue,
+              token,
+              setToken,
+              userId,
+              setUserId,
+              domain,
+              setDomain,
+            }}
+          >
             <Navbar />
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/CustomerPage" component={CustomerPage} />
               <Route exact path="/PetServices" component={PetServices} />
-              <Route exact path="/Appointments" component = {ScheduleApptPage} />
+              <Route exact path="/Appointments" component={ScheduleApptPage} />
               <Route exact path="/UserAccount" component={UserAccount} />
               <Route exact path="/AccountManage" component={AccountManage} />
               <Route exact path="/Login" component={Login} />

@@ -7,7 +7,7 @@ import BeforeLoginNav from './BeforeLoginNav';
 import EmployeeNavbar from './EmployeeNavbar';
 
 const Navbar = () => {
-  const {value, setValue, token, setToken} = useContext(UserContext);
+  const {value, setValue, token, setToken, setUserId} = useContext(UserContext);
 
   const [click, setClick] = useState(false);
   const handleClick = () => {
@@ -18,9 +18,12 @@ const Navbar = () => {
   useEffect(()=>{
     const userToken = JSON.parse(localStorage.getItem("token"))
     const userType = JSON.parse(localStorage.getItem("type"))
+    const userId = JSON.parse(localStorage.getItem('userId'))
+    console.log(userId)
     if(userToken){
       setValue(userType)
       setToken(userToken)
+      setUserId(userId)
     }
   },[])
   return (

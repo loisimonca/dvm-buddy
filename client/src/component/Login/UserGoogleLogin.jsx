@@ -8,18 +8,22 @@ import {refreshTokenSetup} from '../../utils/refreshToken';
 const clientId = "32479969633-uog46n0h5g22l1rps60k0cvbluuq3ni6.apps.googleusercontent.com"
 
 function UserGoogleLogin() {
-    const {setValue, setToken} = useContext(UserContext);
+    const {setValue, setToken, setUserId, setDomain} = useContext(UserContext);
     // const history = useHistory();
     const onSuccess = (res) =>{
         console.log("[Login Success] currentUser: ", res.profileObj );
         //initializing the setup
         refreshTokenSetup(res);
         const userToken = res.tokenObj.id_token
+        console.log('from google: ', res)
         localStorage.setItem('token', JSON.stringify(userToken))
-        localStorage.setItem('type', JSON.stringify("User"))
+        localStorage.setItem('type', JSON.stringify("User"));
+        localStorage.setItem('userId', JSON.stringify(res.data.id));
+        localStorage.setItem('domain', JSON.stringify("Google"));
         setToken(userToken)
         setValue("User")
-        window.location.replace("/")
+        setDomain('Google')
+        // window.location.replace("/")
     };
     const onFailure = (res) =>{
         console.log("[Login failed] res: ", res);

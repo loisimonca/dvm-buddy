@@ -37,7 +37,7 @@ module.exports = {
       });
   },
   update: function (req, res) {
-    db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
+    db.User.findByIdAndUpdate(req.params.id, req.body, { new: true })
       .then((user) => res.json(user))
       .catch((err) => res.status(422).json(err));
   },

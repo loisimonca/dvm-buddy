@@ -5,13 +5,15 @@ import { UserContext } from '../../utils/UserContext'
 
 function AfterLoginNav({ handleClick, click, closeMobileMenu }) {
   // const history = useHistory();
-  const {setValue, setToken} = useContext(UserContext)
+  const {setValue, setToken, setUserId} = useContext(UserContext)
   const handleLogout = (e)=>{
     e.preventDefault();
     localStorage.setItem("token", null);
     localStorage.setItem("type", null);
+    localStorage.setItem('userId', null)
     setToken(null)
     setValue(null)
+    setUserId(null)
     window.location.replace('/')
   }
   return (
@@ -37,7 +39,7 @@ function AfterLoginNav({ handleClick, click, closeMobileMenu }) {
         className={click ? "navbar-menu is-active" : "navbar-menu"}
       >
         <div className="navbar-start is-pulled-left">
-          <Link to="/ScheduleAppointments" className="navbar-item link" onClick={closeMobileMenu}>
+          <Link to="/Appointments" className="navbar-item link" onClick={closeMobileMenu}>
             Schedule Appointments
           </Link>
           <Link

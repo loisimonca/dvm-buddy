@@ -13,6 +13,7 @@ router
       res.json({
         token: token,
         type: req.user.userType,
+        id: req.user._id,
       });
     }
   });
