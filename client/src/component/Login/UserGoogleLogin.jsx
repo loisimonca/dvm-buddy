@@ -16,13 +16,10 @@ function UserGoogleLogin() {
         refreshTokenSetup(res);
         const userToken = res.tokenObj.id_token
         console.log('from google: ', res)
-        localStorage.setItem('token', JSON.stringify(userToken))
-        localStorage.setItem('type', JSON.stringify("User"));
-        localStorage.setItem('userId', JSON.stringify(res.data.id));
-        localStorage.setItem('domain', JSON.stringify("Google"));
-        setToken(userToken)
-        setValue("User")
-        setDomain('Google')
+        sessionStorage.setItem('token', JSON.stringify(userToken))
+        sessionStorage.setItem('type', JSON.stringify("User"));
+        sessionStorage.setItem('userId', JSON.stringify(res.data.id));
+        sessionStorage.setItem('domain', JSON.stringify("Google"));
         // window.location.replace("/")
     };
     const onFailure = (res) =>{
