@@ -27,6 +27,7 @@ const AppointmentPage = () => {
       .catch((err) => console.log(err));
   }, []);
 
+
   //filters available appointments list based on date input
   const filterAppointments = (date) => {
     console.log("date input is ", date);
@@ -36,6 +37,7 @@ const AppointmentPage = () => {
     );
     setAppointments(filteredData);
   };
+
 
   function handleAppointmentConfirmation(apptDate, apptTime, scheduleId) {
     const formattedDisplayDate = moment(apptDate, "YYYY-MM-DD").format(
@@ -49,6 +51,7 @@ const AppointmentPage = () => {
 
     setModalIsOpen(true);
   }
+
   //table that holds all available appointments
   function createTable() {
     const table = [];
@@ -70,6 +73,7 @@ const AppointmentPage = () => {
 
       newAppointmentArray[slots].map((item) => {
         children.push(
+
           <li
             className="button is-small m-1"
             data-id={item.id}
@@ -103,6 +107,7 @@ const AppointmentPage = () => {
     }
 
     function confirmAppt(params) {}
+
 
     // console.log(table);
     return table;
