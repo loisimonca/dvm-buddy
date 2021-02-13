@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import moment from "moment";
-import axios from "axios";
 
 const AppointmentPage = () => {
   const [appointments, setAppointments] = useState([]);
@@ -12,65 +11,67 @@ const AppointmentPage = () => {
   useEffect(() => {
     API.getAvailAppts()
       .then((response) => {
-
-        const filteredData = response.data.filter((appointment) => appointment.apptDate >= defaultDate && appointment.apptTime > defaultTime);
+        const filteredData = response.data.filter(
+          (appointment) =>
+            appointment.apptDate >= defaultDate &&
+            appointment.apptTime > defaultTime
+        );
         setAppointments(filteredData);
-        
-
       })
       .catch((err) => console.log(err));
   }, []);
 
-
   const filterAppointments = (date) => {
-    console.log("date input is ", date)
-   const filteredData = appointments.filter((appointment) => appointment.apptDate >= date && appointment.apptTime > defaultTime);
-        setAppointments(filteredData);
-  }
+    console.log("date input is ", date);
+    const filteredData = appointments.filter(
+      (appointment) =>
+        appointment.apptDate >= date && appointment.apptTime > defaultTime
+    );
+    setAppointments(filteredData);
+  };
 
   //table that holds all available appointments
   function createTable() {
-  
+    const table = [];
 
-  const table = [];
+    console.log("calling availAppoints from createTable ", appointments);
+    console.log("userid is ", userId);
 
-  console.log("calling availAppoints from createTable ", appointments);
-  console.log('userid is ', userId);
+    const newAppointmentArray = appointments.reduce((r, a) => {
+      r[a.apptDate] = r[a.apptDate] || [];
+      r[a.apptDate].push({ time: a.apptTime, id: a._id });
+      return r;
+    }, {});
 
-  const newAppointmentArray = appointments.reduce((r, a) => {
-    r[a.apptDate] = r[a.apptDate] || [];
-    r[a.apptDate].push({ time: a.apptTime, id: a._id });
-    return r;
-  }, {});
+    console.log("New Appointment Array is ", newAppointmentArray);
 
-  console.log("New Appointment Array is ", newAppointmentArray);
+    for (let slots in newAppointmentArray) {
+      let children = [];
+      let dateHeader = slots;
 
-  for (let slots in newAppointmentArray) {
-    let children = [];
-    let dateHeader = slots;
+      newAppointmentArray[slots].map((item) => {
+        children.push(
+          <li className="button is-small m-1" data-id={item.id} key={item.id}>
+            {" "}
+            {item.time}{" "}
+          </li>
+        );
+        return children;
+      });
 
-    newAppointmentArray[slots].map((item) => {
-
-      children.push(
-        <li className="button is-small m-1"  data-id={item.id} key={item.id} 
-        
-        >
-          {" "}
-          {item.time}{" "}
-        </li>
+      table.push(
+        <ul className="box">
+          <h1 className="title">
+            {" "}
+            {moment(dateHeader, "YYYY-MM-DD").format("dddd, MMMM Do YYYY")}{" "}
+          </h1>{" "}
+          {children}{" "}
+        </ul>
       );
-      return children;
-    });
+    }
 
-    table.push(
-      <ul className="box">
-        <h1 className="title"> {moment(dateHeader,"YYYY-MM-DD").format("dddd, MMMM Do YYYY")} </h1> {children}{" "}
-      </ul>
-    );
-  }
-
-  // console.log(table);
-  return table;
+    // console.log(table);
+    return table;
   }
 
   return (
@@ -79,13 +80,15 @@ const AppointmentPage = () => {
         <h1 className="title"> Available Schedules</h1>
         <div className="container">
           <div className="column is-half">
-            <label for="appointment-filter" className="label">Search from:</label>
+            <label for="appointment-filter" className="label">
+              Search from:
+            </label>
             <hr></hr>
-            <input 
-            type="date" 
-            defaultValue={defaultDate} 
-            onChange={(e) => filterAppointments(e.target.value)}
-            name="appointment-filter"
+            <input
+              type="date"
+              defaultValue={defaultDate}
+              onChange={(e) => filterAppointments(e.target.value)}
+              name="appointment-filter"
             />
           </div>
           <div className="column is-four-fifths">{createTable()}</div>

@@ -1,13 +1,15 @@
-import React, {useState, useContext, useEffect} from 'react'
+import React, { useState, useContext, useEffect } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import {UserContext } from '../../utils/UserContext';
-import AfterLoginNav from './AfterLoginNav';
-import BeforeLoginNav from './BeforeLoginNav';
-import EmployeeNavbar from './EmployeeNavbar';
+import { UserContext } from "../../utils/UserContext";
+import AfterLoginNav from "./AfterLoginNav";
+import BeforeLoginNav from "./BeforeLoginNav";
+import EmployeeNavbar from "./EmployeeNavbar";
 
 const Navbar = () => {
-  const {value, setValue, token, setToken, setUserId} = useContext(UserContext);
+  const { value, setValue, token, setToken, setUserId } = useContext(
+    UserContext
+  );
 
   const [click, setClick] = useState(false);
   const handleClick = () => {
@@ -15,19 +17,19 @@ const Navbar = () => {
   };
   const closeMobileMenu = () => setClick(false);
 
-  useEffect(()=>{
-    const userToken = JSON.parse(localStorage.getItem("token"))
-    const userType = JSON.parse(localStorage.getItem("type"))
-    const userId = JSON.parse(localStorage.getItem('userId'))
-    console.log(userId)
-    if(userToken){
-      setValue(userType)
-      setToken(userToken)
-      setUserId(userId)
+  useEffect(() => {
+    const userToken = JSON.parse(localStorage.getItem("token"));
+    const userType = JSON.parse(localStorage.getItem("type"));
+    const userId = JSON.parse(localStorage.getItem("userId"));
+    console.log(userId);
+    if (userToken) {
+      setValue(userType);
+      setToken(userToken);
+      setUserId(userId);
     }
-  },[])
+  }, []);
   return (
-    <div >
+    <div>
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <Link
@@ -40,13 +42,28 @@ const Navbar = () => {
             </h1>
           </Link>
         </div>
-      
-        {token === null && <BeforeLoginNav  handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/>}
-        {token !== null && (
-          value=="User" 
-          ? <AfterLoginNav handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/> 
-          : <EmployeeNavbar handleClick={handleClick} click={click} closeMobileMenu={closeMobileMenu}/>
+
+        {token === null && (
+          <BeforeLoginNav
+            handleClick={handleClick}
+            click={click}
+            closeMobileMenu={closeMobileMenu}
+          />
         )}
+        {token !== null &&
+          (value === "User" ? (
+            <AfterLoginNav
+              handleClick={handleClick}
+              click={click}
+              closeMobileMenu={closeMobileMenu}
+            />
+          ) : (
+            <EmployeeNavbar
+              handleClick={handleClick}
+              click={click}
+              closeMobileMenu={closeMobileMenu}
+            />
+          ))}
       </nav>
     </div>
   );
