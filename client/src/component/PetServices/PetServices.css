@@ -20,8 +20,14 @@
 } */
 
 .searchService {
+  background-color: rgb(209, 138, 123) !important;
   width: 80px;
   margin: auto !important;
+}
+
+.searchService:hover {
+  background-color: rgb(179, 110, 97) !important;
+  color: white !important;
 }
 .service-input {
   height: 40px !important;

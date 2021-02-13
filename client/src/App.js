@@ -7,7 +7,7 @@ import UserAccount from "./component/CustomerAccount/UserAccount";
 import Login from "./component/Login/Login.jsx";
 import Home from "./component/Home/Home";
 import ScheduleApptPage from "./component/AppointmentPage/AppointmentPage";
-
+import AdminPetServices from "./component/AdminPetServices/AdminPetServices";
 import AccountManage from "./component/AccountManage/AccountManage";
 import CustomerPage from "./component/CustomerPage/CustomerPage";
 import AdminPage from "./component/AdminPage/Admin";
@@ -17,9 +17,6 @@ import PetServices from "./component/PetServices/PetServices";
 
 // import AdminPage from "./component/AdminPage /Admin";
 
-
-
-
 function App() {
   const [token, setToken] = useState(null);
   const [value, setValue] = useState(null);
@@ -27,7 +24,7 @@ function App() {
   const [domain, setDomain] = useState(null);
   return (
     <>
-    <Router>
+      <Router>
         <div>
           <UserContext.Provider
             value={{
@@ -48,6 +45,11 @@ function App() {
               <Route exact path="/PetServices" component={PetServices} />
               <Route exact path="/Appointments" component={ScheduleApptPage} />
               <Route exact path="/UserAccount" component={UserAccount} />
+              <Route
+                exact
+                path="/AdminPetServices"
+                component={AdminPetServices}
+              />
               <Route exact path="/AccountManage" component={AccountManage} />
               <Route exact path="/AdminPage" component={AdminPage} />
               <Route exact path="/Login" component={Login} />
@@ -56,7 +58,6 @@ function App() {
           </UserContext.Provider>
         </div>
       </Router>
-      
     </>
   );
 }

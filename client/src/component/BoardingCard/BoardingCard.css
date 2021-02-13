@@ -1,17 +1,31 @@
-.card {
+.card-boarding {
   width: 250px !important;
-  height: 340px !important;
+  height: 240px !important;
   margin: 20px;
+  background-color: white;
+  border-radius: 0.6em;
 }
-
+.serviceTitle {
+  font-family: Roboto Slab !important;
+  padding-top: 20px;
+  color: rgb(209, 138, 123) !important;
+  font-size: larger;
+}
 .card-content {
   text-align: center;
   padding: 0;
 }
-.name {
+.line {
+  width: 70%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.nameCard {
   margin: 0;
+  font-size: large;
   padding-bottom: 0px;
-  padding-top: 15px;
+
   font-family: "Roboto Slab", serif;
   color: rgb(209, 138, 123);
   font-size: larger;
@@ -19,4 +33,36 @@
 .zip {
   font-size: medium;
   padding-bottom: 10px;
+}
+
+.edit-service-card {
+  background-color: rgb(209, 138, 123) !important;
+  color: white !important;
+  font-weight: bold;
+  padding: auto;
+  margin: 20px 5px;
+  width: 70px;
+  height: 30px;
+  border-radius: 4px !important;
+  border: none;
+  text-align: center;
+}
+
+.edit-service-card:hover {
+  background-color: rgb(179, 110, 97) !important;
+}
+.delete-service-card {
+  background-color: rgba(241, 226, 223, 0.6) !important;
+  color: black !important;
+  font-weight: bold;
+  padding: auto;
+  margin: 20px 5px;
+  width: 70px;
+  height: 30px;
+  border-radius: 4px !important;
+  border: none;
+  text-align: center;
+}
+.delete-service-card:hover {
+  background-color: rgba(211, 183, 177, 0.6) !important;
 }
