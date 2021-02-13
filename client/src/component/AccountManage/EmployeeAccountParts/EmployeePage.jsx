@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import API from "../../utils/API";
-import EditFunction from "./EditFunction";
+import API from "../../../utils/API";
+import EditFunction from "../EditFunction";
 
 
-function EmployeeAccountManage({ userData, setUserData }) {
+function EmployeePage({ userData, setUserData }) {
     const [originalData, setOriginalData] = useState();
     const [editOpen, setEditOpen] = useState({
         tel: false,
@@ -82,4 +82,4 @@ function EmployeeAccountManage({ userData, setUserData }) {
     )
 }
 
-export default EmployeeAccountManage
+export default EmployeePage

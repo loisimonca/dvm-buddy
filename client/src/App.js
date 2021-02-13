@@ -10,9 +10,11 @@ import ScheduleApptPage from "./component/AppointmentPage/AppointmentPage";
 
 import AccountManage from "./component/AccountManage/AccountManage";
 import CustomerPage from "./component/CustomerPage/CustomerPage";
+import AdminPage from "./component/AdminPage/Admin";
 
 import { UserContext } from "./utils/UserContext";
 import PetServices from "./component/PetServices/PetServices";
+// import AdminPage from "./component/AdminPage /Admin";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -43,6 +45,7 @@ function App() {
               <Route exact path="/Appointments" component={ScheduleApptPage} />
               <Route exact path="/UserAccount" component={UserAccount} />
               <Route exact path="/AccountManage" component={AccountManage} />
+              <Route exact path="/AdminPage" component={AdminPage} />
               <Route exact path="/Login" component={Login} />
               <Route path="*" render={() => <Redirect to="/" />} />
             </Switch>
