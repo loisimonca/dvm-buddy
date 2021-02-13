@@ -1,0 +1,15 @@
+.newServiceBtn {
+  background-color: rgb(209, 138, 123) !important;
+  color: white !important;
+  font-weight: bold;
+  padding: auto;
+  margin: 20px 5px;
+  width: 170px;
+  height: 40px;
+  border-radius: 4px !important;
+  border: none;
+  text-align: center;
+}
+.newServiceBtn:hover {
+  background-color: rgb(179, 110, 97) !important;
+}

@@ -46,7 +46,7 @@ function EmployeeNavbar({ handleClick, click, closeMobileMenu }) {
             Calendar
           </NavLink>
           <NavLink
-            to="/petservices"
+            to="/adminpetservices"
             className="navbar-item link"
             onClick={closeMobileMenu}
           >
