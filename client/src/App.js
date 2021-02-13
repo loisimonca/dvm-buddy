@@ -11,7 +11,8 @@ import AdminPetServices from "./component/AdminPetServices/AdminPetServices";
 import AccountManage from "./component/AccountManage/AccountManage";
 import CustomerPage from "./component/CustomerPage/CustomerPage";
 import AdminPage from "./component/AdminPage/Admin";
-
+import AdminHomePage from "./component/AdminHomePage/AdminHomePage";
+import UserHomePage from "./component/UserHomePage/UserHomePage";
 import { UserContext } from "./utils/UserContext";
 import PetServices from "./component/PetServices/PetServices";
 
@@ -52,6 +53,8 @@ function App() {
               />
               <Route exact path="/AccountManage" component={AccountManage} />
               <Route exact path="/AdminPage" component={AdminPage} />
+              <Route exact path="/AdminHomePage" component={AdminHomePage} />
+              <Route exact path="/UserHomePage" component={UserHomePage} />
               <Route exact path="/Login" component={Login} />
               <Route path="*" render={() => <Redirect to="/" />} />
             </Switch>
