@@ -6,12 +6,12 @@ import BoardingCard from "../BoardingCard/BoardingCard";
 import API from "../../utils/API";
 
 const PetServices = () => {
-  let arrToBeShown = [];
   const [allServices, setAllServices] = useState([]);
   const [filteredService, setFilteredService] = useState([]);
   const [zip, setZip] = useState("");
   const [distance, setDistance] = useState("");
   const [dataFromZipcode, setDataFromZipcode] = useState([]);
+  const [query, setQuery] = useState("")
 
   useEffect(() => {
     API.getClassified()
@@ -25,10 +25,11 @@ const PetServices = () => {
 
   //----------------- THIS IS THE HANDLE CATEGORY FUNCTION----------------
   const handleCategoryChange = (e) => {
+    setDataFromZipcode([])
     let query = e.target.value; // getting name of selected dropdown
     let display = [];
     // const newArray = filteredService.concat(allServices);
-
+    setQuery(e.target.value)
     for (let newArray of allServices) {
       if (newArray.category === query) {
         display.push(newArray);
@@ -49,20 +50,11 @@ const PetServices = () => {
   };
   //----------------- THIS IS THE HANDLE SUBMIT FUNCTION----------------
   const handleSubmit = (e) => {
+    
     e.preventDefault();
-    let display = [];
-    API.getZipCode(zip, distance)
+    API.getZipCode(zip, distance, query)
       .then((res) => {
-        setDataFromZipcode(res.data);
-
-        for (var i = 0; i < res.data.length; i++) {
-          filteredService.map((data) => {
-            if (data === res.data[i]) {
-              display.push(data);
-              setFilteredService(display);
-            }
-          });
-        }
+        setDataFromZipcode(res.data)
       })
 
       .catch((err) => console.log(err));
@@ -102,7 +94,18 @@ const PetServices = () => {
             <strong>Search</strong>
           </button>
         </form>
-        {filteredService.length > 0
+        {dataFromZipcode.length >0 ? 
+        dataFromZipcode.map((serve) =>[
+          <BoardingCard
+          service={serve.category}
+          name={serve.name}
+          zip={serve.zipCode}
+          key={serve._id}
+          phone={serve.tel}
+        />
+        ])
+        :
+        (filteredService.length > 0
           ? filteredService.map((serve) => [
               <BoardingCard
                 service={serve.category}
@@ -120,7 +123,8 @@ const PetServices = () => {
                 key={serve._id}
                 phone={serve.tel}
               />,
-            ])}
+            ]))
+          }
       </Wrapper>
     </div>
   );
