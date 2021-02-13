@@ -4,7 +4,7 @@ const db = require("../models");
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/dvm-buddy");
 const classifiedSeed = [
   {
-    category: "Side Walk",
+    category: "Walker",
     details: "Side Walk category selected. Description goes here",
     name: "Claude",
     tel: 9392438295,
@@ -12,7 +12,7 @@ const classifiedSeed = [
     zipCode: 30320,
   },
   {
-    category: "Boarding",
+    category: "Sitter",
     details: "Boarding category selected. Description goes here",
     name: "Samuel",
     tel: 2542613565,
@@ -36,7 +36,7 @@ const classifiedSeed = [
     zipCode: 60067,
   },
   {
-    category: "Boarding",
+    category: "Walker",
     details: "Boarding category selected. Description goes here",
     name: "Squidward",
     tel: 2542613565,
@@ -52,7 +52,7 @@ const classifiedSeed = [
     zipCode: 30019,
   },
   {
-    category: "Boarding",
+    category: "Sitter",
     details: "Boarding category selected. Description goes here",
     name: "Courage",
     tel: 2542613565,
@@ -60,7 +60,7 @@ const classifiedSeed = [
     zipCode: 30058,
   },
   {
-    category: "Boarding",
+    category: "Sitter",
     details: "Boarding category selected. Description goes here",
     name: "Doug Funnie",
     tel: 2542613565,
@@ -76,7 +76,7 @@ const classifiedSeed = [
     zipCode: 30519,
   },
   {
-    category: "Boarding",
+    category: "Walker",
     details: "Boarding category selected. Description goes here",
     name: "Johnny Bravo",
     tel: 2542613565,
@@ -84,7 +84,7 @@ const classifiedSeed = [
     zipCode: 30087,
   },
   {
-    category: "Boarding",
+    category: "Walker",
     details: "Boarding category selected. Description goes here",
     name: "Tommy Pickles",
     tel: 2542613565,
