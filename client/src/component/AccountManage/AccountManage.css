@@ -11,3 +11,15 @@
   direction: flex;
   flex-direction: row;
 }
+.patient-info-container {
+  color: black;
+  background-color: rgba(241, 226, 223, 0.719);
+}
+.patient-info-title {
+  font-size: 30px;
+  font-weight: 600;
+}
+.patient-info-wrap {
+  margin: 20px;
+  padding: 20px;
+}
