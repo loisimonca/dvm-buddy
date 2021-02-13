@@ -16,10 +16,12 @@ const AppointmentPage = () => {
   const [appointments, setAppointments] = useState([]);
   const defaultDate = moment().format("YYYY-MM-DD");
   const defaultTime = moment().format("HH:mm");
-  const userId = localStorage.getItem("userId");
+  const userId = localStorage.getItem("userId").replace(/"/g,"");
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [confirmedAppointment, setconfirmedAppointment] = useState({});
+
+  const [appointmentChoice, setAppointmentChoice] = useState("");
 
   useEffect(() => {
     API.getAvailAppts()
@@ -46,11 +48,12 @@ const AppointmentPage = () => {
 
   function handleAppointmentConfirmation(apptDate, apptTime, scheduleId) {
     const formattedDisplayDate = moment(apptDate, "YYYY-MM-DD").format(
-      "dddd, MMMM do YYYY"
+      "dddd, MMMM Do YYYY"
     );
     const formattedDisplayTime = moment(apptTime, "HH:mm").format("h:mm a");
 
     setconfirmedAppointment({ formattedDisplayDate, formattedDisplayTime });
+    setAppointmentChoice(scheduleId); //set appointment id for later use for updating db 
 
     console.log(confirmedAppointment);
 
@@ -108,12 +111,20 @@ const AppointmentPage = () => {
         </ul>
       );
     }
-
-    function confirmAppt(params) {}
-
-    // console.log(table);
     return table;
   }
+
+    //save user appointment choice
+    function  handleSaveAppointment() {
+      console.log("save button click")
+      console.log("appointment choice", appointmentChoice);
+      console.log("userId ", userId);
+
+      API.setAppt(appointmentChoice,userId)
+      .then((resp)=> console.log(resp))
+      .then(setModalIsOpen(false))
+      .catch((err)=> console.log(err))
+     }
 
   return (
     <div className="container">
@@ -153,7 +164,9 @@ const AppointmentPage = () => {
             <p>Appointment Time: {confirmedAppointment.formattedDisplayTime}</p>
           </section>
           <footer className="modal-card-foot">
-            <button className="button">Schedule</button>
+            <button className="button"
+            onClick={() => handleSaveAppointment()}
+            >Schedule</button>
             <button className="button" onClick={() => setModalIsOpen(false)}>
               Cancel
             </button>
