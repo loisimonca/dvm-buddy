@@ -29,21 +29,21 @@ function UserLogin() {
             console.log(err)
           }else{
             if(res.data.type === 'User'){
-              setToken(res.data.token)
-              setValue("User")
-              setUserId(res.data.id)
-              setDomain('Local')
-              localStorage.setItem('token', JSON.stringify(res.data.token))
-              localStorage.setItem('type', JSON.stringify("User"))
-              localStorage.setItem('userId', JSON.stringify(res.data.id));
-              localStorage.setItem('domain', JSON.stringify("Local"));
+              // setToken(res.data.token)
+              // setValue("User")
+              // setUserId(res.data.id)
+              // setDomain('Local')
+              sessionStorage.setItem('token', JSON.stringify(res.data.token))
+              sessionStorage.setItem('type', JSON.stringify("User"))
+              sessionStorage.setItem('userId', JSON.stringify(res.data.id));
+              sessionStorage.setItem('domain', JSON.stringify("Local"));
             }else if(res.data.type ==='Employee'){
-              setToken(res.data.token)
-              setValue("Employee")
-              setUserId(res.data.id)
-              localStorage.setItem('token', JSON.stringify(res.data.token))
-              localStorage.setItem('type', JSON.stringify("Employee"))
-              localStorage.setItem('userId', JSON.stringify(res.data.id));
+              // setToken(res.data.token)
+              // setValue("Employee")
+              // setUserId(res.data.id)
+              sessionStorage.setItem('token', JSON.stringify(res.data.token))
+              sessionStorage.setItem('type', JSON.stringify("Employee"))
+              sessionStorage.setItem('userId', JSON.stringify(res.data.id));
             }
           }
         })

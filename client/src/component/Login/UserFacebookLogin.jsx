@@ -23,10 +23,8 @@ function UserFacebookLogin() {
             picture: response.picture.data.url,
             domain: response.graphDomain
         })
-        localStorage.setItem('token', JSON.stringify(response.accessToken))
-        localStorage.setItem('type', JSON.stringify('User'))
-        setToken(response.accessToken)
-        setValue("User")
+        sessionStorage.setItem('token', JSON.stringify(response.accessToken))
+        sessionStorage.setItem('type', JSON.stringify('User'))
       }
     const componentClicked = () => console.log("clicked");
     let fbContent;

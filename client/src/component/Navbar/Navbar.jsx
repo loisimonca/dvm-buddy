@@ -18,9 +18,9 @@ const Navbar = () => {
   const closeMobileMenu = () => setClick(false);
 
   useEffect(() => {
-    const userToken = JSON.parse(localStorage.getItem("token"));
-    const userType = JSON.parse(localStorage.getItem("type"));
-    const userId = JSON.parse(localStorage.getItem("userId"));
+    const userToken = JSON.parse(sessionStorage.getItem("token"));
+    const userType = JSON.parse(sessionStorage.getItem("type"));
+    const userId = JSON.parse(sessionStorage.getItem("userId"));
     console.log(userId);
     if (userToken) {
       setValue(userType);

@@ -8,12 +8,10 @@ function AfterLoginNav({ handleClick, click, closeMobileMenu }) {
   const {setValue, setToken, setUserId} = useContext(UserContext)
   const handleLogout = (e)=>{
     e.preventDefault();
-    localStorage.setItem("token", null);
-    localStorage.setItem("type", null);
-    localStorage.setItem('userId', null)
-    setToken(null)
-    setValue(null)
-    setUserId(null)
+    localStorage.removeItem('token')
+    localStorage.removeItem('type')
+    localStorage.removeItem( 'userId')
+    localStorage.removeItem('domain')
     window.location.replace('/')
   }
   return (
