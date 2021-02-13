@@ -10,11 +10,11 @@ import ScheduleApptPage from "./component/AppointmentPage/AppointmentPage";
 
 import AccountManage from "./component/AccountManage/AccountManage";
 import CustomerPage from "./component/CustomerPage/CustomerPage";
-import CustomerPage from "./component/AdminPage/AdminPage";
+import AdminPage from "./component/AdminPage/Admin";
 
 import { UserContext } from "./utils/UserContext";
 import PetServices from "./component/PetServices/PetServices";
-import AdminPage from "./component/AdminPage /Admin";
+// import AdminPage from "./component/AdminPage /Admin";
 
 function App() {
   const [token, setToken] = useState(null);
