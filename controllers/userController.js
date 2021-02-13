@@ -2,8 +2,13 @@ const db = require("../models");
 const jwt = require("jsonwebtoken");
 
 module.exports = {
-  findAll: function (req, res) {
-    db.User.find(req.query)
+  findAllUser: function (req, res) {
+    db.User.find({ userType: "User" })
+      .then((user) => res.json(user))
+      .catch((err) => res.status(422).json(err));
+  },
+  findAllEmployee: function (req, res) {
+    db.User.find({ userType: "Employee" })
       .then((user) => res.json(user))
       .catch((err) => res.status(422).json(err));
   },

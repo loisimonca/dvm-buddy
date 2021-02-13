@@ -4,6 +4,9 @@ export default {
   getUser: function () {
     return axios.get("/api/users");
   },
+  getEmployee: function () {
+    return axios.get("/api/users/employee");
+  },
   createUser: function (newUser) {
     return axios.post("/api/users", newUser);
   },
@@ -43,6 +46,6 @@ export default {
     return axios.post("/api/appointments/", data);
   },
   findOneAppt: function (apptId) {
-    return axios.get(`/api/appointments/${apptId}`)
-  }
+    return axios.get(`/api/appointments/${apptId}`);
+  },
 };

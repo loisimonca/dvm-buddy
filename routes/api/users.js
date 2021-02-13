@@ -18,7 +18,8 @@ router
     }
   });
 
-router.route("/").get(userController.findAll);
+router.route("/").get(userController.findAllUser);
+router.route("/employee").get(userController.findAllEmployee);
 router.route("/").post(userController.create);
 router
   .route("/:id")
