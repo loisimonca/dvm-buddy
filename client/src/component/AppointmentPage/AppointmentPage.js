@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import moment from "moment";
-import Modal from "react-modal";
+import Modal, { ModalProvider, BaseModalBackground } from "styled-react-modal";
 
-Modal.setAppElement("#root");
+const StyledModal = Modal.styled`
+width: 20rem;
+height: 20rem;
+display: flex;
+align-items: center;
+justify-content: center;
+backgroundColor: 'grey';
+`;
 
 const AppointmentPage = () => {
   const [appointments, setAppointments] = useState([]);
@@ -128,30 +135,29 @@ const AppointmentPage = () => {
           <div className="column is-four-fifths">{createTable()}</div>
         </div>
       </section>
-      <div className="container">
-        <div className="column is-one-third">
-          <Modal isOpen={modalIsOpen}
-          style={{
-            overlay: {
-              backgroundColor: 'grey'
-            }
-          }}>
-            <h1 className="title">Appointment Confirmation</h1>
+
+      <div className={`modal ${modalIsOpen ? "is-active" : ""}`}>
+        <div className="modal-background"></div>
+        <div className="modal-card">
+          <header className="modal-card-head">
+            <p className="modal-card-title"> Appointment Confirmation</p>
+          </header>
+          <section className="modal-card-body">
             <p>
               Please verify this is the date and time you would like to schedule
-              your appointment for. If correct click the Schedule button or
-              click the cancel buttom to start over
+              your appointment for. 
             </p>
             <br />
             <br />
             <p>Appointment Date: {confirmedAppointment.formattedDisplayDate}</p>
             <p>Appointment Time: {confirmedAppointment.formattedDisplayTime}</p>
-
-            <button type="button">Schedule</button>
-            <button type="button" onClick={() => setModalIsOpen(false)}>
+          </section>
+          <footer className="modal-card-foot">
+            <button className="button">Schedule</button>
+            <button className="button" onClick={() => setModalIsOpen(false)}>
               Cancel
             </button>
-          </Modal>
+          </footer>
         </div>
       </div>
     </div>
