@@ -6,7 +6,9 @@ router
   .get(classifiedController.findAll)
   .post(classifiedController.create);
 
-router.route("/zipcode/:zip/:distance").get(classifiedController.findZipcode);
+router
+  .route("/zipcode/:zip/:distance/:query")
+  .get(classifiedController.findZipcode);
 
 router
   .route("/:id")

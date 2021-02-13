@@ -12,13 +12,17 @@ module.exports = {
     db.Classified.find().then((data) => {
       const reqZipCode = req.params.zip;
       const distance = req.params.distance;
+      const zipQuery = req.params.query;
       let result = [];
       data.map((service) => {
         const diff = zipcodes.distance(reqZipCode, service.zipCode);
-        if (diff <= distance) {
-          result.push(service);
+        if (service.category === zipQuery) {
+          if (diff <= distance) {
+            result.push(service);
+          }
         }
       });
+      console.log(result);
       res.json(result);
     });
   },

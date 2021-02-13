@@ -22,8 +22,10 @@ export default {
   updateUserById: function (userId, data) {
     return axios.put(`/api/users/${userId}`, data);
   },
-  getZipCode: function (currentZip, distance) {
-    return axios.get(`/api/classified/zipcode/${currentZip}/${distance}`);
+  getZipCode: function (currentZip, distance, query) {
+    return axios.get(
+      `/api/classified/zipcode/${currentZip}/${distance}/${query}`
+    );
   },
   //grabs all available appointments to display
   getAvailAppts: function () {
