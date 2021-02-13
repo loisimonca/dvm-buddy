@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import moment from "moment";
-import Modal from "react-modal";
+import { relativeTimeRounding } from "moment";
 
-Modal.setAppElement("#root");
+
+
 
 const AppointmentPage = () => {
   const [appointments, setAppointments] = useState([]);
+  const [oAppointments, setoAppointments] = useState([]);
+
   const defaultDate = moment().format("YYYY-MM-DD");
   const defaultTime = moment().format("HH:mm");
-  const userId = localStorage.getItem("userId");
+  const userId = localStorage.getItem("userId").replace(/"/g,"");
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [confirmedAppointment, setconfirmedAppointment] = useState({});
+
+  const [appointmentChoice, setAppointmentChoice] = useState("");
 
   useEffect(() => {
     API.getAvailAppts()
@@ -23,6 +28,7 @@ const AppointmentPage = () => {
             appointment.apptTime > defaultTime
         );
         setAppointments(filteredData);
+        setoAppointments(filteredData);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -31,7 +37,7 @@ const AppointmentPage = () => {
   //filters available appointments list based on date input
   const filterAppointments = (date) => {
     console.log("date input is ", date);
-    const filteredData = appointments.filter(
+    const filteredData = oAppointments.filter(
       (appointment) =>
         appointment.apptDate >= date && appointment.apptTime > defaultTime
     );
@@ -41,17 +47,19 @@ const AppointmentPage = () => {
 
   function handleAppointmentConfirmation(apptDate, apptTime, scheduleId) {
     const formattedDisplayDate = moment(apptDate, "YYYY-MM-DD").format(
-      "dddd, MMMM do YYYY"
+      "dddd, MMMM Do YYYY"
     );
     const formattedDisplayTime = moment(apptTime, "HH:mm").format("h:mm a");
 
     setconfirmedAppointment({ formattedDisplayDate, formattedDisplayTime });
+    setAppointmentChoice(scheduleId); //set appointment id for later use for updating db 
 
     console.log(confirmedAppointment);
 
     setModalIsOpen(true);
   }
 
+ 
   //table that holds all available appointments
   function createTable() {
     const table = [];
@@ -105,13 +113,20 @@ const AppointmentPage = () => {
         </ul>
       );
     }
-
-    function confirmAppt(params) {}
-
-
-    // console.log(table);
     return table;
   }
+
+    //save user appointment choice
+    function  handleSaveAppointment() {
+      console.log("save button click")
+      console.log("appointment choice", appointmentChoice);
+      console.log("userId ", userId);
+
+      API.setAppt(appointmentChoice,userId)
+      .then((resp)=> console.log(resp))
+      .then(setModalIsOpen(false))
+      .catch((err)=> console.log(err))
+     }
 
   return (
     <div className="container">
@@ -133,30 +148,31 @@ const AppointmentPage = () => {
           <div className="column is-four-fifths">{createTable()}</div>
         </div>
       </section>
-      <div className="container">
-        <div className="column is-one-third">
-          <Modal isOpen={modalIsOpen}
-          style={{
-            overlay: {
-              backgroundColor: 'grey'
-            }
-          }}>
-            <h1 className="title">Appointment Confirmation</h1>
+
+      <div className={`modal ${modalIsOpen ? "is-active" : ""}`}>
+        <div className="modal-background"></div>
+        <div className="modal-card">
+          <header className="modal-card-head">
+            <p className="modal-card-title"> Appointment Confirmation</p>
+          </header>
+          <section className="modal-card-body">
             <p>
               Please verify this is the date and time you would like to schedule
-              your appointment for. If correct click the Schedule button or
-              click the cancel buttom to start over
+              your appointment for. 
             </p>
             <br />
             <br />
             <p>Appointment Date: {confirmedAppointment.formattedDisplayDate}</p>
             <p>Appointment Time: {confirmedAppointment.formattedDisplayTime}</p>
-
-            <button type="button">Schedule</button>
-            <button type="button" onClick={() => setModalIsOpen(false)}>
+          </section>
+          <footer className="modal-card-foot">
+            <button className="button" type="submit"
+            onClick={() => handleSaveAppointment()}
+            >Schedule</button>
+            <button className="button" onClick={() => setModalIsOpen(false)}>
               Cancel
             </button>
-          </Modal>
+          </footer>
         </div>
       </div>
     </div>

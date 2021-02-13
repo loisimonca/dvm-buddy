@@ -38,8 +38,8 @@ export default {
     return axios.delete(`/api/appointments/${apptId}`);
   },
   //userId is the _id from user table
-  setAppt: function (apptId, userId) {
-    return axios.put(`/api/appointments/${apptId}`, userId);
+  setAppt: function (apptId, user) {
+    return axios.put(`/api/appointments/${apptId}`, {user});
   },
   //route needs apptDate formatted as "YYYY-MM-DD" and apptTime formatted as "hh:mm"
   createAppt: function (data) {

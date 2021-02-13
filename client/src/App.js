@@ -14,7 +14,11 @@ import AdminPage from "./component/AdminPage/Admin";
 
 import { UserContext } from "./utils/UserContext";
 import PetServices from "./component/PetServices/PetServices";
+
 // import AdminPage from "./component/AdminPage /Admin";
+
+
+
 
 function App() {
   const [token, setToken] = useState(null);
@@ -23,7 +27,7 @@ function App() {
   const [domain, setDomain] = useState(null);
   return (
     <>
-      <Router>
+    <Router>
         <div>
           <UserContext.Provider
             value={{
@@ -52,6 +56,7 @@ function App() {
           </UserContext.Provider>
         </div>
       </Router>
+      
     </>
   );
 }
