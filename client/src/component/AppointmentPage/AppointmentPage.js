@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import moment from "moment";
-import Modal, { ModalProvider, BaseModalBackground } from "styled-react-modal";
+import { relativeTimeRounding } from "moment";
 
-const StyledModal = Modal.styled`
-width: 20rem;
-height: 20rem;
-display: flex;
-align-items: center;
-justify-content: center;
-backgroundColor: 'grey';
-`;
+
+
 
 const AppointmentPage = () => {
   const [appointments, setAppointments] = useState([]);
+  const [oAppointments, setoAppointments] = useState([]);
+
   const defaultDate = moment().format("YYYY-MM-DD");
   const defaultTime = moment().format("HH:mm");
   const userId = localStorage.getItem("userId").replace(/"/g,"");
@@ -32,6 +28,7 @@ const AppointmentPage = () => {
             appointment.apptTime > defaultTime
         );
         setAppointments(filteredData);
+        setoAppointments(filteredData);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -39,7 +36,7 @@ const AppointmentPage = () => {
   //filters available appointments list based on date input
   const filterAppointments = (date) => {
     console.log("date input is ", date);
-    const filteredData = appointments.filter(
+    const filteredData = oAppointments.filter(
       (appointment) =>
         appointment.apptDate >= date && appointment.apptTime > defaultTime
     );
@@ -59,6 +56,8 @@ const AppointmentPage = () => {
 
     setModalIsOpen(true);
   }
+
+ 
   //table that holds all available appointments
   function createTable() {
     const table = [];
@@ -164,7 +163,7 @@ const AppointmentPage = () => {
             <p>Appointment Time: {confirmedAppointment.formattedDisplayTime}</p>
           </section>
           <footer className="modal-card-foot">
-            <button className="button"
+            <button className="button" type="submit"
             onClick={() => handleSaveAppointment()}
             >Schedule</button>
             <button className="button" onClick={() => setModalIsOpen(false)}>
