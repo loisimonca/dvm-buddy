@@ -1,6 +1,6 @@
 .card-boarding {
   width: 250px !important;
-  height: 240px !important;
+  height: 250px !important;
   margin: 20px;
   background-color: white;
   border-radius: 0.6em;
@@ -32,7 +32,7 @@
 }
 .zip {
   font-size: medium;
-  padding-bottom: 10px;
+  padding-bottom: 0px !important;
 }
 
 .edit-service-card {
@@ -40,7 +40,8 @@
   color: white !important;
   font-weight: bold;
   padding: auto;
-  margin: 20px 5px;
+
+  margin: 10px 5px;
   width: 70px;
   height: 30px;
   border-radius: 4px !important;

@@ -9,8 +9,9 @@ const BoardingCard = (props) => {
           <h2 className="serviceTitle">{props.service}</h2>
           <hr className="line" />
           <h3 className="nameCard">{props.name}</h3>
-          <h4 className="zip">Zip Code: {props.zip}</h4>
+          <p className="zip">Zip Code: {props.zip}</p>
           <p className="phone">Phone: {props.phone}</p>
+          <p className="email">Email: {props.email}</p>
           <button className="edit-service-card">Edit</button>
           <button className="delete-service-card">Delete</button>
         </div>
