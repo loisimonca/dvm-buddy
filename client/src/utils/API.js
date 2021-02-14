@@ -50,4 +50,7 @@ export default {
   findOneAppt: function (apptId) {
     return axios.get(`/api/appointments/${apptId}`);
   },
+  listAllAppointments: function () {
+    return axios.get("/api/appointments/list/all");
+  },
 };
