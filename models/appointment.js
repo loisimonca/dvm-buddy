@@ -5,8 +5,8 @@ const appointmentSchema = new Schema({
     apptDate: String,
     apptTime: String,
     user: { 
-      type: Schema.ObjectId, 
-      ref: "user" },
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "User" },
     created_at: {
       type: Date,
       default: Date.now(),

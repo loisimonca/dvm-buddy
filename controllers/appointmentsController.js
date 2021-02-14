@@ -11,9 +11,10 @@ module.exports = {
   },
   //works
   findOneAppt: (req,res) => {
-    db.Appointment.findById(req.params.id)
-    .then((dbModel) => res.json(dbModel))
+    db.Appointment.findById(req.params.id).populate("user","email")
+    .then((appointment) => res.json(appointment))
     .catch((err) => res.status(422).json(err));
+    
   },
   //works
   findApptByCust: (req, res) => {
@@ -43,8 +44,13 @@ module.exports = {
   setAppointment: (req, res) => {
     console.log(req.body.user);
     db.Appointment.findByIdAndUpdate(req.params.id, {
-      user: req.body.user,
+      user: mongoose.Types.ObjectId(req.body.user),
     },{new: true})
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
+  },
+  findAll: (req, res) => {
+    db.Appointment.find({}).populate("user","email")
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },

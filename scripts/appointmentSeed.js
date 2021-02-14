@@ -45,7 +45,7 @@ const apptSeed = [
   {
     apptDate: "2021-02-11",
     apptTime: "10:20",
-    user: mongoose.Types.ObjectId("602475602a3f382c5ff09dac"),
+    user: null,
   },
   {
     apptDate: "2021-02-11",
