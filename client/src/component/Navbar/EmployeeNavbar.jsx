@@ -39,11 +39,11 @@ function EmployeeNavbar({ handleClick, click, closeMobileMenu }) {
       >
         <div className="navbar-start is-pulled-left">
           <NavLink
-            to="/"
+            to="/appointmentedit"
             className="navbar-item link"
             onClick={closeMobileMenu}
           >
-            Calendar
+            Manage Appointments
           </NavLink>
           <NavLink
             to="/adminpetservices"
