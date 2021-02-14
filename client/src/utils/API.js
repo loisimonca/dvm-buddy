@@ -19,6 +19,15 @@ export default {
   getClassified: function () {
     return axios.get("/api/classified");
   },
+  getClassifiedById: function (serviceId) {
+    return axios.get(`/api/classified/${serviceId}`);
+  },
+  updateClassifiedById: function (serviceId, data) {
+    return axios.put(`/api/classified/${serviceId}`, data);
+  },
+  createClassified: function (serviceInfo) {
+    return axios.post("/api/classified/", serviceInfo);
+  },
   updateUserById: function (userId, data) {
     return axios.put(`/api/users/${userId}`, data);
   },
@@ -41,7 +50,7 @@ export default {
   },
   //userId is the _id from user table
   setAppt: function (apptId, user) {
-    return axios.put(`/api/appointments/${apptId}`, {user});
+    return axios.put(`/api/appointments/${apptId}`, { user });
   },
   //route needs apptDate formatted as "YYYY-MM-DD" and apptTime formatted as "hh:mm"
   createAppt: function (data) {
