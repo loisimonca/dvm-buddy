@@ -12,7 +12,6 @@ const PetServices = () => {
   const [distance, setDistance] = useState("");
   const [dataFromZipcode, setDataFromZipcode] = useState([]);
   const [query, setQuery] = useState("");
-  const [newService, setNewService] = useState([]);
 
   useEffect(() => {
     API.getClassified()
@@ -29,17 +28,13 @@ const PetServices = () => {
     setDataFromZipcode([]);
     let query = e.target.value; // getting name of selected dropdown
     let display = [];
-    // const newArray = filteredService.concat(allServices);
     setQuery(e.target.value);
     for (let newArray of allServices) {
       if (newArray.category === query) {
         display.push(newArray);
       }
     }
-
-    //then set displayServices
     setFilteredService(display);
-    console.log(display);
   };
   //----------------- THIS IS THE HANDLE ZIP CHANGE FUNCTION----------------
   const handleZipInputChange = (e) => {
@@ -56,15 +51,9 @@ const PetServices = () => {
       .then((res) => {
         setDataFromZipcode(res.data);
       })
-
       .catch((err) => console.log(err));
   };
-  // document.getElementById("#showModal").click(function () {
-  //   document.queryselector(".modal").addClass("is-active");
-  // });
-  // document.queryselector(".modal-close").click(function () {
-  //   document.queryselector(".modal").removeClass("is-active");
-  // });
+
   return (
     <div className="serviceContainer">
       <Wrapper>
@@ -79,7 +68,6 @@ const PetServices = () => {
               <option value="Boarding">Boarding</option>
               <option value="Sitter">Sitter</option>
             </select>
-            {/* </div> */}
           </div>
 
           <input
@@ -109,6 +97,7 @@ const PetServices = () => {
                 zip={serve.zipCode}
                 key={serve._id}
                 phone={serve.tel}
+                id={serve._id}
               />,
             ])
           : filteredService.length > 0
@@ -119,6 +108,8 @@ const PetServices = () => {
                 zip={serve.zipCode}
                 key={serve._id}
                 phone={serve.tel}
+                email={serve.email}
+                id={serve._id}
               />,
             ])
           : allServices.map((serve) => [
@@ -129,6 +120,7 @@ const PetServices = () => {
                 key={serve._id}
                 phone={serve.tel}
                 email={serve.email}
+                id={serve._id}
               />,
             ])}
       </Wrapper>
