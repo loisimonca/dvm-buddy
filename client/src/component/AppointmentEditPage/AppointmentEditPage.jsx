@@ -76,10 +76,16 @@ const AppointmentEditPage = () => {
     setcustomerId(null);
   };
 
+  //delete appointment function
+  const handleDelete = (id) => {
+    API.deleteAppt(id)
+    .then(getAppointments())
+    .catch(err => console.error(err));
+  }
   
   useEffect(() => {
     getAppointments();
-    getApptlist();
+    // getApptlist();
   }, []);
 
 
@@ -99,7 +105,7 @@ const AppointmentEditPage = () => {
             <tbody>
               {appointments.map((item, index) => {
                 return (
-                  <tr key= {index} >
+                  <tr key={index}>
                     <td>{item.apptDate}</td>
                     <td>{item.apptTime}</td>
                     <td>{item.user ? item.user.email : ""}</td>
@@ -141,7 +147,9 @@ const AppointmentEditPage = () => {
                       )}
                     </td>
                     <td>
-                        <button className="button">
+                        <button className="button"
+                        onClick={() => handleDelete(item._id) }
+                        >
                             Delete
                         </button>
                     </td>
