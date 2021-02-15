@@ -17,6 +17,23 @@ module.exports = {
       .then((user) => res.json(user))
       .catch((err) => res.status(422).json(err));
   },
+  findByEmail: function (req, res) {
+    db.User.findOne({ email: req.params.email })
+      .then((user) => res.json(user))
+      .catch((err) => res.status(422).json(err));
+  },
+  createGoogleFacebook: function (req, res) {
+    db.User.create(req.body)
+      .then((user) => {
+        res.json({
+          userType: user.userType,
+          userId: user._id,
+        });
+      })
+      .catch((error) => {
+        res.status(422).json(error);
+      });
+  },
   create: function (req, res) {
     db.User.create(req.body)
       .then((user) => {

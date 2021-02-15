@@ -3,24 +3,44 @@ import {GoogleLogin} from 'react-google-login';
 import {UserContext } from '../../utils/UserContext';
 //Refresh token
 import {refreshTokenSetup} from '../../utils/refreshToken';
+import API from '../../utils/API';
 // import {useHistory} from 'react-router-dom';
 
 const clientId = "32479969633-uog46n0h5g22l1rps60k0cvbluuq3ni6.apps.googleusercontent.com"
 
 function UserGoogleLogin() {
-    const {setValue, setToken, setUserId, setDomain} = useContext(UserContext);
+    // const {setValue, setToken, setUserId, setDomain} = useContext(UserContext);
     // const history = useHistory();
     const onSuccess = (res) =>{
         console.log("[Login Success] currentUser: ", res.profileObj );
-        //initializing the setup
         refreshTokenSetup(res);
         const userToken = res.tokenObj.id_token
-        console.log('from google: ', res)
-        sessionStorage.setItem('token', JSON.stringify(userToken))
-        sessionStorage.setItem('type', JSON.stringify("User"));
-        sessionStorage.setItem('userId', JSON.stringify(res.data.id));
-        sessionStorage.setItem('domain', JSON.stringify("Google"));
-        // window.location.replace("/")
+        //find user by email and check if it exist already
+        API.getUserByEmail(res.profileObj.email)
+        .then(user =>{
+            if(user.data){
+                sessionStorage.setItem('token', JSON.stringify(userToken))
+                sessionStorage.setItem('type', JSON.stringify(user.data.userType));
+                sessionStorage.setItem('userId', JSON.stringify(user.data._id));        
+            }else{
+                API.createGoogleFacebookUser({
+                    userImage: res.profileObj.imageUrl,
+                    domain: "Google",
+                    userType: "User",
+                    firstName: res.profileObj.givenName,
+                    lastName: res.profileObj.familyName,
+                    email: res.profileObj.email,
+                    password: "****",
+                })
+                .then(user =>{
+                    console.log('after create user account: ', user)
+                    sessionStorage.setItem('token', JSON.stringify(userToken))
+                    sessionStorage.setItem('type', JSON.stringify(user.data.userType));
+                    sessionStorage.setItem('userId', JSON.stringify(user.data.userId)); 
+                })
+            }
+        })
+        window.location.replace("/")
     };
     const onFailure = (res) =>{
         console.log("[Login failed] res: ", res);
