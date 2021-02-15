@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./AdminPetServices.css";
 import Wrapper from "../Wrapper/Wrapper";
 import BoardingCard from "../BoardingCard/AdminServiceCard";
@@ -11,6 +12,7 @@ const PetServices = () => {
   const [distance, setDistance] = useState("");
   const [dataFromZipcode, setDataFromZipcode] = useState([]);
   const [query, setQuery] = useState("");
+  const [newService, setNewService] = useState([]);
 
   useEffect(() => {
     API.getClassified()
@@ -57,14 +59,20 @@ const PetServices = () => {
 
       .catch((err) => console.log(err));
   };
-
+  // document.getElementById("#showModal").click(function () {
+  //   document.queryselector(".modal").addClass("is-active");
+  // });
+  // document.queryselector(".modal-close").click(function () {
+  //   document.queryselector(".modal").removeClass("is-active");
+  // });
   return (
     <div className="serviceContainer">
       <Wrapper>
-        <button className="newServiceBtn">Create New Service</button>
+        <Link to="/NewServiceModal" className="newServiceBtn" id="showModal">
+          Create New Service
+        </Link>
         <form className="serviceForm container has-text-centered">
           <div className="dropdown">
-            {/* <div className="custom-select"> */}
             <select onChange={handleCategoryChange}>
               <option value="0">Select a Service</option>
               <option value="Walker">Walker</option>
@@ -120,6 +128,7 @@ const PetServices = () => {
                 zip={serve.zipCode}
                 key={serve._id}
                 phone={serve.tel}
+                email={serve.email}
               />,
             ])}
       </Wrapper>

@@ -9,7 +9,7 @@ import EmployeeAccount from './EmployeeAccount'
 const UserAccount = () => {
   const {setValue, setToken, setUserId} = useContext(UserContext)
   const [match, setMatch] = useState(false);
-  const [userInfo, setUserInfo] = useState({ userType: "User" });
+  const [userInfo, setUserInfo] = useState({ userType: "User", domain: 'Local' });
   const [employeeCode, setEmployeeCode] = useState(null)
   const EmployeeAccountCode = 'employee-code-1234'
 
