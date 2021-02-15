@@ -94,9 +94,9 @@ const AppointmentEditPage = () => {
               </tr>
             </thead>
             <tbody>
-              {appointments.map((item) => {
+              {appointments.map((item, index) => {
                 return (
-                  <tr key={item._id}>
+                  <tr key= {index} >
                     <td>{item._id}</td>
                     <td>{item.apptDate}</td>
                     <td>{item.apptTime}</td>
