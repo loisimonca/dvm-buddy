@@ -16,6 +16,7 @@ import UserHomePage from "./component/UserHomePage/UserHomePage";
 import { UserContext } from "./utils/UserContext";
 import PetServices from "./component/PetServices/PetServices";
 import NewServiceModal from "./component/NewServiceModal/NewServiceModal";
+import EditServiceModal from "./component/EditServiceModal/EditServiceModal";
 
 // import AdminPage from "./component/AdminPage /Admin";
 
@@ -57,6 +58,11 @@ function App() {
                 exact
                 path="/NewServiceModal"
                 component={NewServiceModal}
+              />
+              <Route
+                exact
+                path="/EditServiceModal"
+                component={EditServiceModal}
               />
               <Route exact path="/AdminPage" component={AdminPage} />
               <Route exact path="/AdminHomePage" component={AdminHomePage} />

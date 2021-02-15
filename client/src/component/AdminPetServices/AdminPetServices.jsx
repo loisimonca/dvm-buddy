@@ -96,7 +96,7 @@ const PetServices = () => {
                 name={serve.name}
                 zip={serve.zipCode}
                 key={serve._id}
-                phone={serve.tel}
+                tel={serve.tel}
                 id={serve._id}
               />,
             ])
@@ -107,7 +107,7 @@ const PetServices = () => {
                 name={serve.name}
                 zip={serve.zipCode}
                 key={serve._id}
-                phone={serve.tel}
+                tel={serve.tel}
                 email={serve.email}
                 id={serve._id}
               />,
@@ -118,7 +118,7 @@ const PetServices = () => {
                 name={serve.name}
                 zip={serve.zipCode}
                 key={serve._id}
-                phone={serve.tel}
+                tel={serve.tel}
                 email={serve.email}
                 id={serve._id}
               />,

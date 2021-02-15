@@ -5,7 +5,7 @@ import "./BoardingCard.css";
 const BoardingCard = (props) => {
   //-------------------HANDLE DELETE----------------//
   const handleDelete = function (id) {
-    console.log("handle delete id: ", id);
+    console.log("handle Delete id: ", id);
     if (window.confirm("Are you sure you want to delete this service?"))
       API.deleteClassified(id)
         .then((res) => {
@@ -15,7 +15,11 @@ const BoardingCard = (props) => {
           console.log("fail");
         });
   };
-
+  //-----------------------HANDLE EDIT BUTTON-----------------//
+  const handleEdit = function (id) {
+    console.log("handle Edit id: ", id);
+    window.location.replace("/EditServiceModal");
+  };
   return (
     <div>
       <div className="card-boarding">
@@ -24,9 +28,23 @@ const BoardingCard = (props) => {
           <hr className="line" />
           <h3 className="nameCard">{props.name}</h3>
           <p className="zip">Zip Code: {props.zip}</p>
-          <p className="phone">Phone: {props.phone}</p>
+          <p className="phone">Phone: {props.tel}</p>
           <p className="email">Email: {props.email}</p>
-          <button className="edit-service-card">Edit</button>
+          <button
+            className="edit-service-card"
+            onClick={() =>
+              handleEdit(
+                props.id,
+                props.service,
+                props.name,
+                props.zip,
+                props.email,
+                props.tel
+              )
+            }
+          >
+            Edit
+          </button>
           <button
             className="delete-service-card"
             onClick={() => handleDelete(props.id)}

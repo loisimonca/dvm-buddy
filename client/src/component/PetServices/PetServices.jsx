@@ -100,7 +100,7 @@ const PetServices = () => {
                 name={serve.name}
                 zip={serve.zipCode}
                 key={serve._id}
-                phone={serve.tel}
+                tel={serve.tel}
               />,
             ])
           : filteredService.length > 0
@@ -110,7 +110,7 @@ const PetServices = () => {
                 name={serve.name}
                 zip={serve.zipCode}
                 key={serve._id}
-                phone={serve.tel}
+                tel={serve.tel}
                 email={serve.email}
               />,
             ])
@@ -120,7 +120,7 @@ const PetServices = () => {
                 name={serve.name}
                 zip={serve.zipCode}
                 key={serve._id}
-                phone={serve.tel}
+                tel={serve.tel}
                 email={serve.email}
               />,
             ])}
