@@ -21,6 +21,8 @@ router
 router.route("/").get(userController.findAllUser);
 router.route("/employee").get(userController.findAllEmployee);
 router.route("/").post(userController.create);
+router.route("/findByEmail/:email").get(userController.findByEmail);
+router.route("/googleFacebook").post(userController.createGoogleFacebook);
 router
   .route("/:id")
   .get(userController.findById)

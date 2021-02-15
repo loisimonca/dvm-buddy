@@ -7,8 +7,14 @@ export default {
   getEmployee: function () {
     return axios.get("/api/users/employee");
   },
+  getUserByEmail: function (email) {
+    return axios.get(`/api/users/findByEmail/${email}`);
+  },
   createUser: function (newUser) {
     return axios.post("/api/users", newUser);
+  },
+  createGoogleFacebookUser: function (user) {
+    return axios.post("/api/users/googleFacebook", user);
   },
   userLogin: function (data) {
     return axios.post("/api/users/login", data);
