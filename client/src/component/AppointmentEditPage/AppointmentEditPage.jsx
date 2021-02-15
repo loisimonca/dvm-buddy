@@ -16,20 +16,17 @@ const AppointmentEditPage = () => {
     },
   ]);
 
-//api call to retrieve list of appointments from server
+  //api call to retrieve list of appointments from server
 
-  function getAppointments () {
-    API.listAllAppointments()
-    .then((response) => {
+  function getAppointments() {
+    API.listAllAppointments().then((response) => {
       const filteredData = response.data.filter(
         (appointment) => appointment.apptDate >= defaultDate
-      )
+      );
       setAppointments(filteredData);
       setAppointmentList(filteredData);
     });
   }
-
-
 
   const [inEditMode, setinEditMode] = useState({
     status: false,
@@ -46,11 +43,11 @@ const AppointmentEditPage = () => {
     setcustomerId(currentCustomerId);
   };
 
-  const updateAppointment = ({_id,newCustomerId}) => {
-      API.setAppt(_id,newCustomerId)
+  const updateAppointment = ({ _id, newCustomerId }) => {
+    API.setAppt(_id, newCustomerId)
       .then((resp) => console.log(resp))
-      .catch(err=> console.error(err))
-  }
+      .catch((err) => console.error(err));
+  };
 
   const defaultDate = moment().format("YYYY-MM-DD");
 
@@ -60,93 +57,98 @@ const AppointmentEditPage = () => {
       .then((response) => {
         const data = response.data;
         setAppointmentList(data);
-        console.log("resp ", response.data)
+        console.log("resp ", response.data);
       })
       .catch((err) => console.error(err));
   };
 
-  const onSave = ({_id,newCustomerId}) => {
-    updateAppointment({_id,newCustomerId});
-  }
+  const onSave = ({ _id, newCustomerId }) => {
+    updateAppointment({ _id, newCustomerId });
+  };
 
   const onCancel = () => {
-      setinEditMode({
-          status: false,
-          rowKey: null
-      })
-      setcustomerId(null);
-  }
-
-
+    setinEditMode({
+      status: false,
+      rowKey: null,
+    });
+    setcustomerId(null);
+  };
 
   useEffect(() => {
     getAppointments();
+    getApptlist();
   }, []);
 
-  function createTableBody() {
-    const table = [];
-    let children = [];
-
-    appointments.map((item) => {
-      children.push(
-        <tr {...item} key={item._id}>
-          <td>{item.apptDate}</td>
-          <td>{item.apptTime}</td>
-          <td>{item.user ? item.user.email : ""}</td>
-          <td>
-                                {
-                                    inEditMode.status && inEditMode.rowKey === item.id ? (
-                                        <>
-                                            <button
-                                                className={"button is-success"}
-                                                onClick={() => onSave({id: item._id, newCustomerId: customerId})}
-                                            >
-                                                Save
-                                            </button>
-
-                                            <button
-                                                className={"button is-secondary"}
-                                                style={{marginLeft: 8}}
-                                                onClick={() => onCancel()}
-                                            >
-                                                Cancel
-                                            </button>
-                                        </>
-                                    ) : (
-                                        <button
-                                            className={"button is-primary"}
-                                            onClick={() => onEdit({id: item._id, currentCustomerId: item.customerId})}
-                                        >
-                                            Edit
-                                        </button>
-                                    )
-                                }
-                            </td>
-        </tr>
-      );
-      return children;
-    });
-
-    table.push(
-      <>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Customer Email</th>
-            
-          </tr>
-        </thead>
-        <tbody>{children}</tbody>
-      </>
-    );
-    return table;
-  }
 
   return (
     <div className="container">
       <div className="section">
-        <table className="table">{createTableBody()}</table>
+        <>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>_id</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Customer Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              {appointments.map((item) => {
+                return (
+                  <tr key={item._id}>
+                    <td>{item._id}</td>
+                    <td>{item.apptDate}</td>
+                    <td>{item.apptTime}</td>
+                    <td>{item.user ? item.user.email : ""}</td>
+                    <td>
+                      {inEditMode.status && inEditMode.rowKey === item.id ? (
+                        <>
+                          <button
+                            className={"button is-success"}
+                            onClick={() =>
+                              onSave({
+                                id: item._id,
+                                newCustomerId: customerId,
+                              })
+                            }
+                          >
+                            Save
+                          </button>
+
+                          <button
+                            className={"button is-secondary"}
+                            style={{ marginLeft: 8 }}
+                            onClick={() => onCancel()}
+                          >
+                            Cancel
+                          </button>
+                        </>
+                      ) : (
+                        <button
+                          className={"button is-primary"}
+                          onClick={() =>
+                            onEdit({
+                              id: item._id,
+                              currentCustomerId: item.customerId,
+                            })
+                          }
+                        >
+                          Edit
+                        </button>
+                      )}
+                    </td>
+                    <td>
+                        <button className="button">
+                            Delete
+                        </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </>
       </div>
     </div>
   );
