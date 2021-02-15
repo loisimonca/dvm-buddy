@@ -17,7 +17,6 @@ const AppointmentEditPage = () => {
   ]);
 
   //api call to retrieve list of appointments from server
-
   function getAppointments() {
     API.listAllAppointments().then((response) => {
       const filteredData = response.data.filter(
@@ -35,6 +34,7 @@ const AppointmentEditPage = () => {
   //hold customer id of row being edited
   const [customerId, setcustomerId] = useState(null);
 
+  //Edit Function
   const onEdit = ({ _id, currentCustomerId }) => {
     setinEditMode({
       status: true,
@@ -62,10 +62,12 @@ const AppointmentEditPage = () => {
       .catch((err) => console.error(err));
   };
 
+  // save function
   const onSave = ({ _id, newCustomerId }) => {
     updateAppointment({ _id, newCustomerId });
   };
 
+  //cancel edit function
   const onCancel = () => {
     setinEditMode({
       status: false,
@@ -74,6 +76,7 @@ const AppointmentEditPage = () => {
     setcustomerId(null);
   };
 
+  
   useEffect(() => {
     getAppointments();
     getApptlist();
@@ -83,11 +86,11 @@ const AppointmentEditPage = () => {
   return (
     <div className="container">
       <div className="section">
+          <h1 className="title">Edit Appointments</h1>
         <>
           <table className="table">
             <thead>
               <tr>
-                <th>_id</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Customer Email</th>
@@ -97,7 +100,6 @@ const AppointmentEditPage = () => {
               {appointments.map((item, index) => {
                 return (
                   <tr key= {index} >
-                    <td>{item._id}</td>
                     <td>{item.apptDate}</td>
                     <td>{item.apptTime}</td>
                     <td>{item.user ? item.user.email : ""}</td>
