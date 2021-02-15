@@ -17,15 +17,16 @@ const AppointmentEditPage = () => {
   ]);
 
   //api call to retrieve list of appointments from server
-  function getAppointments() {
+  const getAppointments = () => {
     API.listAllAppointments().then((response) => {
       const filteredData = response.data.filter(
         (appointment) => appointment.apptDate >= defaultDate
       );
       setAppointments(filteredData);
-      setAppointmentList(filteredData);
+      console.log("appointment list ", filteredData);
+      //   setAppointmentList(filteredData);
     });
-  }
+  };
 
   const [inEditMode, setinEditMode] = useState({
     status: false,
@@ -35,10 +36,10 @@ const AppointmentEditPage = () => {
   const [customerId, setcustomerId] = useState(null);
 
   //Edit Function
-  const onEdit = ({ _id, currentCustomerId }) => {
+  const onEdit = ({ id, currentCustomerId }) => {
     setinEditMode({
       status: true,
-      rowKey: _id,
+      rowKey: id,
     });
     setcustomerId(currentCustomerId);
   };
@@ -79,20 +80,19 @@ const AppointmentEditPage = () => {
   //delete appointment function
   const handleDelete = (id) => {
     API.deleteAppt(id)
-    .then(getAppointments())
-    .catch(err => console.error(err));
-  }
-  
+      .then(getAppointments())
+      .catch((err) => console.error(err));
+  };
+
   useEffect(() => {
     getAppointments();
     // getApptlist();
   }, []);
 
-
   return (
     <div className="container">
       <div className="section">
-          <h1 className="title">Edit Appointments</h1>
+        <h1 className="title">Edit Appointments</h1>
         <>
           <table className="table">
             <thead>
@@ -100,9 +100,28 @@ const AppointmentEditPage = () => {
                 <th>Date</th>
                 <th>Time</th>
                 <th>Customer Email</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
+              <tr>
+                <td>
+                  {" "}
+                  <input type="text" name="date" id="" />{" "}
+                </td>
+                <td>
+                  <input type="text" name="time" id="" />
+                </td>
+                <td>
+                  <input type="text" name="email" id="" />
+                </td>
+                <td>
+                    <button className="button">
+                        Add
+                    </button>
+                </td>
+              </tr>
               {appointments.map((item, index) => {
                 return (
                   <tr key={index}>
@@ -110,7 +129,7 @@ const AppointmentEditPage = () => {
                     <td>{item.apptTime}</td>
                     <td>{item.user ? item.user.email : ""}</td>
                     <td>
-                      {inEditMode.status && inEditMode.rowKey === item.id ? (
+                      {inEditMode.status && inEditMode.rowKey === item._id ? (
                         <>
                           <button
                             className={"button is-success"}
@@ -138,7 +157,7 @@ const AppointmentEditPage = () => {
                           onClick={() =>
                             onEdit({
                               id: item._id,
-                              currentCustomerId: item.customerId,
+                              currentCustomerId: item.user ? item.user._id : "",
                             })
                           }
                         >
@@ -147,11 +166,12 @@ const AppointmentEditPage = () => {
                       )}
                     </td>
                     <td>
-                        <button className="button"
-                        onClick={() => handleDelete(item._id) }
-                        >
-                            Delete
-                        </button>
+                      <button
+                        className="button"
+                        onClick={() => handleDelete(item._id)}
+                      >
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 );
