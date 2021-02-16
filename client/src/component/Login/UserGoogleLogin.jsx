@@ -21,7 +21,8 @@ function UserGoogleLogin() {
             if(user.data){
                 sessionStorage.setItem('token', JSON.stringify(userToken))
                 sessionStorage.setItem('type', JSON.stringify(user.data.userType));
-                sessionStorage.setItem('userId', JSON.stringify(user.data._id));        
+                sessionStorage.setItem('userId', JSON.stringify(user.data._id));    
+                sessionStorage.setItem('name', JSON.stringify(user.data.firstName));    
             }else{
                 API.createGoogleFacebookUser({
                     userImage: res.profileObj.imageUrl,
@@ -37,6 +38,7 @@ function UserGoogleLogin() {
                     sessionStorage.setItem('token', JSON.stringify(userToken))
                     sessionStorage.setItem('type', JSON.stringify(user.data.userType));
                     sessionStorage.setItem('userId', JSON.stringify(user.data.userId)); 
+                    sessionStorage.setItem('name', JSON.stringify(user.data.name));
                 })
             }
             window.location.replace("/")

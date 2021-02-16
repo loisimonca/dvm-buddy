@@ -116,10 +116,12 @@ a.link:active {
     display: flex;
     flex-wrap: wrap;
   }
-
   .navbar-menu {
     margin-left: auto;
     min-width: 100%;
+    position: absolute;
+    z-index: 999;
+    top: 60px;
   }
   a.link {
     border-color: rgb(196, 118, 103);

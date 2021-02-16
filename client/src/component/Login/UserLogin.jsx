@@ -10,7 +10,6 @@ import { UserContext } from "../../utils/UserContext";
 import jwt from 'jsonwebtoken';
 
 function UserLogin() {
-  const { setValue, setToken, setUserId, setDomain } = useContext(UserContext);
 
   const handleLogIn = (e) => {
     e.preventDefault();
@@ -29,14 +28,12 @@ function UserLogin() {
             console.log(err)
           }else{
             if(res.data.type === 'User'){
-              // setToken(res.data.token)
-              // setValue("User")
-              // setUserId(res.data.id)
-              // setDomain('Local')
+              console.log(res.data)
               sessionStorage.setItem('token', JSON.stringify(res.data.token))
               sessionStorage.setItem('type', JSON.stringify("User"))
               sessionStorage.setItem('userId', JSON.stringify(res.data.id));
               sessionStorage.setItem('domain', JSON.stringify("Local"));
+              sessionStorage.setItem('name', JSON.stringify(res.data.name));
               window.location.replace('/UserHomePage')
             }else if(res.data.type ==='Employee'){
               // setToken(res.data.token)
@@ -45,6 +42,7 @@ function UserLogin() {
               sessionStorage.setItem('token', JSON.stringify(res.data.token))
               sessionStorage.setItem('type', JSON.stringify("Employee"))
               sessionStorage.setItem('userId', JSON.stringify(res.data.id));
+              sessionStorage.setItem('name', JSON.stringify(res.data.name));
               window.location.replace('/AdminHomePage')
             }
           }
