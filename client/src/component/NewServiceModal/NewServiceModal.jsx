@@ -11,7 +11,7 @@ const NewServiceModal = (props) => {
     email: "",
     zipCode: 0,
   });
-  const [match, setMatch] = useState({ phone: false, email: false });
+  const [match, setMatch] = useState({ matchTel: false, matchEmail: false });
 
   const handleChange = function (e) {
     e.preventDefault();
@@ -23,16 +23,16 @@ const NewServiceModal = (props) => {
       setServiceInfo({ ...serviceInfo, name: value });
     } else if (id === "serviceProviderPhone") {
       if (value === "" || numberOnly.test(value) === false) {
-        setServiceInfo({ ...match, phone: false });
+        setMatch({ ...match, matchTel: false });
       } else {
-        setMatch({ ...match, phone: true });
+        setMatch({ ...match, matchTel: true });
         setServiceInfo({ ...serviceInfo, tel: value });
       }
     } else if (id === "serviceProviderEmail") {
       if (value === "" || emailVal.test(value) === false) {
-        setServiceInfo({ ...match, email: false });
+        setMatch({ ...match, matchEmail: false });
       } else {
-        setMatch({ ...match, email: true });
+        setMatch({ ...match, matchEmail: true });
         setServiceInfo({ ...serviceInfo, email: value });
       }
     } else if (id === "serviceProviderZip") {
@@ -42,17 +42,16 @@ const NewServiceModal = (props) => {
 
   const handleSubmit = function (e) {
     e.preventDefault();
-    console.log("SUBMIT: ", serviceInfo);
-    API.createClassified(serviceInfo)
+    if (match.matchEmail === true && match.matchTel === true) {
+      API.createClassified(serviceInfo)
       .then((res) => {
         console.log(res);
+        alert("Success!");
+        window.location.replace("/adminpetservices");
       })
       .catch((err) => {
         console.log(err);
       });
-    if (match.email === true && match.phone === true) {
-      alert("Success!");
-      window.location.replace("/adminpetservices");
     } else {
       alert("Please enter a valid email and phone number");
     }
@@ -119,7 +118,6 @@ const NewServiceModal = (props) => {
                 />
               </div>
               <div>
-                {console.log(serviceInfo)}
                 <button
                   className="create-account-submit-btn"
                   type="submit"

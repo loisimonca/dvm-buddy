@@ -7,20 +7,17 @@ export default {
   getEmployee: function () {
     return axios.get("/api/users/employee");
   },
-  getUserByEmail: function (email) {
-    return axios.get(`/api/users/findByEmail/${email}`);
-  },
   createUser: function (newUser) {
     return axios.post("/api/users", newUser);
-  },
-  createGoogleFacebookUser: function (user) {
-    return axios.post("/api/users/googleFacebook", user);
   },
   userLogin: function (data) {
     return axios.post("/api/users/login", data);
   },
   getUserById: function (userId) {
     return axios.get(`/api/users/${userId}`);
+  },
+  getUserIdByEmail: function (email) {
+    return axios.get(`/api/users/findByEmail/${email}`);
   },
   getClassified: function () {
     return axios.get("/api/classified");
@@ -59,7 +56,10 @@ export default {
   },
   //userId is the _id from user table
   setAppt: function (apptId, user) {
-    return axios.put(`/api/appointments/${apptId}`, { user });
+    return axios.put(`/api/appointments/${apptId}`, {user});
+  },
+  setApptByEmail: function (user, apptId) {
+    return axios.put(`/api/appointments/user/${user}`, {apptId});
   },
   //route needs apptDate formatted as "YYYY-MM-DD" and apptTime formatted as "hh:mm"
   createAppt: function (data) {

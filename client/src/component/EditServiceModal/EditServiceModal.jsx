@@ -6,7 +6,7 @@ import API from "../../utils/API";
 const EditServiceModal = (props) => {
   const [currentServiceInfo, setCurrentServiceInfo] = useState({});
   const [updatedServiceInfo, setUpdatedServiceInfo] = useState({});
-  const [match, setMatch] = useState({ phone: false, email: false });
+  const [match, setMatch] = useState({ phone: true, email: true });
   const { id } = useParams();
 
   useEffect(() => {
@@ -30,14 +30,14 @@ const EditServiceModal = (props) => {
       setUpdatedServiceInfo({ ...updatedServiceInfo, name: value });
     } else if (id === "serviceProviderPhone") {
       if (value === "" || numberOnly.test(value) === false) {
-        setUpdatedServiceInfo({ ...match, phone: false });
+        setMatch({ ...match, phone: false });
       } else {
         setMatch({ ...match, phone: true });
         setUpdatedServiceInfo({ ...updatedServiceInfo, tel: value });
       }
     } else if (id === "serviceProviderEmail") {
       if (value === "" || emailVal.test(value) === false) {
-        setUpdatedServiceInfo({ ...match, email: false });
+        setMatch({ ...match, email: false });
       } else {
         setMatch({ ...match, email: true });
         setUpdatedServiceInfo({ ...updatedServiceInfo, email: value });
@@ -47,17 +47,16 @@ const EditServiceModal = (props) => {
     }
   };
 
-  const handleSubmit = function (id) {
+  const handleSubmit = function () {
     if (match.email === true && match.phone === true) {
-      alert("Success!");
-      API.updateClassifiedById(id)
+      API.updateClassifiedById(id, updatedServiceInfo)
         .then((res) => {
-          console.log("success");
+          alert("Success!");
+          window.location.replace("/adminpetservices");
         })
         .catch((err) => {
-          console.log("fail");
+          console.log(err);
         });
-      window.location.replace("/adminpetservices");
     } else {
       alert("Please enter a valid email and phone number");
     }
@@ -82,7 +81,7 @@ const EditServiceModal = (props) => {
                 <input
                   type="text"
                   name="serviceCategory"
-                  value={currentServiceInfo.category}
+                  defaultValue={currentServiceInfo.category}
                   onChange={handleChange}
                 />
               </div>
@@ -93,7 +92,7 @@ const EditServiceModal = (props) => {
                   name="serviceProviderName"
                   placeholder="Name"
                   onChange={handleChange}
-                  value={currentServiceInfo.name}
+                  defaultValue={currentServiceInfo.name}
                 />
               </div>
               <div className="user-login-with-account">
@@ -103,7 +102,7 @@ const EditServiceModal = (props) => {
                   name="serviceProviderPhone"
                   placeholder="Phone Number"
                   onChange={handleChange}
-                  value={currentServiceInfo.tel}
+                  defaultValue={currentServiceInfo.tel}
                 />
               </div>
               <div className="user-login-with-account">
@@ -113,7 +112,7 @@ const EditServiceModal = (props) => {
                   name="serviceProviderEmail"
                   placeholder="Email"
                   onChange={handleChange}
-                  value={currentServiceInfo.email}
+                  defaultValue={currentServiceInfo.email}
                 />
               </div>
               <div className="user-login-with-account">
@@ -123,7 +122,7 @@ const EditServiceModal = (props) => {
                   name="serviceProviderZip"
                   placeholder="Zipcode"
                   onChange={handleChange}
-                  value={currentServiceInfo.zipCode}
+                  defaultValue={currentServiceInfo.zipCode}
                 />
               </div>
               <div>

@@ -37,6 +37,7 @@ function UserLogin() {
               sessionStorage.setItem('type', JSON.stringify("User"))
               sessionStorage.setItem('userId', JSON.stringify(res.data.id));
               sessionStorage.setItem('domain', JSON.stringify("Local"));
+              window.location.replace('/UserHomePage')
             }else if(res.data.type ==='Employee'){
               // setToken(res.data.token)
               // setValue("Employee")
@@ -44,10 +45,10 @@ function UserLogin() {
               sessionStorage.setItem('token', JSON.stringify(res.data.token))
               sessionStorage.setItem('type', JSON.stringify("Employee"))
               sessionStorage.setItem('userId', JSON.stringify(res.data.id));
+              window.location.replace('/AdminHomePage')
             }
           }
         })
-        window.location.replace('/')
       })
       .catch((err) => {
         alert("Incorrect email address or password");
