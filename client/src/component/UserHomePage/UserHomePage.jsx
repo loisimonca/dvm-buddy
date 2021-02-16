@@ -1,6 +1,7 @@
 import { session } from "passport";
 import React, {useState} from "react";
 import {NavLink} from 'react-router-dom'
+import UpcomingSchedule from "./UpcomingSchedule";
 import "./UserHomePage.css"
 // import API from './'
 
@@ -13,6 +14,9 @@ const UserHomePage = () => {
       <div className="user__landing__page__top__wrap">
         <h1 className="user__landing__page__top__title">Welcome to DVM Buddy</h1>
         <p className="user__landing__page__top__name">{name}</p>
+      </div>
+      <div>
+        <UpcomingSchedule/>
       </div>
       <div className="user__landing__page__wrap2">
       <div className="user__landing__video__wrap">
