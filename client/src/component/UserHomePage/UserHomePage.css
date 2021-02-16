@@ -22,11 +22,47 @@
   padding: 30px 0;
 }
 .user__landing__page__title {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 700;
+  margin: 20px 0;
 }
 .user__landing__page__subtitle {
   font-size: 30px;
+}
+.user__landing__page__description__container {
+  margin: 30px 0;
+}
+.user__landing__page__button {
+  width: 120px;
+  background-color: rgb(238, 230, 230);
+  border: 1px solid rgb(197, 100, 100);
+  border-radius: 3rem;
+  margin: 20px;
+  padding: 10px;
+  color: rgb(139, 87, 87);
+  font-weight: 500;
+}
+.user__landing__page__button:hover {
+  background-color: rgb(224, 199, 199);
+  border: none;
+  color: rgb(53, 33, 33);
+  font-weight: 700;
+}
+.user__landing__page__button:focus {
+  outline: none;
+}
+.user__landing__page__button > img {
+  padding: 10px;
+  width: 90px;
+}
+.user__landing__page__account__button {
+  color: black;
+  background-color: rgb(209, 173, 173);
+  padding: 10px 20px;
+  border-radius: 2rem;
+}
+.user__landing__page__account__button:hover {
+  background-color: rgb(209, 158, 158);
 }
 @media screen and (min-width: 970px) {
   .user__landing__page__wrap {
@@ -40,7 +76,8 @@
       rgb(238, 230, 230) 20%,
       rgba(175, 162, 162, 0) 100%
     );
-    padding: 10%;
+    margin: 0 30px;
+    padding: 0 40px;
   }
   .user__landing__page__title {
     right: 0;
