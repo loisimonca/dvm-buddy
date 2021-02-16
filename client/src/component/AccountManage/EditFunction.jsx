@@ -31,7 +31,7 @@ function EditFunction({
           </button>
         </span>
       ) : (
-        <button name={target} onClick={EditOpen}>
+        <button className="editNumberBtn" name={target} onClick={EditOpen}>
           Edit
         </button>
       )}

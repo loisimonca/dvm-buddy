@@ -16,7 +16,7 @@ function AccountManage() {
         setUserData(res.data);
       });
     }
-  }, []);
+  }, [userId]);
 
   return (
     <div>

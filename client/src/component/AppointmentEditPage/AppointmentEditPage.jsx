@@ -117,9 +117,7 @@ const AppointmentEditPage = () => {
                   <input type="text" name="email" id="" />
                 </td>
                 <td>
-                    <button className="button">
-                        Add
-                    </button>
+                  <button className="button">Add</button>
                 </td>
               </tr>
               {appointments.map((item, index) => {

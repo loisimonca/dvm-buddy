@@ -2,3 +2,18 @@
   border-bottom-color: rgb(209, 138, 123) !important;
   color: black;
 }
+
+.tabs {
+  margin-top: 40px;
+}
+
+.tabs ul {
+  border-bottom: none;
+}
+
+.inactive {
+  background-color: rgba(241, 226, 223, 0.6);
+}
+.activeBtn {
+  background-color: rgb(209, 138, 123);
+}
