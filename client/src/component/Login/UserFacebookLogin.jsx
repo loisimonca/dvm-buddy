@@ -20,7 +20,8 @@ function UserFacebookLogin() {
                 })
                 sessionStorage.setItem('token', JSON.stringify(token))
                 sessionStorage.setItem('type', JSON.stringify(user.data.userType));
-                sessionStorage.setItem('userId', JSON.stringify(user.data._id));        
+                sessionStorage.setItem('userId', JSON.stringify(user.data._id));  
+                sessionStorage.setItem('name', JSON.stringify(user.data.firstName));       
             }else{
                 const fullName=response.name.split(" ")
                 const firstName = fullName[0]
@@ -41,7 +42,8 @@ function UserFacebookLogin() {
                     console.log('after create user account: ', user)
                     sessionStorage.setItem('token', JSON.stringify(token))
                     sessionStorage.setItem('type', JSON.stringify(user.data.userType));
-                    sessionStorage.setItem('userId', JSON.stringify(user.data.userId)); 
+                    sessionStorage.setItem('userId', JSON.stringify(user.data.userId));
+                    sessionStorage.setItem('name', JSON.stringify(user.data.name));       
                 })
             }
         })
