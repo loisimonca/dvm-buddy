@@ -1,4 +1,5 @@
 import React from "react";
+import {NavLink} from 'react-router-dom'
 
 
 const UserHomePage = () => {
@@ -9,7 +10,7 @@ const UserHomePage = () => {
         <h3 className="home-subtitle has-text-centered is-uppercase">
           <strong>
            Visit your Account to see more options<br />
-           <button class="button is-large is-fullwidth">Account</button>
+           <NavLink to='/AccountManage' className="button is-large is-fullwidth">Account</NavLink>
           
             <br /> 
           </strong>
