@@ -28,6 +28,7 @@ module.exports = {
         res.json({
           userType: user.userType,
           userId: user._id,
+          name: user.firstName,
         });
       })
       .catch((error) => {
@@ -44,6 +45,7 @@ module.exports = {
           userType: user.userType,
           token: token,
           userId: user._id,
+          name: user.firstName,
         });
       })
       .catch((error, doc, next) => {

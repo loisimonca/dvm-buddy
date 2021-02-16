@@ -26,6 +26,7 @@ function App() {
   const [value, setValue] = useState(null);
   const [userId, setUserId] = useState(null);
   const [domain, setDomain] = useState(null);
+  const [name, setName] = useState(null);
   return (
     <>
       <Router>
@@ -40,6 +41,8 @@ function App() {
               setUserId,
               domain,
               setDomain,
+              name,
+              setName,
             }}
           >
             <Navbar />

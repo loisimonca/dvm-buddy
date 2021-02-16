@@ -14,6 +14,7 @@ router
         token: token,
         type: req.user.userType,
         id: req.user._id,
+        name: req.user.firstName,
       });
     }
   });
