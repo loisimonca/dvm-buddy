@@ -14,8 +14,6 @@ const UserHomePage = () => {
       <div className="user__landing__page__top__wrap">
         <h1 className="user__landing__page__top__title">Welcome to DVM Buddy</h1>
         <p className="user__landing__page__top__name">{name}</p>
-      </div>
-      <div className='upcoming__schedule__desktop'>
         <UpcomingSchedule />
       </div>
       <div className="user__landing__page__wrap2">
