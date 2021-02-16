@@ -1,0 +1,12 @@
+.formBtn {
+  margin: 20px;
+  border: none;
+  background-color: rgb(209, 138, 123);
+  font-weight: 800;
+  color: white;
+  border-radius: 6px;
+}
+
+.formBtn:hover {
+  background-color: rgb(179, 110, 97);
+}

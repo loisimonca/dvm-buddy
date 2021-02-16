@@ -6,11 +6,13 @@ body {
   border-radius: 8px;
   width: 70%;
   margin: auto;
+  margin-bottom: 30px;
 }
 .account-manage-title {
   font-family: Roboto slab !important;
   margin: 20px;
   text-align: center;
+  color: black;
 }
 
 .account-manage-item {

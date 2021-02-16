@@ -13,6 +13,7 @@ export default function PatientInfoPage() {
   return (
     <div className="account-manage-container container">
       <h1 className="account-manage-title is-size-3 ">Patient Information</h1>
+
       {patient &&
         patient.map((data) => (
           <div className="patient-info-wrap">
@@ -26,7 +27,7 @@ export default function PatientInfoPage() {
               Contact Number: {data.tel}
             </div>
 
-            <h4>EMAIL: {data.email}</h4>
+            <div className="account-manage-item">Email: {data.email}</div>
           </div>
         ))}
     </div>

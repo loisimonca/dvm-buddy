@@ -2,27 +2,49 @@ import React, { useState } from "react";
 import EmployeeManagePage from "./EmployeeAccountParts/EmployeeManagePage";
 import PatientInfoPage from "./EmployeeAccountParts/PatientInfoPage";
 import EmployeePage from "./EmployeeAccountParts/EmployeePage";
+import Documents from "./Documents";
 import "./EmployeeAccountSelectBar.css";
 
 function EmployeeAccountSelectBar({ userData, setUserData }) {
   const [state, setState] = useState("personal-info");
-  const [active, setActive] = useState();
+  const [active1, setActive1] = useState(false);
+  const [active2, setActive2] = useState(false);
+  const [active3, setActive3] = useState(false);
+  const [active4, setActive4] = useState(false);
 
   const handleClick = (e) => {
     const target = e.target.name;
+
     setState(target);
-    // if (active.object[index] === target) {
-    //   setActive(...active, target.object[index]);
-    // } else {
-    //   setActive = false;
+    if (target == "personal-info") {
+      setActive2(false);
+      setActive3(false);
+      setActive4(false);
+      setActive1(true);
+    } else if (target == "documents") {
+      setActive1(false);
+      setActive2(false);
+      setActive3(false);
+      setActive4(true);
+    } else if (target == "patient-info") {
+      setActive1(false);
+      setActive2(true);
+      setActive3(false);
+      setActive4(false);
+    } else if (target == "employee-info") {
+      setActive1(false);
+      setActive2(false);
+      setActive3(true);
+      setActive4(false);
+    }
   };
   return (
     <>
-      <div className="tabs is-boxed is-centered">
+      <div className="tabs is-centered">
         <ul>
           <li
             value="personal-info"
-            className={active ? "activeBtn" : "inactive"}
+            className={active1 ? "activeBtn" : "inactive"}
             onClick={handleClick}
           >
             <strong>
@@ -30,28 +52,28 @@ function EmployeeAccountSelectBar({ userData, setUserData }) {
             </strong>
           </li>
           <li
-            id="2"
-            className={active ? "activeBtn" : "inactive"}
+            value="patient-info"
+            className={active2 ? "activeBtn" : "inactive"}
             onClick={handleClick}
           >
             <strong>
-              <a id="3" name="patient-info">
-                Patient Information
-              </a>
+              <a name="patient-info">Patient Information</a>
             </strong>
           </li>
           <li
-            id="4"
-            className={active ? "activeBtn" : "inactive"}
+            className={active3 ? "activeBtn" : "inactive"}
             onClick={handleClick}
           >
             <strong>
               <a name="employee-info">Employee Management</a>
             </strong>
           </li>
-          <li className={active ? "activeBtn" : "inactive"}>
+          <li
+            className={active4 ? "activeBtn" : "inactive"}
+            onClick={handleClick}
+          >
             <strong>
-              <a>
+              <a name="documents">
                 <span className="icon is-small">
                   <i className="far fa-file-alt" aria-hidden="true"></i>
                 </span>
@@ -70,6 +92,7 @@ function EmployeeAccountSelectBar({ userData, setUserData }) {
       {state === "employee-info" && (
         <EmployeeManagePage userData={userData} setUserData={setUserData} />
       )}
+      {state === "documents" && <Documents />}
     </>
   );
 }
