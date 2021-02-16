@@ -8,6 +8,7 @@ router.route("/:id").get(appointmentsController.findOneAppt);
 router.route("/customer/:id").get(appointmentsController.findApptByCust);
 router.route("/:id").delete(appointmentsController.delete);
 router.route("/:id").put(appointmentsController.setAppointment);
+router.route("/user/:email").put(appointmentsController.setAppointmentByEmail)
 
 
 
