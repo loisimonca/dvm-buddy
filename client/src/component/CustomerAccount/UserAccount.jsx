@@ -9,7 +9,7 @@ import EmployeeAccount from './EmployeeAccount'
 const UserAccount = () => {
   const {setValue, setToken, setUserId} = useContext(UserContext)
   const [match, setMatch] = useState(false);
-  const [userInfo, setUserInfo] = useState({ userType: "User", domain: 'Local' });
+  const [userInfo, setUserInfo] = useState({ userType: "User", domain: 'Local', userImage:'' });
   const [employeeCode, setEmployeeCode] = useState(null)
   const EmployeeAccountCode = 'employee-code-1234'
 
@@ -83,9 +83,9 @@ const UserAccount = () => {
           setToken(res.data.token)
           setValue(res.data.userType)
           setUserId(res.data.userId)
-          localStorage.setItem('token', JSON.stringify(res.data.token))
-          localStorage.setItem('type', JSON.stringify(res.data.userType))
-          localStorage.setItem('userId', JSON.stringify(res.data.userId))
+          sessionStorage.setItem('token', JSON.stringify(res.data.token))
+          sessionStorage.setItem('type', JSON.stringify(res.data.userType))
+          sessionStorage.setItem('userId', JSON.stringify(res.data.userId))
           window.location.replace("/");
         }
       })

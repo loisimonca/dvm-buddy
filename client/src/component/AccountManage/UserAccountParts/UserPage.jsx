@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../../../utils/API";
+import UserImage from "../../UserImage/UserImage";
 import EditFunction from "../EditFunction";
 
 function UserPage({ userData, setUserData }) {
@@ -86,6 +87,7 @@ function UserPage({ userData, setUserData }) {
     <div className="account-manage-wrap">
       <div className="account-manage-container container">
         <h1 className="account-manage-title">Personal Info</h1>
+        <UserImage currentImage={userData.userImage}/>
         <div className="account-manage-item">
           FirstName :{" "}
           <span className="account-manage-input" name="firstName">

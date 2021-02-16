@@ -39,8 +39,8 @@ function UserGoogleLogin() {
                     sessionStorage.setItem('userId', JSON.stringify(user.data.userId)); 
                 })
             }
+            window.location.replace("/")
         })
-        window.location.replace("/")
     };
     const onFailure = (res) =>{
         console.log("[Login failed] res: ", res);
