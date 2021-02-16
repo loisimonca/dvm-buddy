@@ -39,7 +39,7 @@ function UserAccountSelectBar({ userData, setUserData}) {
     </div>
   {state==="personal-info" && <UserPage userData={userData} setUserData={setUserData} />}
 
-<Wrapper>
+  <Wrapper>
   <strong>Upcoming Appointments</strong>
   <div class="notification">
   <button class="delete"></button>
