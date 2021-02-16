@@ -31,6 +31,9 @@ export default {
   updateClassifiedById: function (serviceId, data) {
     return axios.put(`/api/classified/${serviceId}`, data);
   },
+  deleteClassified: function (serviceId) {
+    return axios.delete(`/api/classified/${serviceId}`);
+  },
   createClassified: function (serviceInfo) {
     return axios.post("/api/classified/", serviceInfo);
   },

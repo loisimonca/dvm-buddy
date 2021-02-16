@@ -10,7 +10,7 @@ const BoardingCard = (props) => {
           <hr className="line" />
           <h3 className="nameCard">{props.name}</h3>
           <p className="zip">Zip Code: {props.zip}</p>
-          <p className="phone">Phone: {props.phone}</p>
+          <p className="phone">Phone: {props.tel}</p>
           <p className="email">Email: {props.email}</p>
         </div>
       </div>
