@@ -17,7 +17,7 @@ export default {
     return axios.get(`/api/users/${userId}`);
   },
   getUserIdByEmail: function (email) {
-    return axios.get(`/api/users/${email}`);
+    return axios.get(`/api/users/findByEmail/${email}`);
   },
   getClassified: function () {
     return axios.get("/api/classified");
@@ -45,6 +45,9 @@ export default {
   //userId is the _id from user table
   setAppt: function (apptId, user) {
     return axios.put(`/api/appointments/${apptId}`, {user});
+  },
+  setApptByUser: function (apptId, user) {
+    return axios.put(`/api/appointments/user/${user}`, {apptId});
   },
   //route needs apptDate formatted as "YYYY-MM-DD" and apptTime formatted as "hh:mm"
   createAppt: function (data) {

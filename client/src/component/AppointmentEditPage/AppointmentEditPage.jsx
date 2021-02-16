@@ -44,8 +44,8 @@ const AppointmentEditPage = () => {
     setcustomerId(currentCustomerId);
   };
 
-  const updateAppointment = ({ _id, newCustomerId }) => {
-    API.setAppt(_id, newCustomerId)
+  const updateAppointment = ({ _id, email }) => {
+    API.setAppt(_id, email)
       .then((resp) => console.log(resp))
       .catch((err) => console.error(err));
   };
