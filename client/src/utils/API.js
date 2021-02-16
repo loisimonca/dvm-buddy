@@ -46,7 +46,7 @@ export default {
   setAppt: function (apptId, user) {
     return axios.put(`/api/appointments/${apptId}`, {user});
   },
-  setApptByUser: function (user, apptId) {
+  setApptByEmail: function (user, apptId) {
     return axios.put(`/api/appointments/user/${user}`, {apptId});
   },
   //route needs apptDate formatted as "YYYY-MM-DD" and apptTime formatted as "hh:mm"
@@ -57,6 +57,6 @@ export default {
     return axios.get(`/api/appointments/${apptId}`);
   },
   listAllAppointments: function () {
-    return axios.get(/api/appointments/list/all);
+    return axios.get("/api/appointments/list/all");
   },
 };

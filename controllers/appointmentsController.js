@@ -55,11 +55,12 @@ module.exports = {
   },
   setAppointmentByEmail: (req, res) => {
     const apptId = req.body.id;
+    console.log("apptId is " ,apptId)
 
     db.User.findOne({ email: req.params.email })
       .then((user) => {
-        console.log("userId is ", user._id);
-        console.log("req.body.id is ", req.body.id);
+        console.log("server userId is ", user._id);
+        console.log("server req.body.id is ", req.body.id);
         db.Appointment.findByIdAndUpdate(
           apptId,
           {
@@ -76,7 +77,7 @@ module.exports = {
       .catch((err) => console.log(err));
   },
   findAll: (req, res) => {
-    db.Appointment.findOne()
+    db.Appointment.find()
       .populate("user", "email")
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
