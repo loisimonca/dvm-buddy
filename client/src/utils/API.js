@@ -46,7 +46,7 @@ export default {
   setAppt: function (apptId, user) {
     return axios.put(`/api/appointments/${apptId}`, {user});
   },
-  setApptByUser: function (apptId, user) {
+  setApptByUser: function (user, apptId) {
     return axios.put(`/api/appointments/user/${user}`, {apptId});
   },
   //route needs apptDate formatted as "YYYY-MM-DD" and apptTime formatted as "hh:mm"
