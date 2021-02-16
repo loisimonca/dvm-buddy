@@ -83,6 +83,12 @@ function UserPage({ userData, setUserData }) {
       }
       window.location.reload();
     };
+
+  //   useEffect(() => {
+  //   API.getApptByCustomer()
+  //     .then((response) => {
+  //       const 
+  // }, []); 
     return (
         <div className="account-manage-wrap">
         <div className="account-manage-container container">
@@ -151,6 +157,7 @@ function UserPage({ userData, setUserData }) {
           </div>
         </div>
       </div>
+      
     )
 }
 

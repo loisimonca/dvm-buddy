@@ -13,6 +13,7 @@ import CustomerPage from "./component/CustomerPage/CustomerPage";
 import AdminPage from "./component/AdminPage/Admin";
 import AdminHomePage from "./component/AdminHomePage/AdminHomePage";
 import UserHomePage from "./component/UserHomePage/UserHomePage";
+import UserAccountPage from "./component/UserAccountPage/UserAccountPage";
 import { UserContext } from "./utils/UserContext";
 import PetServices from "./component/PetServices/PetServices";
 
@@ -55,6 +56,7 @@ function App() {
               <Route exact path="/AdminPage" component={AdminPage} />
               <Route exact path="/AdminHomePage" component={AdminHomePage} />
               <Route exact path="/UserHomePage" component={UserHomePage} />
+              <Route exact path="/UserAccountPage" component={UserAccountPage}/>
               <Route exact path="/Login" component={Login} />
               <Route path="*" render={() => <Redirect to="/" />} />
             </Switch>

@@ -23,3 +23,10 @@
   margin: 20px;
   padding: 20px;
 }
+.containter-appointment {
+background-color: '#fff';
+color: '#313174';
+text-align: 'center';
+font-size: '36px';
+margin-top: '70px';
+}

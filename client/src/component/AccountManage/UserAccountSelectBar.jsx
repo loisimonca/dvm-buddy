@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import UserPage from './UserAccountParts/UserPage'
+import Wrapper from "../Wrapper/Wrapper";
 
 function UserAccountSelectBar({ userData, setUserData}) {
     const [state, setState] = useState('personal-info')
@@ -36,7 +37,32 @@ function UserAccountSelectBar({ userData, setUserData}) {
         </li> */}
       </ul>
     </div>
-    {state==="personal-info" && <UserPage userData={userData} setUserData={setUserData} />}
+  {state==="personal-info" && <UserPage userData={userData} setUserData={setUserData} />}
+
+<Wrapper>
+  <strong>Upcoming Appointments</strong>
+  <div class="notification">
+  <button class="delete"></button>
+ 
+</div>
+<div class="notification">
+  <button class="delete"></button>
+  
+</div>
+<div class="notification">
+  <button class="delete"></button>
+  
+</div>
+<div class="notification">
+  <button class="delete"></button>
+  
+</div>
+<div class="notification">
+  <button class="delete"></button>
+  
+</div>
+</Wrapper>
+  
     </>
   );
 }
