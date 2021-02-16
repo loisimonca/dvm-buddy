@@ -22,6 +22,18 @@ export default {
   getClassified: function () {
     return axios.get("/api/classified");
   },
+  getClassifiedById: function (serviceId) {
+    return axios.get(`/api/classified/${serviceId}`);
+  },
+  updateClassifiedById: function (serviceId, data) {
+    return axios.put(`/api/classified/${serviceId}`, data);
+  },
+  deleteClassified: function (serviceId) {
+    return axios.delete(`/api/classified/${serviceId}`);
+  },
+  createClassified: function (serviceInfo) {
+    return axios.post("/api/classified/", serviceInfo);
+  },
   updateUserById: function (userId, data) {
     return axios.put(`/api/users/${userId}`, data);
   },

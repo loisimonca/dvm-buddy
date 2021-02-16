@@ -28,21 +28,30 @@ const Navbar = () => {
       setUserId(userId);
     }
   }, []);
+  const logoLink =   function(link){      
+    return(
+      <Link
+        to={link}
+        className="navbar-main is-pulled-left"
+        onClick={closeMobileMenu}
+      >
+        <h1 className="nav-title">
+          <i className="fas fa-paw"></i> DVM Buddy
+        </h1>
+      </Link>
+    )
+  }
   return (
     <div>
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <Link
-            to="/"
-            className="navbar-main is-pulled-left"
-            onClick={closeMobileMenu}
-          >
-            <h1 className="nav-title">
-              <i className="fas fa-paw"></i> DVM Buddy
-            </h1>
-          </Link>
+          {token===null ? 
+                logoLink('/')
+        :( value==='User' ? logoLink("/UserHomePage")
+          :logoLink("/AdminHomePage")
+          )
+          }
         </div>
-
         {token === null && (
           <BeforeLoginNav
             handleClick={handleClick}

@@ -1,57 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { numberOnly, emailVal } from "../CustomerAccount/regexSet";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import API from "../../utils/API";
 
-const NewServiceModal = (props) => {
-  const [serviceInfo, setServiceInfo] = useState({
-    category: "",
-    name: "",
-    tel: 0,
-    email: "",
-    zipCode: 0,
-  });
-  const [match, setMatch] = useState({ matchTel: false, matchEmail: false });
+const EditServiceModal = (props) => {
+  const [currentServiceInfo, setCurrentServiceInfo] = useState({});
+  const [updatedServiceInfo, setUpdatedServiceInfo] = useState({});
+  const [match, setMatch] = useState({ phone: true, email: true });
+  const { id } = useParams();
+
+  useEffect(() => {
+    console.log(id);
+    API.getClassifiedById(id)
+      .then((res) => {
+        setCurrentServiceInfo(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const handleChange = function (e) {
     e.preventDefault();
     const value = e.target.value;
     const id = e.target.name;
     if (id === "serviceCategory") {
-      setServiceInfo({ ...serviceInfo, category: value });
+      setUpdatedServiceInfo({ ...updatedServiceInfo, category: value });
     } else if (id === "serviceProviderName") {
-      setServiceInfo({ ...serviceInfo, name: value });
+      setUpdatedServiceInfo({ ...updatedServiceInfo, name: value });
     } else if (id === "serviceProviderPhone") {
       if (value === "" || numberOnly.test(value) === false) {
-        setMatch({ ...match, matchTel: false });
+        setMatch({ ...match, phone: false });
       } else {
-        setMatch({ ...match, matchTel: true });
-        setServiceInfo({ ...serviceInfo, tel: value });
+        setMatch({ ...match, phone: true });
+        setUpdatedServiceInfo({ ...updatedServiceInfo, tel: value });
       }
     } else if (id === "serviceProviderEmail") {
       if (value === "" || emailVal.test(value) === false) {
-        setMatch({ ...match, matchEmail: false });
+        setMatch({ ...match, email: false });
       } else {
-        setMatch({ ...match, matchEmail: true });
-        setServiceInfo({ ...serviceInfo, email: value });
+        setMatch({ ...match, email: true });
+        setUpdatedServiceInfo({ ...updatedServiceInfo, email: value });
       }
     } else if (id === "serviceProviderZip") {
-      setServiceInfo({ ...serviceInfo, zipCode: value });
+      setUpdatedServiceInfo({ ...updatedServiceInfo, zipCode: value });
     }
   };
 
-  const handleSubmit = function (e) {
-    e.preventDefault();
-    if (match.matchEmail === true && match.matchTel === true) {
-      API.createClassified(serviceInfo)
-      .then((res) => {
-        console.log(res);
-        alert("Success!");
-        window.location.replace("/adminpetservices");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const handleSubmit = function () {
+    if (match.email === true && match.phone === true) {
+      API.updateClassifiedById(id, updatedServiceInfo)
+        .then((res) => {
+          alert("Success!");
+          window.location.replace("/adminpetservices");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
       alert("Please enter a valid email and phone number");
     }
@@ -63,7 +68,7 @@ const NewServiceModal = (props) => {
         <div className="modal-background"></div>
         <div className="modal-card">
           <header className="modal-card-head">
-            <p className="modal-card-title">Pet Services</p>
+            <p className="modal-card-title">Edit Pet Services</p>
             <Link
               to="/adminpetservices"
               className="delete modal-close"
@@ -74,10 +79,9 @@ const NewServiceModal = (props) => {
             <form onSubmit={handleSubmit} className="has-text-centered">
               <div className="user-login-with-account">
                 <input
-                  autoComplete="off"
                   type="text"
                   name="serviceCategory"
-                  placeholder="Category"
+                  defaultValue={currentServiceInfo.category}
                   onChange={handleChange}
                 />
               </div>
@@ -88,6 +92,7 @@ const NewServiceModal = (props) => {
                   name="serviceProviderName"
                   placeholder="Name"
                   onChange={handleChange}
+                  defaultValue={currentServiceInfo.name}
                 />
               </div>
               <div className="user-login-with-account">
@@ -97,6 +102,7 @@ const NewServiceModal = (props) => {
                   name="serviceProviderPhone"
                   placeholder="Phone Number"
                   onChange={handleChange}
+                  defaultValue={currentServiceInfo.tel}
                 />
               </div>
               <div className="user-login-with-account">
@@ -106,6 +112,7 @@ const NewServiceModal = (props) => {
                   name="serviceProviderEmail"
                   placeholder="Email"
                   onChange={handleChange}
+                  defaultValue={currentServiceInfo.email}
                 />
               </div>
               <div className="user-login-with-account">
@@ -115,6 +122,7 @@ const NewServiceModal = (props) => {
                   name="serviceProviderZip"
                   placeholder="Zipcode"
                   onChange={handleChange}
+                  defaultValue={currentServiceInfo.zipCode}
                 />
               </div>
               <div>
@@ -134,4 +142,4 @@ const NewServiceModal = (props) => {
   );
 };
 
-export default NewServiceModal;
+export default EditServiceModal;
