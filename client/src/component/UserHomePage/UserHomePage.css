@@ -79,6 +79,13 @@
 .user__landing__page__account__button__inVideo {
   display: none;
 }
+.upcoming__schedule__desktop {
+  display: none;
+}
+.upcoming__schedule__container {
+  text-align: center;
+  font-size: 30px;
+}
 @media screen and (min-width: 1023px) {
   .user__landing__page__wrap2 {
     padding: 5%;
@@ -144,6 +151,12 @@
   .user__landing__page__account__button__inVideo:hover {
     background-color: rgba(209, 158, 158, 0.342);
     border-radius: 5rem;
+  }
+  .upcoming__schedule__mobile {
+    display: none;
+  }
+  .upcoming__schedule__desktop {
+    display: flex;
   }
 }
 @media screen and (min-width: 1390px) {

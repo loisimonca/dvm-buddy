@@ -15,8 +15,8 @@ const UserHomePage = () => {
         <h1 className="user__landing__page__top__title">Welcome to DVM Buddy</h1>
         <p className="user__landing__page__top__name">{name}</p>
       </div>
-      <div>
-        <UpcomingSchedule/>
+      <div className='upcoming__schedule__desktop'>
+        <UpcomingSchedule />
       </div>
       <div className="user__landing__page__wrap2">
       <div className="user__landing__video__wrap">
@@ -29,6 +29,9 @@ const UserHomePage = () => {
       <div className="user__landing__page container">
         <h2 className="user__landing__page__title">Welcome to DVM Buddy</h2>
         <p className="user__landing__page__name">{name}</p>
+        <div className='upcoming__schedule__mobile'>
+          <UpcomingSchedule />
+        </div>
         <div className="user__landing__page__description__container">
           <button className="user__landing__page__button">
             <img src="/images/veterinarian.svg" alt="veterianarian" />

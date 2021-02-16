@@ -15,6 +15,7 @@ function UpcomingSchedule() {
         <div>
             <div className="upcoming__schedule__container">
                 <div className="upcoming__schedule__wrap">
+                    <h1 className="upcoming__schedule__title">Upcoming Schedule</h1>
                     <div className="upcoming__schedule__data">{schedule.apptDate}</div>
                     <div className="upcoming__schedule__time">{schedule.apptTime}</div>
                 </div>
