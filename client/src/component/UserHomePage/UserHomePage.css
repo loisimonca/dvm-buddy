@@ -1,3 +1,6 @@
+.user__landing__page__whole {
+  background: rgb(238, 230, 230);
+}
 .user__landing__video__wrap > video {
   /* object-fit: cover;
   position: fixed;
@@ -15,6 +18,7 @@
   height: 100%;
   width: 100%;
   align-content: center;
+  max-width: 1200px;
 }
 .user__landing__page {
   z-index: 2;
@@ -22,9 +26,16 @@
   padding: 30px 0;
 }
 .user__landing__page__title {
-  font-size: 40px;
-  font-weight: 700;
+  font-family: "Shrikhand", cursive;
+  font-size: 50px;
   margin: 20px 0;
+}
+.user__landing__page__top__wrap {
+  display: none;
+}
+.user__landing__page__name {
+  font-size: 30px;
+  font-weight: 600;
 }
 .user__landing__page__subtitle {
   font-size: 30px;
@@ -60,12 +71,16 @@
   background-color: rgb(209, 173, 173);
   padding: 10px 20px;
   border-radius: 2rem;
+  font-weight: 600;
 }
 .user__landing__page__account__button:hover {
   background-color: rgb(209, 158, 158);
 }
-@media screen and (min-width: 970px) {
-  .user__landing__page__wrap {
+.user__landing__page__account__button__inVideo {
+  display: none;
+}
+@media screen and (min-width: 1023px) {
+  .user__landing__page__wrap2 {
     padding: 5%;
     display: flex;
     flex-direction: row-reverse;
@@ -76,11 +91,128 @@
       rgb(238, 230, 230) 20%,
       rgba(175, 162, 162, 0) 100%
     );
-    margin: 0 30px;
-    padding: 0 40px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
   .user__landing__page__title {
-    right: 0;
+    display: none;
+  }
+  .user__landing__page__name {
+    display: none;
+  }
+  .user__landing__page__description__container {
     width: 400px;
+    margin: 0;
+  }
+  .user__landing__page__top__wrap {
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .user__landing__page__top__wrap > h1 {
+    font-family: "Shrikhand", cursive;
+    font-size: 50px;
+  }
+  .user__landing__page__top__wrap > p {
+    font-family: "Shrikhand", cursive;
+    font-size: 30px;
+  }
+  .user__landing__page__account__button {
+    display: none;
+  }
+  .user__landing__video__wrap {
+    position: relative;
+  }
+  .user__landing__page__account__button__inVideo {
+    display: initial;
+    position: absolute;
+    bottom: 50px;
+    left: 60px;
+    text-align: center;
+    width: 160px;
+  }
+  .user__landing__page__account__word__inVideo {
+    font-weight: 600;
+    color: black;
+    font-size: 25px;
+    padding: 0 20px;
+  }
+  .user__landing__page__account__button__inVideo > img {
+    width: 100px;
+  }
+  .user__landing__page__account__button__inVideo:hover {
+    background-color: rgba(209, 158, 158, 0.342);
+    border-radius: 5rem;
+  }
+}
+@media screen and (min-width: 1390px) {
+  .user__landing__video__wrap > video {
+    width: 720px;
+  }
+  .user__landing__page__wrap2 {
+    padding: 5%;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .user__landing__page {
+    background: radial-gradient(
+      ellipse at center,
+      rgb(238, 230, 230) 20%,
+      rgba(175, 162, 162, 0) 100%
+    );
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .user__landing__page__title {
+    display: none;
+  }
+  .user__landing__page__name {
+    display: none;
+  }
+  .user__landing__page__description__container {
+    width: 400px;
+    margin-top: 20px;
+  }
+  .user__landing__page__top__wrap {
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .user__landing__page__top__wrap > h1 {
+    font-family: "Shrikhand", cursive;
+    font-size: 50px;
+  }
+  .user__landing__page__top__wrap > p {
+    font-family: "Shrikhand", cursive;
+    font-size: 30px;
+  }
+  .user__landing__page__account__button {
+    display: none;
+  }
+  .user__landing__video__wrap {
+    position: relative;
+  }
+  .user__landing__page__account__button__inVideo {
+    display: initial;
+    position: absolute;
+    bottom: 50px;
+    left: 60px;
+    text-align: center;
+    width: 160px;
+  }
+  .user__landing__page__account__word__inVideo {
+    font-weight: 600;
+    color: black;
+    font-size: 25px;
+    padding: 0 20px;
+  }
+  .user__landing__page__account__button__inVideo > img {
+    width: 100px;
+  }
+  .user__landing__page__account__button__inVideo:hover {
+    background-color: rgba(209, 158, 158, 0.342);
+    border-radius: 5rem;
   }
 }
