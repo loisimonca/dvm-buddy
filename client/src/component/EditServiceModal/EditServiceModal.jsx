@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { numberOnly, emailVal } from "../CustomerAccount/regexSet";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import API from "../../utils/API";
 
 const EditServiceModal = (props) => {
   const [currentServiceInfo, setCurrentServiceInfo] = useState({});
+  const [updatedServiceInfo, setUpdatedServiceInfo] = useState({});
   const [match, setMatch] = useState({ phone: false, email: false });
+  const { id } = useParams();
 
-  useEffect((id) => {
+  useEffect(() => {
     console.log(id);
     API.getClassifiedById(id)
       .then((res) => {
@@ -17,31 +19,32 @@ const EditServiceModal = (props) => {
         console.log(err);
       });
   }, []);
+
   const handleChange = function (e) {
     e.preventDefault();
     const value = e.target.value;
     const id = e.target.name;
-    // if (id === "serviceCategory") {
-    //   setServiceInfo({ ...serviceInfo, category: value });
-    // } else if (id === "serviceProviderName") {
-    //   setServiceInfo({ ...serviceInfo, name: value });
-    // } else if (id === "serviceProviderPhone") {
-    //   if (value === "" || numberOnly.test(value) === false) {
-    //     setServiceInfo({ ...match, phone: false });
-    //   } else {
-    //     setMatch({ ...match, phone: true });
-    //     setServiceInfo({ ...serviceInfo, tel: value });
-    //   }
-    // } else if (id === "serviceProviderEmail") {
-    //   if (value === "" || emailVal.test(value) === false) {
-    //     setServiceInfo({ ...match, email: false });
-    //   } else {
-    //     setMatch({ ...match, email: true });
-    //     setServiceInfo({ ...serviceInfo, email: value });
-    //   }
-    // } else if (id === "serviceProviderZip") {
-    //   setServiceInfo({ ...serviceInfo, zipCode: value });
-    // }
+    if (id === "serviceCategory") {
+      setUpdatedServiceInfo({ ...updatedServiceInfo, category: value });
+    } else if (id === "serviceProviderName") {
+      setUpdatedServiceInfo({ ...updatedServiceInfo, name: value });
+    } else if (id === "serviceProviderPhone") {
+      if (value === "" || numberOnly.test(value) === false) {
+        setUpdatedServiceInfo({ ...match, phone: false });
+      } else {
+        setMatch({ ...match, phone: true });
+        setUpdatedServiceInfo({ ...updatedServiceInfo, tel: value });
+      }
+    } else if (id === "serviceProviderEmail") {
+      if (value === "" || emailVal.test(value) === false) {
+        setUpdatedServiceInfo({ ...match, email: false });
+      } else {
+        setMatch({ ...match, email: true });
+        setUpdatedServiceInfo({ ...updatedServiceInfo, email: value });
+      }
+    } else if (id === "serviceProviderZip") {
+      setUpdatedServiceInfo({ ...updatedServiceInfo, zipCode: value });
+    }
   };
 
   const handleSubmit = function (id) {
@@ -90,7 +93,7 @@ const EditServiceModal = (props) => {
                   name="serviceProviderName"
                   placeholder="Name"
                   onChange={handleChange}
-                  value={props.name}
+                  value={currentServiceInfo.name}
                 />
               </div>
               <div className="user-login-with-account">
@@ -100,6 +103,7 @@ const EditServiceModal = (props) => {
                   name="serviceProviderPhone"
                   placeholder="Phone Number"
                   onChange={handleChange}
+                  value={currentServiceInfo.tel}
                 />
               </div>
               <div className="user-login-with-account">
@@ -109,6 +113,7 @@ const EditServiceModal = (props) => {
                   name="serviceProviderEmail"
                   placeholder="Email"
                   onChange={handleChange}
+                  value={currentServiceInfo.email}
                 />
               </div>
               <div className="user-login-with-account">
@@ -118,6 +123,7 @@ const EditServiceModal = (props) => {
                   name="serviceProviderZip"
                   placeholder="Zipcode"
                   onChange={handleChange}
+                  value={currentServiceInfo.zipCode}
                 />
               </div>
               <div>

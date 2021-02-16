@@ -18,7 +18,7 @@ const BoardingCard = (props) => {
   //-----------------------HANDLE EDIT BUTTON-----------------//
   const handleEdit = function (id) {
     console.log("handle Edit id: ", id);
-    window.location.replace("/EditServiceModal");
+    window.location.replace("/EditServiceModal/" + id);
   };
   return (
     <div>

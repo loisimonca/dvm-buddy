@@ -61,7 +61,7 @@ function App() {
               />
               <Route
                 exact
-                path="/EditServiceModal"
+                path="/EditServiceModal/:id"
                 component={EditServiceModal}
               />
               <Route exact path="/AdminPage" component={AdminPage} />
