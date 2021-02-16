@@ -8,19 +8,23 @@ import UserAccountSelectBar from './UserAccountSelectBar'
 
 function AccountManage() {
     const {value, token, userId}  = useContext(UserContext);
-    const [userData, setUserData] = useState({})
+    const [userIdFromContext, setUserIdFromContext] = useState()
+    const [userData, setUserData] = useState({}) 
+
     useEffect(() =>{
-        API.getUserById(userId)
-        .then(res =>{
-            setUserData(res.data)
-        })
+        if(userId){
+            API.getUserById(userId)
+            .then(res =>{
+                setUserData(res.data)
+            })
+        }
     },[userId])
 
 
     return (
         <div>
-        {value ==='Employee' &&<EmployeeAccountSelectBar userType={value} userData={userData} setUserData={setUserData}/>}
-        {value ==='User' &&<UserAccountSelectBar userType={value} userData={userData} setUserData={setUserData}/>}
+        {userData.userType ==='Employee' &&<EmployeeAccountSelectBar userType={value} userData={userData} setUserData={setUserData}/>}
+        {userData.userType  ==='User' &&<UserAccountSelectBar userType={value} userData={userData} setUserData={setUserData}/>}
         </div>
     )
 }

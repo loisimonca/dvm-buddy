@@ -1,0 +1,7 @@
+.image__placeholder {
+  width: 100px;
+  height: 100px;
+}
+.image__placeholder > svg {
+  font-size: 3rem;
+}
