@@ -10,11 +10,11 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   //works
-  findOneAppt: (req,res) => {
-    db.Appointment.findById(req.params.id).populate("user","email")
-    .then((appointment) => res.json(appointment))
-    .catch((err) => res.status(422).json(err));
-    
+  findOneAppt: (req, res) => {
+    db.Appointment.findById(req.params.id)
+      .populate("user", "email")
+      .then((appointment) => res.json(appointment))
+      .catch((err) => res.status(422).json(err));
   },
   //works
   findApptByCust: (req, res) => {
@@ -43,14 +43,42 @@ module.exports = {
   //works
   setAppointment: (req, res) => {
     console.log(req.body.user);
-    db.Appointment.findByIdAndUpdate(req.params.id, {
-      user: mongoose.Types.ObjectId(req.body.user),
-    },{new: true})
+    db.Appointment.findByIdAndUpdate(
+      req.params.id,
+      {
+        user: mongoose.Types.ObjectId(req.body.user),
+      },
+      { new: true }
+    )
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
+  setAppointmentByEmail: (req, res) => {
+    const apptId = req.body.id;
+    console.log("apptId is " ,apptId)
+
+    db.User.findOne({ email: req.params.email })
+      .then((user) => {
+        console.log("server userId is ", user._id);
+        console.log("server req.body.id is ", req.body.id);
+        db.Appointment.findByIdAndUpdate(
+          apptId,
+          {
+            user: mongoose.Types.ObjectId(user._id),
+          },
+          {
+            new: true,
+          }
+        )
+          .then((response) => res.json(response))
+          .catch((err) => console.error(err));
+      })
+      // .then(appointment => res.json(appointment))
+      .catch((err) => console.log(err));
+  },
   findAll: (req, res) => {
-    db.Appointment.find({}).populate("user","email")
+    db.Appointment.find()
+      .populate("user", "email")
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
