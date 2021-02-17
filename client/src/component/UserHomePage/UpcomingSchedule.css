@@ -2,13 +2,12 @@
   text-align: center;
   margin: 40px;
   padding: 10px;
-  border-radius: 4rem;
-  background-color: rgba(148, 161, 167, 0.24);
-  font-size: 23px;
+  background-color: rgba(170, 184, 190, 0.24);
+  font-size: 20px;
 }
 .upcoming__schedule__title {
   font-weight: 700;
-  font-size: 28px;
+  font-size: 20px;
 }
 .upcoming__schedule__data {
   font-family: "Parisienne", cursive;
@@ -17,4 +16,12 @@
 .upcoming__schedule__time {
   font-family: "Parisienne", cursive;
   font-weight: 700;
+}
+@media screen and (min-width: 1023px) {
+  .upcoming__schedule__container {
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+    background: rgb(238, 230, 230);
+  }
 }
