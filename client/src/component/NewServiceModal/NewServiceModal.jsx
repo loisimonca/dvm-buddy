@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { numberOnly, emailVal } from "../CustomerAccount/regexSet";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
+import "./NewServiceModal.css";
 
 const NewServiceModal = (props) => {
   const [serviceInfo, setServiceInfo] = useState({
@@ -44,14 +45,14 @@ const NewServiceModal = (props) => {
     e.preventDefault();
     if (match.matchEmail === true && match.matchTel === true) {
       API.createClassified(serviceInfo)
-      .then((res) => {
-        console.log(res);
-        alert("Success!");
-        window.location.replace("/adminpetservices");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((res) => {
+          console.log(res);
+          alert("Success!");
+          window.location.replace("/adminpetservices");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
       alert("Please enter a valid email and phone number");
     }
@@ -72,7 +73,18 @@ const NewServiceModal = (props) => {
           </header>
           <section className="modal-card-body">
             <form onSubmit={handleSubmit} className="has-text-centered">
-              <div className="user-login-with-account">
+              <div className="ModalDropDown service-input">
+                <div className="dropdown select ">
+                  <select name="serviceCategory" onChange={handleChange}>
+                    <option value="0">Select a Service</option>
+                    <option value="Walker">Walker</option>
+                    <option value="Boarding">Boarding</option>
+                    <option value="Sitter">Sitter</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* <div className="user-login-with-account">
                 <input
                   autoComplete="off"
                   type="text"
@@ -80,7 +92,7 @@ const NewServiceModal = (props) => {
                   placeholder="Category"
                   onChange={handleChange}
                 />
-              </div>
+              </div> */}
               <div className="user-login-with-account">
                 <input
                   autoComplete="off"
