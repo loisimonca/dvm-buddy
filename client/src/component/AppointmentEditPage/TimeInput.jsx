@@ -3,6 +3,7 @@ import React from 'react'
 function TimeInput({onChange}) {
     return (
 <select name="time" id="time" onChange={onChange}>
+<option disabled selected value>Select Time</option>
 <option value="9:00 AM">9:00 AM</option>
 <option value="9:30 AM">9:30 AM</option>
  

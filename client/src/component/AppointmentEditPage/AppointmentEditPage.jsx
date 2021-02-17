@@ -28,12 +28,10 @@ const AppointmentEditPage = () => {
     {e.target.name==='email' && setAddTime({...addTime, user: e.target.value})}
   }
   const submitAddTimeSlot=(e) =>{
-    // if(addTime.user=""){
-    //   setAddTime({...addTime, user: null})
-    // }
     API.createAppt(addTime)
     .then(res =>{
       getAppointments()
+      alert('Schedule Updated')
     })
   }
 
@@ -64,20 +62,9 @@ const AppointmentEditPage = () => {
     });
     setcustomerId(currentCustomerId);
   };
-
-<<<<<<< HEAD
-  const updateAppointment = ({id, email}) => {
-    API.setApptByEmail(email, id)
-      .then((resp) => setinEditMode({
-        status: false,
-        rowKey: null,
-      }))
-      .then(window.location.reload())
-=======
   const updateAppointment = ({ id, email }) => {
-    API.setApptByEmail({ id, email })
+    API.setApptByEmail(email, id)
       .then((resp) => console.log(resp))
->>>>>>> 84967a7501574548ed5da7aef82b4c9b5d07a99d
       .catch((err) => console.error(err));
   };
 
