@@ -54,15 +54,15 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   setAppointmentByEmail: (req, res) => {
-    const apptId = req.body.id;
-    console.log("apptId is " ,apptId)
+    // const apptId = req.body;
+    console.log("req.body is ", req.body)
 
     db.User.findOne({ email: req.params.email })
       .then((user) => {
         console.log("server userId is ", user._id);
-        console.log("server req.body.id is ", req.body.id);
+        console.log("server req.body.id is ", req.body.apptId);
         db.Appointment.findByIdAndUpdate(
-          apptId,
+          req.body.apptId,
           {
             user: mongoose.Types.ObjectId(user._id),
           },
