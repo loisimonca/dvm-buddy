@@ -122,11 +122,11 @@ const AppointmentEditPage = () => {
           <table className="edit__appointment__table container">
             <thead>
               <tr>
-                <th>Date</th>
+                <th className='table__corner__top__left'>Date</th>
                 <th>Time</th>
                 <th>Customer Email</th>
                 <th></th>
-                <th></th>
+                <th className='table__corner__top__right'></th>
               </tr>
             </thead>
             <tbody>

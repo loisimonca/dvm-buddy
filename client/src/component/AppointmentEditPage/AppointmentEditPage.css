@@ -10,7 +10,7 @@
   overflow-x: scroll;
 }
 table {
-  border-collapse: collapse;
+  border-collapse: separate !important;
   width: 100%;
 }
 .edit__appointment__date__input {
@@ -21,11 +21,22 @@ th {
   padding: 10px 5px;
   border: 1px solid black;
 }
+th {
+  font-size: 18px;
+  background-color: rgb(233, 233, 124);
+}
+.table__corner__top__left {
+  border-top-left-radius: 20px;
+}
+.table__corner__top__right {
+  border-top-right-radius: 20px;
+}
 .edit__appointment__button {
   background-color: rgb(238, 230, 230);
   border: 1px solid rgb(207, 155, 155);
   border-radius: 4px;
 }
+
 .edit__appointment__button:hover {
   background-color: rgb(207, 155, 155);
   border: 1px solid rgb(238, 230, 230);
