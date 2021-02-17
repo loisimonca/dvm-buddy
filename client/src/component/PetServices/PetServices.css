@@ -1,28 +1,27 @@
-.serviceContainer {
-  height: 900px;
+body {
+  height: 100vh;
 }
-.serviceForm {
+
+/* .serviceContainer {
+  height: 100vh;
+} */
+.serviceForm-container {
   margin-top: 50px;
   margin-bottom: 30px;
   width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center; /* Not necessary but will center the items */
+  flex-direction: row; /* Not necessary but tells that they should be in a row */
+  justify-content: center !important; /* Will align items to left on larger screens */
+  flex-wrap: wrap;
 }
-/* .dropdown {
-  height: 40px;
-  width: 220px;
-  background-color: white;
-  border: white;
-  border-radius: 4px;
-  padding: 10px;
-  font-weight: bolder;
-  font-size: 15px;
-  color: black !important;
-  margin: 0px 5px 5px 5px;
-} */
 
 .searchService {
   background-color: rgb(209, 138, 123) !important;
   width: 80px;
-  margin: auto !important;
+  margin-bottom: 3px !important;
+  /* margin: auto !important; */
 }
 
 .searchService:hover {
@@ -34,94 +33,94 @@
   width: 220px;
   background-color: white;
   border: white;
+  color: black !important;
+  border-radius: 4px;
+  padding: 10px;
+  font-weight: normal !important;
+  font-size: 15px;
+  margin: 0px 5px 5px 5px;
+  text-align: left;
+}
+
+::placeholder {
+  color: black !important;
+}
+
+.service-input:focus {
+  outline: none;
+}
+
+.newServiceBtn-container {
+  width: 100%;
+}
+
+.customDropDown {
+  height: 40px !important;
+  width: 220px;
+  background-color: white;
+  border: white;
   border-radius: 4px;
   padding: 10px;
   font-weight: bolder;
   font-size: 15px;
-
   margin: 0px 5px 5px 5px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.customDropDown .select {
+  width: 120%;
+  background-position: 10% center;
+}
+.customDropDown .select select {
+  /* background: transparent !important; */
+  line-height: 1;
+  border: 0;
+  padding: 0;
+  padding-bottom: 10px !important;
+  border-radius: 0;
+  width: 120%;
+  position: relative;
+  z-index: 10;
+  font-size: 1em;
   text-align: center;
 }
 
-input {
-  color-adjust: rgb(112, 111, 111) !important;
-}
-.service-input:focus {
-  outline: none;
-}
-@media screen and (max-width: 800px) {
-  .searchService {
-    display: block;
-    margin-top: 10px !important;
-  }
-}
-
-.custom-select {
-  position: relative;
-  font-family: Arial;
-  width: 220px !important;
-  font-size: 16px;
+.newServiceBtn {
+  background-color: rgb(209, 138, 123) !important;
+  color: white !important;
   font-weight: bold;
-  margin: 0px 5px 5px 5px;
+  padding: 8px !important;
+  margin: auto;
+  margin-top: 20px;
+  width: 170px;
+  height: 40px;
+  border-radius: 4px !important;
   border: none;
+  text-align: center;
+  display: block !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.newServiceBtn:hover {
+  background-color: rgb(179, 110, 97) !important;
 }
 
-.custom-select select {
-  display: none; /*hide original SELECT element: */
+.button,
+.file-cta,
+.file-name,
+.input,
+.pagination-ellipsis,
+.pagination-link,
+.pagination-next,
+.pagination-previous,
+.select select,
+.textarea {
+  -webkit-appearance: square-button !important;
 }
 
-.select-selected {
-  background-color: white;
-  border-radius: 0.3rem;
-}
-
-/* Style the arrow inside the select element: */
-.select-selected:after {
-  position: absolute;
-  content: "";
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: gray transparent transparent transparent;
-}
-
-/* Point the arrow upwards when the select box is open (active): */
-.select-selected.select-arrow-active:after {
-  border-color: transparent transparent gray transparent;
-  top: 7px;
-}
-
-/* style the items (options), including the selected item: */
-.select-items div,
-.select-selected {
-  color: rgb(126, 123, 123);
-  padding: 8px 16px;
-  border: 1px solid transparent;
-  border-color: transparent;
-  cursor: pointer;
-}
-
-/* Style items (options): */
-.select-items {
-  position: absolute;
-  background-color: white;
-
-  /* color: rgb(112, 111, 111) !important; */
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 99;
-  box-shadow: 3px 6px 4px rgba(189, 188, 188, 0.3);
-}
-
-/* Hide the items when the select box is closed: */
-.select-hide {
-  display: none;
-}
-
-.select-items div:hover,
-.same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
+@media screen and (max-width: 550px) {
+  .searchService {
+    width: 60% !important;
+  }
 }
