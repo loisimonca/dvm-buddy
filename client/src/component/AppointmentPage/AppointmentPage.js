@@ -136,6 +136,7 @@ const AppointmentPage = () => {
               defaultValue={defaultDate}
               onChange={(e) => filterAppointments(e.target.value)}
               name="appointment-filter"
+              min={defaultDate}
             />
           </div>
           <div className="column is-four-fifths">{createTable()}</div>

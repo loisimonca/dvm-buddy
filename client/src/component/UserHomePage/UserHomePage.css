@@ -42,14 +42,19 @@
   margin: 30px 0;
 }
 .user__landing__page__button {
-  width: 120px;
+  width: 130px;
   background-color: rgb(238, 230, 230);
   border: 1px solid rgb(197, 100, 100);
-  border-radius: 3rem;
-  margin: 10px 20px;
+  border-radius: 2rem;
+  margin: 20px;
   padding: 10px;
   color: rgb(139, 87, 87);
   font-weight: 500;
+}
+.user__landing__page__button > a {
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
 }
 .user__landing__page__button:hover {
   background-color: rgb(224, 199, 199);
@@ -60,7 +65,7 @@
 .user__landing__page__button:focus {
   outline: none;
 }
-.user__landing__page__button > img {
+.user__landing__page__button a > img {
   padding: 10px;
   width: 90px;
 }
@@ -85,7 +90,6 @@
     padding: 0;
     display: flex;
     flex-direction: row-reverse;
-    padding-bottom: 200px;
   }
   .user__landing__page {
     background: radial-gradient(
@@ -161,7 +165,6 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
-    padding-bottom: 200px;
   }
   .user__landing__page {
     background: radial-gradient(
@@ -178,7 +181,7 @@
   }
   .user__landing__page__description__container {
     width: 600px;
-    padding: 0 100px;
+    padding: 30px;
   }
   .user__landing__page__top__wrap {
     display: flex;
@@ -194,6 +197,9 @@
     font-family: "Shrikhand", cursive;
     font-size: 30px;
     border-bottom: 0.5px solid lightgray;
+  }
+  .user__landing__page__button {
+    margin: 10px 30px;
   }
   .user__landing__page__account__button {
     display: none;

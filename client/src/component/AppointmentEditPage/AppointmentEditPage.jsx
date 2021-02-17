@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
 import moment from "moment";
+import TimeInput from './TimeInput'
 
 const AppointmentEditPage = () => {
   const [appointmentList, setAppointmentList] = useState([]);
@@ -15,6 +16,24 @@ const AppointmentEditPage = () => {
       },
     },
   ]);
+  //post api call to add appointment time slot 
+  const [addTime, setAddTime] = useState({
+    apptDate: "",
+    apptTime: "",
+    user:null
+  })
+  const addTimeSlot = (e) =>{
+    {e.target.name==='date' && setAddTime({...addTime, apptDate: e.target.value})}
+    {e.target.name==='time' && setAddTime({...addTime, apptTime: e.target.value})}
+    {e.target.name==='email' && setAddTime({...addTime, user: e.target.value})}
+  }
+  const submitAddTimeSlot=(e) =>{
+    API.createAppt(addTime)
+    .then(res =>{
+      getAppointments()
+      alert('Schedule Updated')
+    })
+  }
 
   //api call to retrieve list of appointments from server
   const getAppointments = () => {
@@ -25,7 +44,7 @@ const AppointmentEditPage = () => {
       setAppointments(filteredData);
       // console.log("appointment list ", filteredData);
       //   setAppointmentList(filteredData);
-    });
+    })
   };
 
   const [inEditMode, setinEditMode] = useState({
@@ -43,20 +62,9 @@ const AppointmentEditPage = () => {
     });
     setcustomerId(currentCustomerId);
   };
-
-<<<<<<< HEAD
-  const updateAppointment = ({id, email}) => {
-    API.setApptByEmail(email, id)
-      .then((resp) => setinEditMode({
-        status: false,
-        rowKey: null,
-      }))
-      .then(window.location.reload())
-=======
   const updateAppointment = ({ id, email }) => {
-    API.setApptByEmail({ id, email })
+    API.setApptByEmail(email, id)
       .then((resp) => console.log(resp))
->>>>>>> 84967a7501574548ed5da7aef82b4c9b5d07a99d
       .catch((err) => console.error(err));
   };
 
@@ -119,18 +127,23 @@ const AppointmentEditPage = () => {
             <tbody>
               <tr>
                 <td>
-                  {" "}
-                  <input type="text" name="date" id="" />{" "}
+            <input
+              type="date"
+              defaultValue={defaultDate}
+              name="date"
+              onChange={addTimeSlot}
+              min={defaultDate}
+            />
                 </td>
                 <td>
-                  <input type="text" name="time" id="" />
+                <TimeInput onChange={addTimeSlot}/>
                 </td>
                 <td>
-                  <input type="text" name="email" id="" />
+                  <input type="text" name="email" id="" onChange={addTimeSlot}/>
                 </td>
                 <td></td>
                 <td>
-                  <button className="button">Add</button>
+                  <button onClick={submitAddTimeSlot} className="button">Add</button>
                 </td>
               </tr>
               {appointments.map((item, index) => {
