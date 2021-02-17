@@ -1,0 +1,27 @@
+.upcoming__schedule__container {
+  text-align: center;
+  margin: 40px;
+  padding: 10px;
+  background-color: rgba(170, 184, 190, 0.24);
+  font-size: 20px;
+}
+.upcoming__schedule__title {
+  font-weight: 700;
+  font-size: 20px;
+}
+.upcoming__schedule__data {
+  font-family: "Parisienne", cursive;
+  font-weight: 700;
+}
+.upcoming__schedule__time {
+  font-family: "Parisienne", cursive;
+  font-weight: 700;
+}
+@media screen and (min-width: 1023px) {
+  .upcoming__schedule__container {
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+    background: rgb(238, 230, 230);
+  }
+}
