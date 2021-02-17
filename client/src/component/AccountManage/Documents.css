@@ -10,3 +10,14 @@
 .formBtn:hover {
   background-color: rgb(179, 110, 97);
 }
+
+@media screen and (max-width: 723px) {
+  .formBtn {
+    /* display: flex !important;
+    justify-content: center !important; */
+    /* text-align: center !important; */
+    /* align-items: center !important; */
+    margin: auto !important;
+    margin-bottom: 20px !important;
+  }
+}

@@ -41,6 +41,7 @@ function EmployeeAccountSelectBar({ userData, setUserData }) {
   return (
     <>
       <div className="tabs is-centered">
+        {/* <div id="sidebar" class="is-hidden-mobile"> */}
         <ul>
           <li
             value="personal-info"
@@ -73,16 +74,12 @@ function EmployeeAccountSelectBar({ userData, setUserData }) {
             onClick={handleClick}
           >
             <strong>
-              <a name="documents">
-                <span className="icon is-small">
-                  <i className="far fa-file-alt" aria-hidden="true"></i>
-                </span>
-                <span>Documents</span>
-              </a>
+              <a name="documents">Documents</a>
             </strong>
           </li>
         </ul>
       </div>
+
       {state === "personal-info" && (
         <EmployeePage userData={userData} setUserData={setUserData} />
       )}

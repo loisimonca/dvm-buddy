@@ -24,10 +24,10 @@ export default function PatientInfoPage() {
               </span>
             </div>
             <div className="account-manage-item">
-              Contact Number: {data.tel}
+              Contact Number : {data.tel}
             </div>
 
-            <div className="account-manage-item">Email: {data.email}</div>
+            <div className="account-manage-item">Email : {data.email}</div>
           </div>
         ))}
     </div>
