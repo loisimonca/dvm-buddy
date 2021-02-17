@@ -19,11 +19,8 @@ module.exports = {
   //works
   findApptByCust: (req, res) => {
     db.Appointment.find({})
-      .where({ user: req.params.id })
-      .then((dbModel) => {
-        // console.log("dbmodel response: ", dbModel);
-        res.json(dbModel);
-      })
+      .where({ user: mongoose.Types.ObjectId(req.params.id) })
+      .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   //works

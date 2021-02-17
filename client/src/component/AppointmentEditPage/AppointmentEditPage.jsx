@@ -15,6 +15,26 @@ const AppointmentEditPage = () => {
       },
     },
   ]);
+  //post api call to add appointment time slot 
+  const [addTime, setAddTime] = useState({
+    apptDate: "",
+    apptTime: "",
+    user:null
+  })
+  const addTimeSlot = (e) =>{
+    {e.target.name==='date' && setAddTime({...addTime, apptDate: e.target.value})}
+    {e.target.name==='time' && setAddTime({...addTime, apptTime: e.target.value})}
+    {e.target.name==='email' && setAddTime({...addTime, user: e.target.value})}
+  }
+  const submitAddTimeSlot=(e) =>{
+    // if(addTime.user=""){
+    //   setAddTime({...addTime, user: null})
+    // }
+    API.createAppt(addTime)
+    .then(res =>{
+      getAppointments()
+    })
+  }
 
   //api call to retrieve list of appointments from server
   const getAppointments = () => {
@@ -25,7 +45,7 @@ const AppointmentEditPage = () => {
       setAppointments(filteredData);
       // console.log("appointment list ", filteredData);
       //   setAppointmentList(filteredData);
-    });
+    })
   };
 
   const [inEditMode, setinEditMode] = useState({
@@ -110,16 +130,16 @@ const AppointmentEditPage = () => {
               <tr>
                 <td>
                   {" "}
-                  <input type="text" name="date" id="" />{" "}
+                  <input type="text" name="date" id="" onChange={addTimeSlot}/>{" "}
                 </td>
                 <td>
-                  <input type="text" name="time" id="" />
+                  <input type="text" name="time" id="" onChange={addTimeSlot}/>
                 </td>
                 <td>
-                  <input type="text" name="email" id="" />
+                  <input type="text" name="email" id="" onChange={addTimeSlot}/>
                 </td>
                 <td>
-                  <button className="button">Add</button>
+                  <button onClick={submitAddTimeSlot} className="button">Add</button>
                 </td>
               </tr>
               {appointments.map((item, index) => {
