@@ -44,8 +44,8 @@ const AppointmentEditPage = () => {
     setcustomerId(currentCustomerId);
   };
 
-  const updateAppointment = ({id, email}) => {
-    API.setApptByEmail({id, email})
+  const updateAppointment = ({ id, email }) => {
+    API.setApptByEmail({ id, email })
       .then((resp) => console.log(resp))
       .catch((err) => console.error(err));
   };
@@ -64,10 +64,10 @@ const AppointmentEditPage = () => {
   };
 
   // save function
-  const onSave = ({id, email} ) => {
-    updateAppointment({id, email});
+  const onSave = ({ id, email }) => {
+    updateAppointment({ id, email });
     console.log("id from react is ", id);
-    console.log("email from react is ", email)
+    console.log("email from react is ", email);
   };
 
   //cancel edit function
@@ -119,9 +119,7 @@ const AppointmentEditPage = () => {
                   <input type="text" name="email" id="" />
                 </td>
                 <td>
-                    <button className="button">
-                        Add
-                    </button>
+                  <button className="button">Add</button>
                 </td>
               </tr>
               {appointments.map((item, index) => {
@@ -131,27 +129,25 @@ const AppointmentEditPage = () => {
                     <td>{item.apptTime}</td>
                     <td>{item.user ? item.user.email : ""}</td>
                     <td>
-                                {
-                                    inEditMode.status && inEditMode.rowKey === item._id ? (
-                                        <input value={customerId}
-                                               onChange={(e) => setcustomerId(e.target.value)}
-                                        />
-                                    ) : (
-                                      item.user ? item.user.email : ""
-                                    )
-                                }
-                            </td>
+                      {inEditMode.status && inEditMode.rowKey === item._id ? (
+                        <input
+                          value={customerId}
+                          onChange={(e) => setcustomerId(e.target.value)}
+                        />
+                      ) : item.user ? (
+                        item.user.email
+                      ) : (
+                        ""
+                      )}
+                    </td>
 
                     <td>
                       {inEditMode.status && inEditMode.rowKey === item._id ? (
                         <>
                           <button
                             className={"button is-success"}
-                            onClick={() => 
-                              onSave(
-                                {id: item._id,
-                                email: customerId},
-                              )
+                            onClick={() =>
+                              onSave({ id: item._id, email: customerId })
                             }
                           >
                             Save

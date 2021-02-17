@@ -1,0 +1,27 @@
+body {
+  height: 100vh;
+}
+
+.account-manage-container {
+  border-radius: 8px;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+.account-manage-title {
+  font-family: Roboto slab !important;
+  margin: 20px;
+  text-align: center;
+  color: black;
+}
+
+.account-manage-item {
+  margin: 20px;
+}
+
+@media screen and (max-width: 670px) {
+  .account-manage-container {
+    width: 90% !important;
+    margin: auto;
+  }
+}
