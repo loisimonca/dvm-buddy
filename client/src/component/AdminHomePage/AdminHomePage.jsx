@@ -9,8 +9,25 @@ const AdminHomePage = () => {
         <h3 className="home-subtitle has-text-centered is-uppercase">
           <strong>
            Visit your Account to see more Options <br />
-           <NavLink to="/AccountManage" className="button is-large is-fullwidth">Account</NavLink>
-            <br /> 
+           <button className="user__landing__page__button">
+                <NavLink to='AppointmentEdit'>
+                <img src="/images/calendar.svg" alt="veterianarian" />
+                Scheduling Mange
+                </NavLink>
+              </button>
+              <button className="user__landing__page__button">
+                <NavLink to='/AdminPetServices' >
+                <img src="/images/folder-management.svg" alt="pawprints" />
+                  Services Manage
+                  </NavLink>
+              </button>
+              <button className="user__landing__page__button">
+              <NavLink to='/AccountManage'>
+                <img src="/images/account.svg" alt="baby-sitter" />
+                  Account Manage
+                  </NavLink>
+              </button>
+
           </strong>
         </h3>
       </div>
