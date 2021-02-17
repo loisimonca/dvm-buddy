@@ -62,16 +62,16 @@ const PetServices = () => {
   return (
     <div className="serviceContainer">
       <Wrapper>
-        <form className="serviceForm container has-text-centered">
-          <div className="dropdown">
-            {/* <div className="custom-select"> */}
-            <select onChange={handleCategoryChange}>
-              <option value="0">Select a Service</option>
-              <option value="Walker">Walker</option>
-              <option value="Boarding">Boarding</option>
-              <option value="Sitter">Sitter</option>
-            </select>
-            {/* </div> */}
+        <form className="serviceForm-container has-text-centered">
+          <div className="customDropDown service-input">
+            <div className="dropdown select ">
+              <select onChange={handleCategoryChange}>
+                <option value="0">Select a Service</option>
+                <option value="Walker">Walker</option>
+                <option value="Boarding">Boarding</option>
+                <option value="Sitter">Sitter</option>
+              </select>
+            </div>
           </div>
 
           <input
@@ -101,6 +101,7 @@ const PetServices = () => {
                 zip={serve.zipCode}
                 key={serve._id}
                 tel={serve.tel}
+                email={serve.email}
               />,
             ])
           : filteredService.length > 0

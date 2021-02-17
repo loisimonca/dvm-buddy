@@ -10,6 +10,7 @@ const BoardingCard = (props) => {
       API.deleteClassified(id)
         .then((res) => {
           console.log("success");
+          window.location.replace("/AdminPetServices");
         })
         .catch((err) => {
           console.log("fail");

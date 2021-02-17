@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./AdminPetServices.css";
+import "../PetServices/PetServices.css";
 import Wrapper from "../Wrapper/Wrapper";
 import BoardingCard from "../BoardingCard/AdminServiceCard";
 import API from "../../utils/API";
@@ -62,14 +62,16 @@ const PetServices = () => {
             Create New Service
           </Link>
         </div>
-        <form className="serviceForm container has-text-centered">
-          <div className="dropdown">
-            <select onChange={handleCategoryChange}>
-              <option value="0">Select a Service</option>
-              <option value="Walker">Walker</option>
-              <option value="Boarding">Boarding</option>
-              <option value="Sitter">Sitter</option>
-            </select>
+        <form className="serviceForm-container has-text-centered">
+          <div className="customDropDown service-input">
+            <div className="dropdown select ">
+              <select onChange={handleCategoryChange}>
+                <option value="0">Select a Service</option>
+                <option value="Walker">Walker</option>
+                <option value="Boarding">Boarding</option>
+                <option value="Sitter">Sitter</option>
+              </select>
+            </div>
           </div>
 
           <input
@@ -100,6 +102,7 @@ const PetServices = () => {
                 key={serve._id}
                 tel={serve.tel}
                 id={serve._id}
+                email={serve.email}
               />,
             ])
           : filteredService.length > 0
