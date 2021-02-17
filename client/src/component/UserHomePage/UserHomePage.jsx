@@ -1,4 +1,3 @@
-import { session } from "passport";
 import React, {useState} from "react";
 import {NavLink} from 'react-router-dom'
 import UpcomingSchedule from "./UpcomingSchedule";
@@ -29,26 +28,36 @@ const UserHomePage = () => {
       <div className="user__landing__page container">
         <h2 className="user__landing__page__title">Welcome to DVM Buddy</h2>
         <p className="user__landing__page__name">{name}</p>
-        <div className="user__landing__page__description__container">
+
+        <div className="user__landing__page__description__container container">
           <div className='upcoming__schedule__mobile'>
             <UpcomingSchedule />
           </div>
-          <button className="user__landing__page__button">
-            <img src="/images/veterinarian.svg" alt="veterianarian" />
-            Veterinary Care
-          </button>
-          <button className="user__landing__page__button">
-            <img src="/images/pawprints.svg" alt="pawprints" />
-            Dog Walking
-          </button>
-          <button className="user__landing__page__button">
-            <img src="/images/baby-sitter.svg" alt="baby-sitter" />
-            Pet Sitter
-          </button>
-          <button className="user__landing__page__button">
-            <img src="/images/beach.svg" alt="beach" />
-            Pet Boarding
-          </button>
+              <button className="user__landing__page__button">
+                <NavLink to='/Appointments'>
+                <img src="/images/veterinarian.svg" alt="veterianarian" />
+                Veterinary Care
+                </NavLink>
+              </button>
+              <button className="user__landing__page__button">
+                <NavLink to='PetServices' >
+                <img src="/images/pawprints.svg" alt="pawprints" />
+                  Dog Walking
+                  </NavLink>
+              </button>
+              <button className="user__landing__page__button">
+              <NavLink to='PetServices'>
+                <img src="/images/baby-sitter.svg" alt="baby-sitter" />
+                  Pet Sitter
+                  </NavLink>
+              </button>
+              <button className="user__landing__page__button">
+              <NavLink to='PetServices'>
+              <img src="/images/beach.svg" alt="beach" />
+                  Pet Boarding
+                  </NavLink>
+              </button>
+    
         </div>
 
           <div className="user__landing__page__body">
