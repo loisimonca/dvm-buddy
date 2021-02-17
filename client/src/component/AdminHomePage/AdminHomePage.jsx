@@ -13,13 +13,13 @@ const AdminHomePage = () => {
            <button className="user__landing__page__button">
                 <NavLink to='AppointmentEdit'>
                 <img src="/images/calendar.svg" alt="veterianarian" />
-                Scheduling Mange
+                Scheduling Manage
                 </NavLink>
               </button>
               <button className="user__landing__page__button">
                 <NavLink to='/AdminPetServices' >
                 <img src="/images/folder-management.svg" alt="pawprints" />
-                  Services Manage
+                  Pet Services Manage
                   </NavLink>
               </button>
               <button className="user__landing__page__button">

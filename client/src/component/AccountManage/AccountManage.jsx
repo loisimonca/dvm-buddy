@@ -19,7 +19,7 @@ function AccountManage() {
   }, [userId]);
 
   return (
-    <div>
+    <div className='account-page-whole-container'>
       {userData.userType === "Employee" && (
         <EmployeeAccountSelectBar
           userType={value}

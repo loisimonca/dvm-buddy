@@ -2,11 +2,12 @@
   background-color: rgb(209, 138, 123) !important;
   color: white !important;
   font-weight: bold;
-  padding: auto;
-  float: right;
-  width: 70px;
-  height: 30px;
+  padding: 4px 10px;
   border-radius: 4px !important;
   border: none;
   text-align: center;
+  margin: 0 10px;
+}
+.editNumberBtn:hover {
+  background-color: rgb(199, 110, 92) !important;
 }

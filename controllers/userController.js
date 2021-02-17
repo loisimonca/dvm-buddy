@@ -4,7 +4,10 @@ const jwt = require("jsonwebtoken");
 module.exports = {
   findAllUser: function (req, res) {
     db.User.find({ userType: "User" })
-      .then((user) => res.json(user))
+      .then((user) => {
+        console.log(user);
+        res.json(user);
+      })
       .catch((err) => res.status(422).json(err));
   },
   findAllEmployee: function (req, res) {

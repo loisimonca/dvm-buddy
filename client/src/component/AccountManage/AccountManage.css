@@ -1,3 +1,11 @@
+.account-page-whole-container {
+  background-image: url("/images/backgroundImage1.jpg");
+  background-size: cover;
+  height: 100%;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 400px;
+}
 .account-manage-container {
   background-color: rgba(241, 226, 223, 0.719);
   width: 90%;
@@ -22,4 +30,32 @@
 .patient-info-wrap {
   margin: 20px;
   padding: 20px;
+  border-bottom: 1px solid rgb(187, 181, 181);
+  display: flex;
+  justify-content: left;
+}
+.patient-info-image {
+  margin: 0 70px;
+}
+@media screen and (max-width: 965px) {
+  .patient-info-image {
+    margin: 0 10px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .account-page-whole-container {
+    background-image: url("/images/backgroundImage2.jpg");
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 200px;
+  }
+  .patient-info-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+  .patient-info-image {
+    text-align: center;
+  }
 }

@@ -48,20 +48,20 @@ function EmployeePage({ userData, setUserData }) {
     <div className="account-manage-container container">
       <h1 className="account-manage-title is-size-3">Personal Information</h1>
       <div className="account-manage-item">
-        First Name :{" "}
+        <strong>First Name : </strong>
         <span className="account-manage-input" name="firstName">
           {userData.firstName}
         </span>
       </div>
       <div className="account-manage-item">
-        Last Name :{" "}
+        <strong>Last Name : </strong>
         <span className="account-manage-input" name="lastName">
           {userData.lastName}
         </span>{" "}
       </div>
 
       <div className="account-manage-item">
-        Contact Number :{" "}
+        <strong>Contact Number : </strong>
         <EditFunction
           target={"tel"}
           editOpen={editOpen.tel}
@@ -73,7 +73,7 @@ function EmployeePage({ userData, setUserData }) {
       </div>
 
       <div className="account-manage-item">
-        User Email :{" "}
+        <strong>User Email: </strong>
         <span
           className="account-manage-input"
           name="email"
@@ -82,7 +82,10 @@ function EmployeePage({ userData, setUserData }) {
           {userData.email}{" "}
         </span>
       </div>
-      <div className="account-manage-item">Password : **** </div>
+      <div className="account-manage-item">
+        {" "}
+        <strong>Password: </strong> ****{" "}
+      </div>
     </div>
   );
 }

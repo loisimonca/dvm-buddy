@@ -7,7 +7,7 @@ export default function PatientInfoPage() {
   useEffect(() => {
     API.getUser().then((res) => {
       setPatient(res.data);
-      console.log(patient);
+      console.log(res.data);
     });
   }, []);
   return (
@@ -17,17 +17,35 @@ export default function PatientInfoPage() {
       {patient &&
         patient.map((data) => (
           <div className="patient-info-wrap">
-            <div className="account-manage-item">
-              Name :
-              <span className="account-manage-input" name="lastName">
-                {data.firstName} {data.lastName}
-              </span>
+            <div className='patient-info-image'>
+              <img src={data.userImage? data.userImage : 'https://via.placeholder.com/100.png?text=No+image'} alt=""/>
             </div>
-            <div className="account-manage-item">
-              Contact Number : {data.tel}
-            </div>
+            <div>
+              <div className="account-manage-item">
+                <strong>Name : </strong>
+                <span className="account-manage-input" name="lastName">
+                  {data.firstName} {data.lastName}
+                </span>
+              </div>
+              <div className="account-manage-item">
+                <strong>Contact Number: </strong>{data.tel}
+              </div>
 
-            <div className="account-manage-item">Email : {data.email}</div>
+              <div className="account-manage-item">
+                <strong>Email : </strong>
+                {data.email}
+              </div>
+              <div className="account-manage-item">
+                <strong>Pet Info </strong>
+                <div className='account-manage-item-sub'>
+                  <strong>Name : </strong> {data.petName} <strong>/ Type : </strong> {data.petType} <strong>/ Breed : </strong>{data.petBreed} 
+                </div>
+              </div>
+    
+              <div className="account-manage-item">
+                <strong>Emergency Contact : </strong>
+                {data.emergencyName} [{data.emergencyTel}]</div>
+          </div>
           </div>
         ))}
     </div>

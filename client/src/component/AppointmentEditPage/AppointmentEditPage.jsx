@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
 import moment from "moment";
 import TimeInput from './TimeInput'
+import './AppointmentEditPage.css'
 
 const AppointmentEditPage = () => {
   const [appointmentList, setAppointmentList] = useState([]);
@@ -86,6 +87,7 @@ const AppointmentEditPage = () => {
     updateAppointment({ id, email });
     console.log("id from react is ", id);
     console.log("email from react is ", email);
+    window.location.reload();
   };
 
   //cancel edit function
@@ -99,9 +101,12 @@ const AppointmentEditPage = () => {
 
   //delete appointment function
   const handleDelete = (id) => {
-    API.deleteAppt(id)
+    const confirmDelete = window.confirm('Are you sure to delete this?')
+    if(confirmDelete){
+      API.deleteAppt(id)
       .then(getAppointments())
       .catch((err) => console.error(err));
+    }
   };
 
   useEffect(() => {
@@ -110,24 +115,25 @@ const AppointmentEditPage = () => {
   }, []);
 
   return (
-    <div className="container">
-      <div className="section">
-        <h1 className="title">Edit Appointments</h1>
-        <>
-          <table className="table">
+    <div className="edit__appointment__container">
+      <div className="edit__appointment__wrap container">
+        <h1 className="edit__appointment__title title">Manage Appointments Schedule</h1>
+        <div className='edit__appointment__table__wrap'>
+          <table className="edit__appointment__table container">
             <thead>
               <tr>
-                <th>Date</th>
+                <th className='table__corner__top__left'>Date</th>
                 <th>Time</th>
                 <th>Customer Email</th>
                 <th></th>
-                <th></th>
+                <th className='table__corner__top__right'></th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>
             <input
+            className="edit__appointment__date__input"
               type="date"
               defaultValue={defaultDate}
               name="date"
@@ -143,7 +149,7 @@ const AppointmentEditPage = () => {
                 </td>
                 <td></td>
                 <td>
-                  <button onClick={submitAddTimeSlot} className="button">Add</button>
+                  <button onClick={submitAddTimeSlot} className="edit__appointment__add__button">Add</button>
                 </td>
               </tr>
               {appointments.map((item, index) => {
@@ -155,7 +161,7 @@ const AppointmentEditPage = () => {
                     <td>
                       {inEditMode.status && inEditMode.rowKey === item._id ? (
                         <input
-                          value={customerId}
+                          defaultValue=''
                           onChange={(e) => setcustomerId(e.target.value)}
                         />
                       ) : item.user ? (
@@ -169,7 +175,7 @@ const AppointmentEditPage = () => {
                       {inEditMode.status && inEditMode.rowKey === item._id ? (
                         <>
                           <button
-                            className={"button is-success"}
+                            className="edit__appointment__button"
                             onClick={() =>
                               onSave({ id: item._id, email: customerId })
                             }
@@ -178,7 +184,7 @@ const AppointmentEditPage = () => {
                           </button>
 
                           <button
-                            className={"button is-secondary"}
+                            className="edit__appointment__button"
                             style={{ marginLeft: 8 }}
                             onClick={() => onCancel()}
                           >
@@ -187,7 +193,7 @@ const AppointmentEditPage = () => {
                         </>
                       ) : (
                         <button
-                          className={"button is-primary"}
+                        className="edit__appointment__button"
                           onClick={() =>
                             onEdit({
                               id: item._id,
@@ -201,7 +207,7 @@ const AppointmentEditPage = () => {
                     </td>
                     <td>
                       <button
-                        className="button"
+                        className="edit__appointment__button"
                         onClick={() => handleDelete(item._id)}
                       >
                         Delete
@@ -212,7 +218,7 @@ const AppointmentEditPage = () => {
               })}
             </tbody>
           </table>
-        </>
+        </div>
       </div>
     </div>
   );
