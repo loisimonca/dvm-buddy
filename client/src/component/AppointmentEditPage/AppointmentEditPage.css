@@ -1,0 +1,36 @@
+.edit__appointment__container {
+  padding: 30px;
+  background: rgb(250, 243, 243);
+  text-align: center;
+}
+.edit__appointment__title {
+  padding-bottom: 20px;
+}
+.edit__appointment__table__wrap {
+  overflow-x: scroll;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.edit__appointment__date__input {
+  width: 130px;
+}
+td,
+th {
+  padding: 10px 5px;
+  border: 1px solid black;
+}
+.edit__appointment__button {
+  background-color: rgb(238, 230, 230);
+  border: 1px solid rgb(207, 155, 155);
+  border-radius: 4px;
+}
+.edit__appointment__button:hover {
+  background-color: rgb(207, 155, 155);
+  border: 1px solid rgb(238, 230, 230);
+  border-radius: 4px;
+}
+.edit__appointment__button:focus {
+  outline: none;
+}
