@@ -101,6 +101,7 @@ const PetServices = () => {
                 zip={serve.zipCode}
                 key={serve._id}
                 tel={serve.tel}
+                email={serve.email}
               />,
             ])
           : filteredService.length > 0

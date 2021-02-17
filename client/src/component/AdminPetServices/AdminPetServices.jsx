@@ -102,6 +102,7 @@ const PetServices = () => {
                 key={serve._id}
                 tel={serve.tel}
                 id={serve._id}
+                email={serve.email}
               />,
             ])
           : filteredService.length > 0
