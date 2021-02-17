@@ -1,8 +1,12 @@
 import React from "react";
 import "./CustomerAccount.css";
 
-const CustomerAccount = ({match, confirmPassword, handleSubmit, handleChange}) => {
-
+const CustomerAccount = ({
+  match,
+  confirmPassword,
+  handleSubmit,
+  handleChange,
+}) => {
   return (
     <div className="create-account-wrap">
       <div className="create-account-container container">
@@ -11,13 +15,13 @@ const CustomerAccount = ({match, confirmPassword, handleSubmit, handleChange}) =
         <div className="user-create-container">
           <form onSubmit={handleSubmit}>
             <div className="input-container">
-                <input
-                    autoComplete="off"
-                  type="text"
-                  name="account-for-manager-or-user"
-                  placeholder="employee code if applicable"
-                  onChange={handleChange}
-                />
+              <input
+                autoComplete="off"
+                type="text"
+                name="account-for-manager-or-user"
+                placeholder="employee code if applicable"
+                onChange={handleChange}
+              />
             </div>
             <div className="input-container">
               <input

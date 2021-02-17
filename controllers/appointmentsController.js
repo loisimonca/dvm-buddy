@@ -19,8 +19,11 @@ module.exports = {
   //works
   findApptByCust: (req, res) => {
     db.Appointment.find({})
-      .where({ user: mongoose.Types.ObjectId(req.params.id) })
-      .then((dbModel) => res.json(dbModel))
+      .where({ user: req.params.id })
+      .then((dbModel) => {
+        // console.log("dbmodel response: ", dbModel);
+        res.json(dbModel);
+      })
       .catch((err) => res.status(422).json(err));
   },
   //works
@@ -54,8 +57,13 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   setAppointmentByEmail: (req, res) => {
+<<<<<<< HEAD
     // const apptId = req.body;
     console.log("req.body is ", req.body)
+=======
+    const apptId = req.body.id;
+    console.log("apptId is ", apptId);
+>>>>>>> 84967a7501574548ed5da7aef82b4c9b5d07a99d
 
     db.User.findOne({ email: req.params.email })
       .then((user) => {

@@ -86,7 +86,13 @@ const UserAccount = () => {
           sessionStorage.setItem('token', JSON.stringify(res.data.token))
           sessionStorage.setItem('type', JSON.stringify(res.data.userType))
           sessionStorage.setItem('userId', JSON.stringify(res.data.userId))
-          window.location.replace("/");
+          if(res.data.userType ==='User'){
+            window.location.replace('/UserHomePage')
+          }else if(res.data.userType ==='Employee'){
+            window.location.replace('/AdminHomePage')
+          }else{
+            window.location.replace('/')
+          }
         }
       })
       .catch((err) => console.log(err));

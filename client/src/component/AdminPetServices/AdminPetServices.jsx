@@ -57,9 +57,11 @@ const PetServices = () => {
   return (
     <div className="serviceContainer">
       <Wrapper>
-        <Link to="/NewServiceModal" className="newServiceBtn" id="showModal">
-          Create New Service
-        </Link>
+        <div className="newServiceBtn-container">
+          <Link to="/NewServiceModal" className="newServiceBtn" id="showModal">
+            Create New Service
+          </Link>
+        </div>
         <form className="serviceForm container has-text-centered">
           <div className="dropdown">
             <select onChange={handleCategoryChange}>

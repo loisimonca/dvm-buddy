@@ -1,0 +1,28 @@
+.tabs li.is-active a {
+  border-bottom-color: none;
+  color: black !important;
+}
+
+.tabs {
+  margin-top: 40px;
+}
+
+.tabs ul {
+  border-bottom: none;
+}
+
+.inactive {
+  border: 3px solid transparent !important;
+  border-radius: 3px;
+  /* border-bottom: solid rgba(241, 226, 223, 0.6); */
+}
+.activeBtn {
+  border: 3px solid rgb(209, 138, 123) !important;
+  border-radius: 3px;
+}
+
+@media screen and (min-width: 970px) {
+  /* .tabs {
+    display: flex !important;
+  } */
+}

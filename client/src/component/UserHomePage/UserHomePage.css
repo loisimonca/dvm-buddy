@@ -30,12 +30,10 @@
   font-size: 50px;
   margin: 20px 0;
 }
-.user__landing__page__top__wrap {
-  display: none;
-}
 .user__landing__page__name {
   font-size: 30px;
   font-weight: 600;
+  border-bottom: 0.5px solid lightgray;
 }
 .user__landing__page__subtitle {
   font-size: 30px;
@@ -48,7 +46,7 @@
   background-color: rgb(238, 230, 230);
   border: 1px solid rgb(197, 100, 100);
   border-radius: 3rem;
-  margin: 20px;
+  margin: 10px 20px;
   padding: 10px;
   color: rgb(139, 87, 87);
   font-weight: 500;
@@ -79,11 +77,15 @@
 .user__landing__page__account__button__inVideo {
   display: none;
 }
+.user__landing__page__top__wrap {
+  display: none;
+}
 @media screen and (min-width: 1023px) {
   .user__landing__page__wrap2 {
-    padding: 5%;
+    padding: 0;
     display: flex;
     flex-direction: row-reverse;
+    padding-bottom: 200px;
   }
   .user__landing__page {
     background: radial-gradient(
@@ -117,6 +119,7 @@
   .user__landing__page__top__wrap > p {
     font-family: "Shrikhand", cursive;
     font-size: 30px;
+    border-bottom: 0.5px solid lightgray;
   }
   .user__landing__page__account__button {
     display: none;
@@ -145,15 +148,20 @@
     background-color: rgba(209, 158, 158, 0.342);
     border-radius: 5rem;
   }
+  .user__landing__page__top__wrap {
+    display: flex;
+  }
 }
 @media screen and (min-width: 1390px) {
   .user__landing__video__wrap > video {
     width: 720px;
   }
   .user__landing__page__wrap2 {
-    padding: 5%;
+    padding: 0;
     display: flex;
     flex-direction: row-reverse;
+    justify-content: center;
+    padding-bottom: 200px;
   }
   .user__landing__page {
     background: radial-gradient(
@@ -161,8 +169,6 @@
       rgb(238, 230, 230) 20%,
       rgba(175, 162, 162, 0) 100%
     );
-    padding-top: 0;
-    padding-bottom: 0;
   }
   .user__landing__page__title {
     display: none;
@@ -171,8 +177,8 @@
     display: none;
   }
   .user__landing__page__description__container {
-    width: 400px;
-    margin-top: 20px;
+    width: 600px;
+    padding: 0 100px;
   }
   .user__landing__page__top__wrap {
     display: flex;
@@ -187,6 +193,7 @@
   .user__landing__page__top__wrap > p {
     font-family: "Shrikhand", cursive;
     font-size: 30px;
+    border-bottom: 0.5px solid lightgray;
   }
   .user__landing__page__account__button {
     display: none;
@@ -214,5 +221,8 @@
   .user__landing__page__account__button__inVideo:hover {
     background-color: rgba(209, 158, 158, 0.342);
     border-radius: 5rem;
+  }
+  .user__landing__page__top__wrap {
+    display: flex;
   }
 }
