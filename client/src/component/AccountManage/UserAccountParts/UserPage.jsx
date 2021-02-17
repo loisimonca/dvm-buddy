@@ -187,7 +187,7 @@ function UserPage({ userData, setUserData }) {
             onChange={handleChange}
             defaultValue={userData.addInfo}
           />
-          <button name="addInfo" onClick={handleSubmit}>
+          <button className="editNumberBtn" name="addInfo" onClick={handleSubmit}>
             Edit
           </button>
         </div>

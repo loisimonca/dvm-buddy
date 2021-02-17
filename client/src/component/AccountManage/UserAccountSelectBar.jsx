@@ -11,9 +11,6 @@ function UserAccountSelectBar({ userData, setUserData }) {
     <>
       <div className="tabs is-centered">
         <ul>
-          <li className="is-active" onClick={handleClick}>
-            <a name="personal-info">Personal Information</a>
-          </li>
           {/* <li onClick={handleClick}>
           <a name='patient-info'>
             Payment History
