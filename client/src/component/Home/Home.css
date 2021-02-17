@@ -1,10 +1,14 @@
-body {
+/* body {
   background-image: url("./backgroundImage1.jpg");
   background-size: cover;
-  background-attachment: fixed;
-}
+  height: 100vh;
+} */
 .home-wrap {
+  padding-top: 80px;
   padding-bottom: 80px;
+  background-image: url("./backgroundImage1.jpg");
+  background-size: contain;
+  height: 100%;
 }
 .home-title {
   font-size: 40px;
@@ -24,9 +28,9 @@ h3 {
 .home-container {
   width: 60% !important;
   background-color: rgba(241, 226, 223, 0.719) !important;
-  margin-top: 80px;
-  padding: 0px 40px 0px 40px;
-  margin-bottom: 100px;
+  /* margin-top: 80px; */
+  padding-bottom: 50px;
+  margin-bottom: 80px;
   border-radius: 0.3rem;
 }
 .buttons {
@@ -47,8 +51,17 @@ h3 {
   color: white !important;
 }
 @media screen and (max-width: 700px) {
-  body {
+  /* body {
     background-image: url("./backgroundImage2.jpg");
+    background-repeat: repeat-y;
+    height: 100%;
+  } */
+  .home-wrap {
+    padding-top: 50px;
+    padding-bottom: 80px;
+    background-image: url("./backgroundImage2.jpg");
+    background-size: contain;
+    height: 100%;
   }
   .home-title {
     font-size: 35px;
@@ -60,8 +73,10 @@ h3 {
     flex-direction: column-reverse;
   }
   .home-container {
-    margin-top: 50px;
+    /* margin-top: 50px; */
     width: 95% !important;
+    padding-right: 10px;
+    padding-left: 10px;
   }
   .home-subtitle strong {
     font-size: 18px;

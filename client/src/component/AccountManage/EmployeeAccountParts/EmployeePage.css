@@ -14,9 +14,9 @@ body {
   text-align: center;
   color: black;
 }
-
-.account-manage-item {
-  margin: 20px;
+.account-manage-item-sub {
+  font-size: 16px;
+  padding: 5px 20px;
 }
 
 @media screen and (max-width: 670px) {

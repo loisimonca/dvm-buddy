@@ -17,10 +17,10 @@ function EmployeeManagePage() {
           employee.map((data) => (
             <div className="patient-info-wrap">
               <h1>
-                Name : {data.firstName} {data.lastName}
+                <strong>Name : </strong> {data.firstName} {data.lastName}
               </h1>
-              <h1>Contact Number: {data.tel}</h1>
-              <h1>Email: {data.email}</h1>
+              <h1><strong>Contact Number : </strong> {data.tel}</h1>
+              <h1><strong>Email : </strong> {data.email}</h1>
             </div>
           ))}
       </div>

@@ -22,4 +22,5 @@
 .patient-info-wrap {
   margin: 20px;
   padding: 20px;
+  border-bottom: 1px solid rgb(187, 181, 181);
 }

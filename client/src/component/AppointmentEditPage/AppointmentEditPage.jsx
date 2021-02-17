@@ -149,7 +149,7 @@ const AppointmentEditPage = () => {
                 </td>
                 <td></td>
                 <td>
-                  <button onClick={submitAddTimeSlot} className="edit__appointment__button">Add</button>
+                  <button onClick={submitAddTimeSlot} className="edit__appointment__add__button">Add</button>
                 </td>
               </tr>
               {appointments.map((item, index) => {

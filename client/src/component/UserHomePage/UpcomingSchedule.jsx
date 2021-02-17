@@ -17,8 +17,14 @@ function UpcomingSchedule() {
             <div className="upcoming__schedule__container">
                 <div className="upcoming__schedule__wrap">
                     <h1 className="upcoming__schedule__title">Upcoming Schedule</h1>
-                    <div className="upcoming__schedule__data">Date: {schedule.apptDate}</div>
-                    <div className="upcoming__schedule__time">At: {schedule.apptTime}</div>
+                    {schedule ?
+                        <>
+                            <div className="upcoming__schedule__data">Date: {schedule.apptDate}</div>
+                            <div className="upcoming__schedule__time">At: {schedule.apptTime}</div>
+                        </>
+                    : 
+                        <div>No upcoming data</div>
+                    }   
                 </div>
             </div>
         </div>
