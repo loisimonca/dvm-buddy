@@ -3,6 +3,8 @@ body {
 }
 
 .account-manage-container {
+  background-size: contain;
+  height: 100%;
   border-radius: 8px;
   width: 70%;
   margin: auto;
@@ -18,10 +20,22 @@ body {
   font-size: 16px;
   padding: 5px 20px;
 }
+.employee-info-wrap {
+  margin: 20px;
+  padding: 20px;
+  border-bottom: 1px solid rgb(187, 181, 181);
+  margin-left: 50px;
+}
 
 @media screen and (max-width: 670px) {
   .account-manage-container {
     width: 90% !important;
     margin: auto;
+  }
+  .employee-info-wrap {
+    margin: 20px;
+    padding: 20px;
+    border-bottom: 1px solid rgb(187, 181, 181);
+    margin-left: 10px;
   }
 }

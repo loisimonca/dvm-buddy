@@ -15,7 +15,7 @@ function EmployeeManagePage() {
         <h1 className="account-manage-title is-size-3">Employee Information</h1>
         {employee &&
           employee.map((data) => (
-            <div className="patient-info-wrap">
+            <div className="employee-info-wrap">
               <h1>
                 <strong>Name : </strong> {data.firstName} {data.lastName}
               </h1>
