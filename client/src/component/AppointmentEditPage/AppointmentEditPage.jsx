@@ -86,6 +86,7 @@ const AppointmentEditPage = () => {
     updateAppointment({ id, email });
     console.log("id from react is ", id);
     console.log("email from react is ", email);
+    window.location.reload();
   };
 
   //cancel edit function
@@ -155,7 +156,7 @@ const AppointmentEditPage = () => {
                     <td>
                       {inEditMode.status && inEditMode.rowKey === item._id ? (
                         <input
-                          value={customerId}
+                          defaultValue=''
                           onChange={(e) => setcustomerId(e.target.value)}
                         />
                       ) : item.user ? (
