@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
 import moment from "moment";
+import TimeInput from './TimeInput'
 
 const AppointmentEditPage = () => {
   const [appointmentList, setAppointmentList] = useState([]);
@@ -129,11 +130,16 @@ const AppointmentEditPage = () => {
             <tbody>
               <tr>
                 <td>
-                  {" "}
-                  <input type="text" name="date" id="" onChange={addTimeSlot}/>{" "}
+            <input
+              type="date"
+              defaultValue={defaultDate}
+              name="date"
+              onChange={addTimeSlot}
+              min={defaultDate}
+            />
                 </td>
                 <td>
-                  <input type="text" name="time" id="" onChange={addTimeSlot}/>
+                <TimeInput onChange={addTimeSlot}/>
                 </td>
                 <td>
                   <input type="text" name="email" id="" onChange={addTimeSlot}/>
