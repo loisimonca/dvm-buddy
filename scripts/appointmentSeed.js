@@ -368,7 +368,7 @@ const apptSeed = [
     apptTime: "17:40",
     user: null,
   },
-   {
+  {
     apptDate: "2021-02-19",
     apptTime: "17:00",
     user: null,
@@ -388,10 +388,10 @@ const apptSeed = [
 db.Appointment.deleteMany({})
   .then(() => db.Appointment.collection.insertMany(apptSeed))
   .then((data) => {
-    console.log(data.result.n + " records inserted");
+    // console.log(data.result.n + " records inserted");
     process.exit(0);
   })
   .catch((err) => {
-    console.log(err);
+    // console.log(err);
     process.exit(1);
   });

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import UserPage from "./UserAccountParts/UserPage";
 
-
 function UserAccountSelectBar({ userData, setUserData }) {
-  const [state, setState] = useState("personal-info");
-  const handleClick = (e) => {
-    const target = e.target.name;
-    setState(target);
-  };
+  const [state] = useState("personal-info");
+  // const handleClick = (e) => {
+  //   const target = e.target.name;
+  //   setState(target);
+  // };
   return (
     <>
       <div className="tabs is-centered">
@@ -35,7 +34,6 @@ function UserAccountSelectBar({ userData, setUserData }) {
       {state === "personal-info" && (
         <UserPage userData={userData} setUserData={setUserData} />
       )}
-
     </>
   );
 }

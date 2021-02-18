@@ -14,13 +14,17 @@ function EmployeeManagePage() {
       <div className="account-manage-container">
         <h1 className="account-manage-title is-size-3">Employee Information</h1>
         {employee &&
-          employee.map((data) => (
-            <div className="employee-info-wrap">
+          employee.map((data, index) => (
+            <div key={index} className="employee-info-wrap">
               <h1>
                 <strong>Name : </strong> {data.firstName} {data.lastName}
               </h1>
-              <h1><strong>Contact Number : </strong> {data.tel}</h1>
-              <h1><strong>Email : </strong> {data.email}</h1>
+              <h1>
+                <strong>Contact Number : </strong> {data.tel}
+              </h1>
+              <h1>
+                <strong>Email : </strong> {data.email}
+              </h1>
             </div>
           ))}
       </div>

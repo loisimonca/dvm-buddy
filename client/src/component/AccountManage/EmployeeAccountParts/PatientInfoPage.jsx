@@ -7,7 +7,7 @@ export default function PatientInfoPage() {
   useEffect(() => {
     API.getUser().then((res) => {
       setPatient(res.data);
-      console.log(res.data);
+      // console.log(res.data);
     });
   }, []);
   return (
@@ -15,10 +15,18 @@ export default function PatientInfoPage() {
       <h1 className="account-manage-title is-size-3 ">Patient Information</h1>
 
       {patient &&
-        patient.map((data) => (
-          <div className="patient-info-wrap">
-            <div className='patient-info-image'>
-              <img src={data.userImage? data.userImage : 'https://via.placeholder.com/100.png?text=No+image'} alt=""/>
+        patient.map((data, index) => (
+          <div key={index} className="patient-info-wrap">
+            <div key={index} className="patient-info-image">
+              <img
+                key={index}
+                src={
+                  data.userImage
+                    ? data.userImage
+                    : "https://via.placeholder.com/100.png?text=No+image"
+                }
+                alt=""
+              />
             </div>
             <div>
               <div className="account-manage-item">
@@ -28,7 +36,8 @@ export default function PatientInfoPage() {
                 </span>
               </div>
               <div className="account-manage-item">
-                <strong>Contact Number: </strong>{data.tel}
+                <strong>Contact Number: </strong>
+                {data.tel}
               </div>
 
               <div className="account-manage-item">
@@ -37,15 +46,19 @@ export default function PatientInfoPage() {
               </div>
               <div className="account-manage-item">
                 <strong>Pet Info </strong>
-                <div className='account-manage-item-sub'>
-                  <strong>Name : </strong> {data.petName} <strong>/ Type : </strong> {data.petType} <strong>/ Breed : </strong>{data.petBreed} 
+                <div className="account-manage-item-sub">
+                  <strong>Name : </strong> {data.petName}{" "}
+                  <strong>/ Type : </strong> {data.petType}{" "}
+                  <strong>/ Breed : </strong>
+                  {data.petBreed}
                 </div>
               </div>
-    
+
               <div className="account-manage-item">
                 <strong>Emergency Contact : </strong>
-                {data.emergencyName} [{data.emergencyTel}]</div>
-          </div>
+                {data.emergencyName} [{data.emergencyTel}]
+              </div>
+            </div>
           </div>
         ))}
     </div>

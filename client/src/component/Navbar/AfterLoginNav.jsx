@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import { NavLink, Link } from "react-router-dom";
-import { UserContext } from "../../utils/UserContext";
+// import { UserContext } from "../../utils/UserContext";
 
 function AfterLoginNav({ handleClick, click, closeMobileMenu }) {
   // const history = useHistory();

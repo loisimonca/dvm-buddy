@@ -20,8 +20,8 @@ function UserLogin() {
     })
       // redirect to the account page
       .then((res) => {
-        console.log(res.data.token);
-        console.log(res);
+        // console.log(res.data.token);
+        // console.log(res);
         jwt.verify(
           res.data.token,
           process.env.REACT_APP_JWT_SIGNATURE,
@@ -30,7 +30,7 @@ function UserLogin() {
               console.log(err);
             } else {
               if (res.data.type === "User") {
-                console.log(res.data);
+                // console.log(res.data);
                 sessionStorage.setItem("token", JSON.stringify(res.data.token));
                 sessionStorage.setItem("type", JSON.stringify("User"));
                 sessionStorage.setItem("userId", JSON.stringify(res.data.id));

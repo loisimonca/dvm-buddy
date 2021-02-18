@@ -4,7 +4,7 @@ import moment from "moment";
 import "./AppointmentPage.css";
 
 // import { relativeTimeRounding } from "moment";
-import Wrapper from "../Wrapper/Wrapper";
+// import Wrapper from "../Wrapper/Wrapper";
 
 const AppointmentPage = () => {
   const [appointments, setAppointments] = useState([]);
@@ -35,7 +35,7 @@ const AppointmentPage = () => {
 
   //filters available appointments list based on date input
   const filterAppointments = (date) => {
-    console.log("date input is ", date);
+    // console.log("date input is ", date);
     const filteredData = oAppointments.filter(
       (appointment) =>
         appointment.apptDate >= date && appointment.apptTime > defaultTime
@@ -52,7 +52,7 @@ const AppointmentPage = () => {
     setconfirmedAppointment({ formattedDisplayDate, formattedDisplayTime });
     setAppointmentChoice(scheduleId); //set appointment id for later use for updating db
 
-    console.log(confirmedAppointment);
+    // console.log(confirmedAppointment);
 
     setModalIsOpen(true);
   }
@@ -61,8 +61,8 @@ const AppointmentPage = () => {
   function createTable() {
     const table = [];
 
-    console.log("calling availAppoints from createTable ", appointments);
-    console.log("userid is ", userId);
+    // console.log("calling availAppoints from createTable ", appointments);
+    // console.log("userid is ", userId);
 
     const newAppointmentArray = appointments.reduce((r, a) => {
       r[a.apptDate] = r[a.apptDate] || [];
@@ -70,15 +70,16 @@ const AppointmentPage = () => {
       return r;
     }, {});
 
-    console.log("New Appointment Array is ", newAppointmentArray);
+    // console.log("New Appointment Array is ", newAppointmentArray);
 
     for (let slots in newAppointmentArray) {
       let children = [];
       let dateHeader = slots;
 
-      newAppointmentArray[slots].map((item) => {
+      newAppointmentArray[slots].map((item, index) => {
         children.push(
           <li
+            key={index}
             className="button is-small m-1"
             data-id={item.id}
             key={item.id}
@@ -100,8 +101,8 @@ const AppointmentPage = () => {
       });
 
       table.push(
-        <ul className="box">
-          <h1 className="title">
+        <ul className="box AppBox ">
+          <h1 className="title is-size-4 dateTitle">
             {" "}
             {moment(dateHeader, "YYYY-MM-DD").format("dddd, MMMM Do YYYY")}{" "}
           </h1>{" "}
@@ -114,9 +115,9 @@ const AppointmentPage = () => {
 
   //save user appointment choice
   function handleSaveAppointment() {
-    console.log("save button click");
-    console.log("appointment choice", appointmentChoice);
-    console.log("userId ", userId);
+    // console.log("save button click");
+    // console.log("appointment choice", appointmentChoice);
+    // console.log("userId ", userId);
 
     API.setAppt(appointmentChoice, userId)
       .then((resp) => console.log(resp))
@@ -128,13 +129,18 @@ const AppointmentPage = () => {
     <div className="containerAPP">
       <section className="section">
         <h1 className="titleSchedules is-size-3"> Available Schedules</h1>
-        <div className="container">
+        <div className="container is-centered appointmentContainer">
           <div className="column is-half">
-            <label htmlFor="appointment-filter" className="label">
+            <p
+              className="search-available-dates"
+              htmlFor="appointment-filter"
+              // className="label"
+            >
               Search from:
-            </label>
-            <hr></hr>
+            </p>
+
             <input
+              className="dateInput"
               type="date"
               defaultValue={defaultDate}
               onChange={(e) => filterAppointments(e.target.value)}
@@ -142,7 +148,9 @@ const AppointmentPage = () => {
               min={defaultDate}
             />
           </div>
-          <div className="column is-four-fifths">{createTable()}</div>
+          <div className="column is-mobile is-centered is-four-fifths ">
+            {createTable()}
+          </div>
         </div>
       </section>
 

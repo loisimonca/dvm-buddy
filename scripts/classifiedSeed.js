@@ -120,10 +120,10 @@ const classifiedSeed = [
 db.Classified.remove({})
   .then(() => db.Classified.collection.insertMany(classifiedSeed))
   .then((data) => {
-    console.log(data.result.n + " classified records inserted");
+    // console.log(data.result.n + " classified records inserted");
     process.exit(0);
   })
   .catch((err) => {
-    console.log(err);
+    // console.log(err);
     process.exit(1);
   });

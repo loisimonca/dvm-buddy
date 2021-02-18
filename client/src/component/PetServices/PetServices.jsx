@@ -38,7 +38,7 @@ const PetServices = () => {
 
     //then set displayServices
     setFilteredService(display);
-    console.log(display);
+    // console.log(display);
   };
   //----------------- THIS IS THE HANDLE ZIP CHANGE FUNCTION----------------
   const handleZipInputChange = (e) => {

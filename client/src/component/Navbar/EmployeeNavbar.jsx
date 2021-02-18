@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
-import { UserContext } from "../../utils/UserContext";
+// import { UserContext } from "../../utils/UserContext";
 
 function EmployeeNavbar({ handleClick, click, closeMobileMenu }) {
-  const { setValue, setToken, setUserId } = useContext(UserContext);
+  // const { setValue, setToken, setUserId } = useContext(UserContext);
   const handleLogout = (e) => {
     e.preventDefault();
     sessionStorage.clear();

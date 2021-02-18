@@ -1,8 +1,42 @@
 .containerAPP {
-  z-index: 9999;
+  margin: auto !important;
 }
-
+.appointmentContainer {
+  margin: auto;
+  align-content: center !important;
+}
 .titleSchedules {
   font-family: Roboto Slab;
   text-align: center;
+}
+.dateInput {
+  margin-top: 0px;
+  width: 150px;
+  height: 40px;
+}
+
+.dateTitle {
+  font-family: Roboto Slab;
+  text-align: center;
+}
+.AppBox {
+  margin: auto !important;
+  margin-bottom: 30px !important;
+}
+
+.is-mobile {
+  margin: auto !important;
+}
+.search-available-dates {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.is-half {
+  margin-left: 10%;
+}
+@media screen and (max-width: 768px) {
+  .is-half {
+    margin-left: auto;
+  }
 }

@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import API from "../../utils/API";
 import "./BoardingCard.css";
 
 const BoardingCard = (props) => {
   //-------------------HANDLE DELETE----------------//
   const handleDelete = function (id) {
-    console.log("handle Delete id: ", id);
+    // console.log("handle Delete id: ", id);
     if (window.confirm("Are you sure you want to delete this service?"))
       API.deleteClassified(id)
         .then((res) => {
-          console.log("success");
+          // console.log("success");
           window.location.replace("/AdminPetServices");
         })
         .catch((err) => {
@@ -18,7 +18,7 @@ const BoardingCard = (props) => {
   };
   //-----------------------HANDLE EDIT BUTTON-----------------//
   const handleEdit = function (id) {
-    console.log("handle Edit id: ", id);
+    // console.log("handle Edit id: ", id);
     window.location.replace("/EditServiceModal/" + id);
   };
   return (
