@@ -11,8 +11,13 @@
   height: 100px !important;
   object-fit: fill !important;
   padding: 0px !important;
+  margin: auto;
 }
-/* .ProfilePic {
-  object-fit: fill !important;
-  padding: 0px !important;
-} */
+.ProfilePic {
+  /* width: 100px !important;
+  height: 100px !important; */
+  object-fit: cover !important;
+  width: 100px !important;
+  height: 100px !important;
+  overflow: hidden !important;
+}

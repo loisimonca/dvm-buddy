@@ -199,7 +199,7 @@ function UserPage({ userData, setUserData }) {
             />
           </strong>
         </div>
-        <div className="account-manage-item">
+        <div className="account-manage-item petTextArea">
           More Info About Pet :{" "}
           <textarea
             className="account-manage-input textareaInput"
