@@ -21,15 +21,15 @@ const Navbar = () => {
     const userToken = JSON.parse(sessionStorage.getItem("token"));
     const userType = JSON.parse(sessionStorage.getItem("type"));
     const userId = JSON.parse(sessionStorage.getItem("userId"));
-    console.log(userId);
+    // console.log(userId);
     if (userToken) {
       setValue(userType);
       setToken(userToken);
       setUserId(userId);
     }
   }, []);
-  const logoLink =   function(link){      
-    return(
+  const logoLink = function (link) {
+    return (
       <Link
         to={link}
         className="navbar-main is-pulled-left"
@@ -39,18 +39,17 @@ const Navbar = () => {
           <i className="fas fa-paw"></i> DVM Buddy
         </h1>
       </Link>
-    )
-  }
+    );
+  };
   return (
     <div>
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          {token===null ? 
-                logoLink('/')
-        :( value==='User' ? logoLink("/UserHomePage")
-          :logoLink("/AdminHomePage")
-          )
-          }
+          {token === null
+            ? logoLink("/")
+            : value === "User"
+            ? logoLink("/UserHomePage")
+            : logoLink("/AdminHomePage")}
         </div>
         {token === null && (
           <BeforeLoginNav

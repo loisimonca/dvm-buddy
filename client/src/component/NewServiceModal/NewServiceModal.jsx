@@ -46,7 +46,7 @@ const NewServiceModal = (props) => {
     if (match.matchEmail === true && match.matchTel === true) {
       API.createClassified(serviceInfo)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           alert("Success!");
           window.location.replace("/adminpetservices");
         })

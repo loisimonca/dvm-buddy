@@ -5,7 +5,7 @@ module.exports = {
   findAllUser: function (req, res) {
     db.User.find({ userType: "User" })
       .then((user) => {
-        console.log(user);
+        // console.log(user);
         res.json(user);
       })
       .catch((err) => res.status(422).json(err));
@@ -21,10 +21,10 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   findByEmail: function (req, res) {
-    console.log(req.params.email);
+    // console.log(req.params.email);
     db.User.findOne({ email: req.params.email })
       .then((user) => {
-        console.log(user);
+        // console.log(user);
         res.json(user);
       })
       .catch((err) => res.status(422).json(err));

@@ -43,7 +43,7 @@ module.exports = {
   },
   //works
   setAppointment: (req, res) => {
-    console.log(req.body.user);
+    // console.log(req.body.user);
     db.Appointment.findByIdAndUpdate(
       req.params.id,
       {
@@ -56,11 +56,11 @@ module.exports = {
   },
   setAppointmentByEmail: (req, res) => {
     const apptId = req.body.apptId;
-    console.log("apptId is ", apptId);
+    // console.log("apptId is ", apptId);
     db.User.findOne({ email: req.params.email })
       .then((user) => {
-        console.log("server userId is ", user);
-        console.log("server req.body.id is ", apptId);
+        // console.log("server userId is ", user);
+        // console.log("server req.body.id is ", apptId);
         db.Appointment.findByIdAndUpdate(
           req.body.apptId,
           {
@@ -79,7 +79,7 @@ module.exports = {
   findAll: (req, res) => {
     db.Appointment.find()
       .populate("user", "email")
-      .sort({apptDate: 1, apptTime: 1})
+      .sort({ apptDate: 1, apptTime: 1 })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },

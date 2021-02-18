@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import ImageUploading from "react-images-uploading";
 import API from "../../utils/API";
 import { UserContext } from "../../utils/UserContext";
@@ -6,7 +6,7 @@ import "./UserImage.css";
 import "../AccountManage/UserAccountParts/UserPage.css";
 
 function UserImage({ currentImage }) {
-  const [imagedata, setImage] = useState([]);
+  const [imagedata] = useState([]);
 
   const { userId } = useContext(UserContext);
   const onChange = (selectedImage) => {

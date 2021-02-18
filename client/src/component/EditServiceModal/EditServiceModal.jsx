@@ -10,7 +10,7 @@ const EditServiceModal = (props) => {
   const { id } = useParams();
 
   useEffect(() => {
-    console.log(id);
+    // console.log(id);
     API.getClassifiedById(id)
       .then((res) => {
         setCurrentServiceInfo(res.data);
