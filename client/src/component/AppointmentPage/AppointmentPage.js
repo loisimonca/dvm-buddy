@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import moment from "moment";
-import { relativeTimeRounding } from "moment";
 
 const AppointmentPage = () => {
   const [appointments, setAppointments] = useState([]);
