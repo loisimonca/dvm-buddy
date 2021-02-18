@@ -10,7 +10,6 @@
 
 .edit__appointment__table__wrap {
   overflow-x: scroll;
-
 }
 
 table {
@@ -68,13 +67,11 @@ th {
   outline: none;
 }
 
-
 .edit__appointment__button:hover {
   background-color: rgb(184, 138, 138) !important;
-
+}
 @media screen and (max-width: 970px) {
   .edit__appointment__table__wrap {
     overflow-x: scroll;
   }
-
 }
