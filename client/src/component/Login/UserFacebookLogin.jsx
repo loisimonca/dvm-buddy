@@ -12,7 +12,7 @@ function UserFacebookLogin() {
     const responseFacebook = (response) => {
         console.log(response);
         const token = response.accessToken;
-        API.getUserByEmail(response.email)
+        API.getUserIdByEmail(response.email)
         .then(user =>{
             if(user.data){
                 setState({
