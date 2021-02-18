@@ -23,10 +23,14 @@ function EditFunction({
       )}
       {editOpen ? (
         <span>
-          <button name={target} onClick={handleSubmit}>
+          <button
+            className="submitChangeBtn"
+            name={target}
+            onClick={handleSubmit}
+          >
             Submit
           </button>
-          <button name={target} onClick={EditOpen}>
+          <button className="submitCancelBtn" name={target} onClick={EditOpen}>
             Cancel
           </button>
         </span>
