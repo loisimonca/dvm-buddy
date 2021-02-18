@@ -24,6 +24,7 @@ const AppointmentEditPage = () => {
     user:null
   })
   const addTimeSlot = (e) =>{
+    console.log(e.target.value);
     {e.target.name==='date' && setAddTime({...addTime, apptDate: e.target.value})}
     {e.target.name==='time' && setAddTime({...addTime, apptTime: e.target.value})}
     {e.target.name==='email' && setAddTime({...addTime, user: e.target.value})}
