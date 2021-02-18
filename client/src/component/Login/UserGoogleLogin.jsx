@@ -16,9 +16,10 @@ function UserGoogleLogin() {
         refreshTokenSetup(res);
         const userToken = res.tokenObj.id_token
         //find user by email and check if it exist already
-        API.getUserByEmail(res.profileObj.email)
+        API.getUserIdByEmail(res.profileObj.email)
         .then(user =>{
-            if(user.data){
+            console.log(user)
+            if(user.data !== null){
                 sessionStorage.setItem('token', JSON.stringify(userToken))
                 sessionStorage.setItem('type', JSON.stringify(user.data.userType));
                 sessionStorage.setItem('userId', JSON.stringify(user.data._id));    
