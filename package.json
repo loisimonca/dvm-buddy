@@ -1,6 +1,9 @@
 {
   "name": "dvm-buddy",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.19.0"
+  },
   "description": "DVM Buddy",
   "main": "server.js",
   "scripts": {
@@ -21,6 +24,7 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+    "@babel/runtime": "^7.12.13",
     "bcryptjs": "^2.4.3",
     "bulma-accordion": "^2.0.1",
     "dotenv": "^8.2.0",

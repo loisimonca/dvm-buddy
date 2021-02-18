@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import UserPage from "./UserAccountParts/UserPage";
 
+
 function UserAccountSelectBar({ userData, setUserData }) {
   const [state, setState] = useState("personal-info");
   const handleClick = (e) => {
@@ -34,6 +35,7 @@ function UserAccountSelectBar({ userData, setUserData }) {
       {state === "personal-info" && (
         <UserPage userData={userData} setUserData={setUserData} />
       )}
+
     </>
   );
 }
