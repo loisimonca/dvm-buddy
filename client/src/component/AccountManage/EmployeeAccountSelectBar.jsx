@@ -49,7 +49,9 @@ function EmployeeAccountSelectBar({ userData, setUserData }) {
             onClick={handleClick}
           >
             <strong>
-              <button name="personal-info">Personal Information</button>
+              <button className="account-tabs" name="personal-info">
+                Personal Information
+              </button>
             </strong>
           </li>
           <li
@@ -58,7 +60,9 @@ function EmployeeAccountSelectBar({ userData, setUserData }) {
             onClick={handleClick}
           >
             <strong>
-              <button name="patient-info">Patient Information</button>
+              <button className="account-tabs" name="patient-info">
+                Patient Information
+              </button>
             </strong>
           </li>
           <li
@@ -66,7 +70,9 @@ function EmployeeAccountSelectBar({ userData, setUserData }) {
             onClick={handleClick}
           >
             <strong>
-              <button name="employee-info">Employee Management</button>
+              <button className="account-tabs" name="employee-info">
+                Employee Management
+              </button>
             </strong>
           </li>
           <li
@@ -74,7 +80,9 @@ function EmployeeAccountSelectBar({ userData, setUserData }) {
             onClick={handleClick}
           >
             <strong>
-              <button name="documents">Documents</button>
+              <button className="account-tabs" name="documents">
+                Documents
+              </button>
             </strong>
           </li>
         </ul>
