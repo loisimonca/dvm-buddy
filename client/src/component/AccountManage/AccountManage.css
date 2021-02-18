@@ -20,6 +20,8 @@
 .account-manage-item {
   direction: flex;
   flex-direction: row;
+  font-size: 17px;
+  line-height: 36px;
 }
 .patient-info-container {
   color: black;
@@ -30,24 +32,42 @@
   font-weight: 600;
 }
 .patient-info-wrap {
-  margin: 20px;
+  /* margin: 20px; */
   padding: 20px;
+  padding-left: 0px;
   border-bottom: 1px solid rgb(187, 181, 181);
   display: flex;
   justify-content: left;
 }
 .patient-info-image {
-  margin: 0 70px;
-  width: 100px;
-  height: 100px;
+  /* margin-top: 50px !important; */
+  vertical-align: middle;
+  /* display: inline-block; */
+  margin-top: 40px;
+  margin-right: 20px;
+  margin-left: 20px;
+  width: 160px !important;
+  height: 160px !important;
+  align-items: center !important;
+  vertical-align: middle !important;
   padding: 0px !important;
-  object-fit: fill !important;
+  /* object-fit: fill !important; */
 }
-@media screen and (max-width: 965px) {
+.patient-info-image > img {
+  object-fit: cover !important;
+
+  width: 100px !important;
+  height: 100px !important;
+  padding: 0px !important;
+  margin: auto !important;
+  align-items: center !important;
+  vertical-align: middle;
+}
+/* @media screen and (max-width: 965px) {
   .patient-info-image {
     margin: 0 10px;
   }
-}
+} */
 @media screen and (max-width: 700px) {
   .account-page-whole-container {
     /* background-image: url("/images/backgroundImage2.jpg");
@@ -62,8 +82,9 @@
     flex-direction: column;
   }
   .patient-info-image {
-    text-align: center;
+    text-align: center !important;
+    margin: auto !important;
+    margin-bottom: 20px !important;
+    height: 100px !important;
   }
-}
-@media screen and (max-width: 450px) {
 }

@@ -8,20 +8,27 @@ input {
 
 .upload__image-wrapper {
   float: left;
+  align-items: center !important;
   width: 25%;
   margin-right: 20px;
   margin-bottom: 100%;
+  border: none !important;
 }
 
 .account-manage-item {
   width: 100%;
 }
+.petTextArea {
+  padding-bottom: 20px;
+}
 
 .textareaInput {
-  width: 60%;
+  width: 50%;
   float: left;
   margin-bottom: 70px;
-  overflow: auto;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .remove-img {
@@ -31,6 +38,7 @@ input {
   font-weight: 600;
   border-radius: 4px;
   padding: 5px;
+  margin: 5px;
 }
 .remove-img:hover {
   background-color: rgb(179, 110, 97) !important ;
@@ -43,6 +51,7 @@ input {
   font-weight: 600;
   border-radius: 4px;
   padding: 5px;
+  margin: 5px;
 }
 
 .update-img:hover {
@@ -57,5 +66,9 @@ input {
   }
   .personalInfoContainer {
     font-size: 16px;
+  }
+  .remove-img,
+  .update-img {
+    margin: 10px;
   }
 }

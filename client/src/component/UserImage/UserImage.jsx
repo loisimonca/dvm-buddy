@@ -40,7 +40,7 @@ function UserImage({ currentImage }) {
           dragProps,
         }) => (
           // write your building UI
-          <div className="upload__image-wrapper">
+          <div className="upload__image-wrapper has-text-centered">
             {currentImage ? (
               <>
                 <button

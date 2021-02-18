@@ -1,6 +1,6 @@
 .tabs li.is-active a {
-  border-bottom-color: none;
-  color: black !important;
+  /* border-bottom-color: none;
+  color: black !important; */
 }
 
 .tabs {
@@ -8,17 +8,46 @@
 }
 
 .tabs ul {
-  border-bottom: none;
+  border-bottom: 70%;
+  border-color: white;
 }
-
+.account-tabs {
+  background: transparent;
+  color: rgb(90, 90, 90);
+  font-weight: 700;
+  font-size: 16px;
+  /* margin: 10px; */
+  padding: 9px;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 3px solid transparent !important;
+}
+.account-tabs:focus {
+  outline: none;
+  outline-offset: -4px;
+}
+.account-tabs:hover {
+  /* border-bottom: solid rgb(209, 138, 123) !important; */
+  transition: 0.5s;
+  color: black !important;
+}
 .inactive {
   border: 3px solid transparent !important;
-  border-radius: 3px;
+  /* border-radius: 3px; */
+
   /* border-bottom: solid rgba(241, 226, 223, 0.6); */
 }
+/* .account-tabs:active {
+  border: 3px solid rgb(209, 138, 123) !important;
+} */
 .activeBtn {
   border: 3px solid rgb(209, 138, 123) !important;
-  border-radius: 3px;
+  padding: 0px !important;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: 0.5s;
 }
 
 @media screen and (min-width: 970px) {
