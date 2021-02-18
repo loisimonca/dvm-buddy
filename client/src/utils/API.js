@@ -19,6 +19,9 @@ export default {
   getUserIdByEmail: function (email) {
     return axios.get(`/api/users/findByEmail/${email}`);
   },
+  createGoogleFacebookUser: function (user) {
+    return axios.post("/api/users/googleFacebook", user);
+  },
   getClassified: function () {
     return axios.get("/api/classified");
   },
@@ -56,12 +59,12 @@ export default {
   },
   //userId is the _id from user table
   setAppt: function (apptId, user) {
-    return axios.put(`/api/appointments/${apptId}`, {user});
+    return axios.put(`/api/appointments/${apptId}`, { user });
   },
   setApptByEmail: function (user, apptId) {
     console.log("user", user);
     console.log("apptId", apptId);
-    return axios.put(`/api/appointments/user/${user}`, {apptId});
+    return axios.put(`/api/appointments/user/${user}`, { apptId });
   },
   //route needs apptDate formatted as "YYYY-MM-DD" and apptTime formatted as "hh:mm"
   createAppt: function (data) {

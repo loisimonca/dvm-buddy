@@ -21,8 +21,12 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   findByEmail: function (req, res) {
+    console.log(req.params.email);
     db.User.findOne({ email: req.params.email })
-      .then((user) => res.json(user))
+      .then((user) => {
+        console.log(user);
+        res.json(user);
+      })
       .catch((err) => res.status(422).json(err));
   },
   createGoogleFacebook: function (req, res) {
