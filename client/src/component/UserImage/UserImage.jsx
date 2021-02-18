@@ -48,7 +48,12 @@ function UserImage({ currentImage }) {
                   style={isDragging ? { color: "red" } : undefined}
                   onClick={onImageUpload}
                 >
-                  <img src={currentImage} alt="" width="100" />
+                  <img
+                    src={currentImage}
+                    alt="profile"
+                    width="100"
+                    className="ProfilePic"
+                  />
                 </button>
                 <div className="image-item__btn-wrapper">
                   <button

@@ -44,6 +44,7 @@ input {
   border-radius: 4px;
   padding: 5px;
 }
+
 .update-img:hover {
   background-color: rgb(210, 160, 150) !important ;
 }
@@ -52,5 +53,9 @@ input {
     float: none;
     margin-bottom: 20px;
     width: 100%;
+    text-align: center;
+  }
+  .personalInfoContainer {
+    font-size: 16px;
   }
 }

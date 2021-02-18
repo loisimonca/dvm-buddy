@@ -4,8 +4,6 @@ import UserImage from "../../UserImage/UserImage";
 import EditFunction from "../EditFunction";
 import "./UserPage.css";
 
-
-
 function UserPage({ userData, setUserData }) {
   const [originalData, setOriginalData] = useState();
   const [editOpen, setEditOpen] = useState({
@@ -88,8 +86,7 @@ function UserPage({ userData, setUserData }) {
   };
   return (
     <div className="account-manage-wrap">
-      <div className="account-manage-container container">
-
+      <div className="account-manage-container personalInfoContainer container">
         <h1 className="account-manage-title is-size-3">Personal Info</h1>
 
         <UserImage currentImage={userData.userImage} />
