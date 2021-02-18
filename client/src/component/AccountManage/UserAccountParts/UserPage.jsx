@@ -3,6 +3,8 @@ import API from "../../../utils/API";
 import UserImage from "../../UserImage/UserImage";
 import EditFunction from "../EditFunction";
 
+
+
 function UserPage({ userData, setUserData }) {
   const [originalData, setOriginalData] = useState();
   const [editOpen, setEditOpen] = useState({
@@ -87,7 +89,7 @@ function UserPage({ userData, setUserData }) {
     <div className="account-manage-wrap">
       <div className="account-manage-container container">
         <h1 className="account-manage-title">Personal Info</h1>
-        <UserImage currentImage={userData.userImage}/>
+        <UserImage currentImage={userData.userImage} />
         <div className="account-manage-item">
           FirstName :{" "}
           <span className="account-manage-input" name="firstName">
@@ -187,7 +189,11 @@ function UserPage({ userData, setUserData }) {
             onChange={handleChange}
             defaultValue={userData.addInfo}
           />
-          <button className="editNumberBtn" name="addInfo" onClick={handleSubmit}>
+          <button
+            className="editNumberBtn"
+            name="addInfo"
+            onClick={handleSubmit}
+          >
             Edit
           </button>
         </div>
