@@ -1,8 +1,8 @@
 .account-page-whole-container {
-  background-image: url("/images/backgroundImage1.jpg");
+  /* background-image: url("/images/backgroundImage1.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: cover; */
   height: 100%;
   margin: 0;
   padding-top: 10px;
@@ -46,8 +46,8 @@
 }
 @media screen and (max-width: 700px) {
   .account-page-whole-container {
-    background-image: url("/images/backgroundImage2.jpg");
-    background-size: cover;
+    /* background-image: url("/images/backgroundImage2.jpg");
+    background-size: cover; */
     height: 100%;
     margin: 0;
     padding-top: 10px;
