@@ -35,7 +35,7 @@ module.exports = {
       .insertOne({
         apptDate: req.body.apptDate,
         apptTime: req.body.apptTime,
-        user: null,
+        user: req.body.user,
       })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
