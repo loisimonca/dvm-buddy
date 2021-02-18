@@ -125,7 +125,7 @@ const AppointmentEditPage = () => {
               <tr>
                 <th className='table__corner__top__left'>Date</th>
                 <th>Time</th>
-                <th>Customer Email</th>
+                <th></th>
                 <th></th>
                 <th className='table__corner__top__right'></th>
               </tr>
@@ -146,7 +146,7 @@ const AppointmentEditPage = () => {
                 <TimeInput onChange={addTimeSlot}/>
                 </td>
                 <td>
-                  <input type="text" name="email" id="" onChange={addTimeSlot}/>
+                  {/* <input type="text" name="email" id="" onChange={addTimeSlot}/> */}
                 </td>
                 <td></td>
                 <td>
