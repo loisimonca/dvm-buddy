@@ -1,0 +1,56 @@
+input {
+  border: none;
+  width: 20%;
+  height: 25px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.upload__image-wrapper {
+  float: left;
+  width: 25%;
+  margin-right: 20px;
+  margin-bottom: 100%;
+}
+
+.account-manage-item {
+  width: 100%;
+}
+
+.textareaInput {
+  width: 60%;
+  float: left;
+  margin-bottom: 70px;
+  overflow: auto;
+}
+
+.remove-img {
+  background-color: rgb(205, 136, 122) !important ;
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 5px;
+}
+.remove-img:hover {
+  background-color: rgb(179, 110, 97) !important ;
+}
+
+.update-img {
+  background-color: rgb(237, 196, 188) !important ;
+  border: none;
+  color: black;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 5px;
+}
+.update-img:hover {
+  background-color: rgb(210, 160, 150) !important ;
+}
+@media screen and (max-width: 560px) {
+  .upload__image-wrapper {
+    float: none;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+}

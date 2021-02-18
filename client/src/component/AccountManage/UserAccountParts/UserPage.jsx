@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "../../../utils/API";
 import UserImage from "../../UserImage/UserImage";
 import EditFunction from "../EditFunction";
+import "./UserPage.css";
 
 
 
@@ -88,19 +89,26 @@ function UserPage({ userData, setUserData }) {
   return (
     <div className="account-manage-wrap">
       <div className="account-manage-container container">
-        <h1 className="account-manage-title">Personal Info</h1>
+
+        <h1 className="account-manage-title is-size-3">Personal Info</h1>
+
         <UserImage currentImage={userData.userImage} />
         <div className="account-manage-item">
-          FirstName :{" "}
-          <span className="account-manage-input" name="firstName">
-            {userData.firstName}
-          </span>
+          First Name :
+          <strong>
+            {" "}
+            <span className="account-manage-input" name="firstName">
+              {userData.firstName}
+            </span>
+          </strong>
         </div>
         <div className="account-manage-item">
-          LastName :{" "}
-          <span className="account-manage-input" name="lastName">
-            {userData.lastName}
-          </span>{" "}
+          Last Name :{" "}
+          <strong>
+            <span className="account-manage-input" name="lastName">
+              {userData.lastName}
+            </span>{" "}
+          </strong>
         </div>
 
         <div className="account-manage-item">
@@ -117,74 +125,87 @@ function UserPage({ userData, setUserData }) {
 
         <div className="account-manage-item">
           User Email :{" "}
-          <span
-            className="account-manage-input"
-            name="email"
-            onChange={handleChange}
-          >
-            {userData.email}{" "}
-          </span>
+          <strong>
+            <span
+              className="account-manage-input"
+              name="email"
+              onChange={handleChange}
+            >
+              {userData.email}{" "}
+            </span>
+          </strong>
         </div>
         <div className="account-manage-item">Password : **** </div>
         <div className="account-manage-item">
           Emergency Contact Name :{" "}
-          <EditFunction
-            target={"emergencyName"}
-            editOpen={editOpen.emergencyName}
-            EditOpen={EditOpen}
-            handleChange={handleChange}
-            userData={userData.emergencyName}
-            handleSubmit={handleSubmit}
-          />
+          <strong>
+            <EditFunction
+              target={"emergencyName"}
+              editOpen={editOpen.emergencyName}
+              EditOpen={EditOpen}
+              handleChange={handleChange}
+              userData={userData.emergencyName}
+              handleSubmit={handleSubmit}
+            />
+          </strong>
         </div>
         <div className="account-manage-item">
           Emergency Contact :{" "}
-          <EditFunction
-            target={"emergencyTel"}
-            editOpen={editOpen.emergencyTel}
-            EditOpen={EditOpen}
-            handleChange={handleChange}
-            userData={userData.emergencyTel}
-            handleSubmit={handleSubmit}
-          />
+          <strong>
+            <EditFunction
+              target={"emergencyTel"}
+              editOpen={editOpen.emergencyTel}
+              EditOpen={EditOpen}
+              handleChange={handleChange}
+              userData={userData.emergencyTel}
+              handleSubmit={handleSubmit}
+            />
+          </strong>
         </div>
         <div className="account-manage-item">
           Pet Name :{" "}
-          <EditFunction
-            target={"petName"}
-            editOpen={editOpen.petName}
-            EditOpen={EditOpen}
-            handleChange={handleChange}
-            userData={userData.petName}
-            handleSubmit={handleSubmit}
-          />
+          <strong>
+            {" "}
+            <EditFunction
+              target={"petName"}
+              editOpen={editOpen.petName}
+              EditOpen={EditOpen}
+              handleChange={handleChange}
+              userData={userData.petName}
+              handleSubmit={handleSubmit}
+            />
+          </strong>
         </div>
         <div className="account-manage-item">
           Pet Type :{" "}
-          <EditFunction
-            target={"petType"}
-            editOpen={editOpen.petType}
-            EditOpen={EditOpen}
-            handleChange={handleChange}
-            userData={userData.petType}
-            handleSubmit={handleSubmit}
-          />
+          <strong>
+            <EditFunction
+              target={"petType"}
+              editOpen={editOpen.petType}
+              EditOpen={EditOpen}
+              handleChange={handleChange}
+              userData={userData.petType}
+              handleSubmit={handleSubmit}
+            />
+          </strong>
         </div>
         <div className="account-manage-item">
           Pet Breed :{" "}
-          <EditFunction
-            target={"petBreed"}
-            editOpen={editOpen.petBreed}
-            EditOpen={EditOpen}
-            handleChange={handleChange}
-            userData={userData.petBreed}
-            handleSubmit={handleSubmit}
-          />
+          <strong>
+            <EditFunction
+              target={"petBreed"}
+              editOpen={editOpen.petBreed}
+              EditOpen={EditOpen}
+              handleChange={handleChange}
+              userData={userData.petBreed}
+              handleSubmit={handleSubmit}
+            />
+          </strong>
         </div>
         <div className="account-manage-item">
           More Info About Pet :{" "}
           <textarea
-            className="account-manage-input"
+            className="account-manage-input textareaInput"
             name="addInfo"
             onChange={handleChange}
             defaultValue={userData.addInfo}

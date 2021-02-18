@@ -12,3 +12,28 @@
 .editNumberBtn:hover {
   background-color: rgb(199, 110, 92) !important;
 }
+.submitChangeBtn {
+  background-color: rgb(205, 136, 122) !important ;
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 5px;
+  float: right;
+}
+.submitChangeBtn:hover {
+  background-color: rgb(179, 110, 97) !important ;
+}
+.submitCancelBtn {
+  background-color: rgb(237, 196, 188) !important ;
+  border: none;
+  color: black;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 5px;
+  float: right;
+}
+
+.submitCancelBtn:hover {
+  background-color: rgb(210, 160, 150) !important ;
+}
