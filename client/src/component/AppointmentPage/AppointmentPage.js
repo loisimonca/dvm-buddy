@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import moment from "moment";
+import "./AppointmentPage.css";
 
 // import { relativeTimeRounding } from "moment";
 import Wrapper from "../Wrapper/Wrapper";
-
 
 const AppointmentPage = () => {
   const [appointments, setAppointments] = useState([]);
@@ -125,9 +125,9 @@ const AppointmentPage = () => {
   }
 
   return (
-    <div className="container">
+    <div className="containerAPP">
       <section className="section">
-        <h1 className="title"> Available Schedules</h1>
+        <h1 className="titleSchedules is-size-3"> Available Schedules</h1>
         <div className="container">
           <div className="column is-half">
             <label htmlFor="appointment-filter" className="label">
