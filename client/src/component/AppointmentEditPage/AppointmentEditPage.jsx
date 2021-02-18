@@ -7,7 +7,7 @@ import TimeInput from './TimeInput'
 import './AppointmentEditPage.css'
 
 const AppointmentEditPage = () => {
-  const [appointmentList, setAppointmentList] = useState([]);
+  // const [appointmentList, setAppointmentList] = useState([]);
   const [appointments, setAppointments] = useState([
     {
       apptDate: "",
@@ -73,15 +73,15 @@ const AppointmentEditPage = () => {
   const defaultDate = moment().format("YYYY-MM-DD");
 
   //get list of appointments from server
-  const getApptlist = () => {
-    API.listAllAppointments()
-      .then((response) => {
-        const data = response.data;
-        setAppointmentList(data);
-        // console.log("resp ", response.data);
-      })
-      .catch((err) => console.error(err));
-  };
+  // const getApptlist = () => {
+  //   API.listAllAppointments()
+  //     .then((response) => {
+  //       const data = response.data;
+  //       setAppointmentList(data);
+  //       // console.log("resp ", response.data);
+  //     })
+  //     .catch((err) => console.error(err));
+  // };
 
   // save function
   const onSave = ({ id, email }) => {

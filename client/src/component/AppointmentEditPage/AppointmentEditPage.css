@@ -7,10 +7,12 @@
   padding-bottom: 20px;
   font-family: Roboto Slab;
 }
+
 .edit__appointment__table__wrap {
   overflow-x: scroll;
-  /* display: none !important; */
+
 }
+
 table {
   border-collapse: separate !important;
   width: 100%;
@@ -66,6 +68,13 @@ th {
   outline: none;
 }
 
+
 .edit__appointment__button:hover {
   background-color: rgb(184, 138, 138) !important;
+
+@media screen and (max-width: 970px) {
+  .edit__appointment__table__wrap {
+    overflow-x: scroll;
+  }
+
 }
