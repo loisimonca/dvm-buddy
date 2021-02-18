@@ -16,22 +16,22 @@ function EmployeeAccountSelectBar({ userData, setUserData }) {
     const target = e.target.name;
 
     setState(target);
-    if (target == "personal-info") {
+    if (target === "personal-info") {
       setActive2(false);
       setActive3(false);
       setActive4(false);
       setActive1(true);
-    } else if (target == "documents") {
+    } else if (target === "documents") {
       setActive1(false);
       setActive2(false);
       setActive3(false);
       setActive4(true);
-    } else if (target == "patient-info") {
+    } else if (target === "patient-info") {
       setActive1(false);
       setActive2(true);
       setActive3(false);
       setActive4(false);
-    } else if (target == "employee-info") {
+    } else if (target === "employee-info") {
       setActive1(false);
       setActive2(false);
       setActive3(true);
