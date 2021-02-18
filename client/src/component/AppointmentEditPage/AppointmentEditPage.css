@@ -6,9 +6,6 @@
 .edit__appointment__title {
   padding-bottom: 20px;
 }
-.edit__appointment__table__wrap {
-  overflow-x: scroll;
-}
 table {
   border-collapse: separate !important;
   width: 100%;
@@ -60,4 +57,9 @@ th {
 }
 .edit__appointment__button:focus {
   outline: none;
+}
+@media screen and (max-width: 970px) {
+  .edit__appointment__table__wrap {
+    overflow-x: scroll;
+  }
 }
