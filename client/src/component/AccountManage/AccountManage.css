@@ -38,6 +38,10 @@
 }
 .patient-info-image {
   margin: 0 70px;
+  width: 100px;
+  height: 100px;
+  padding: 0px !important;
+  object-fit: fill !important;
 }
 @media screen and (max-width: 965px) {
   .patient-info-image {
@@ -60,4 +64,6 @@
   .patient-info-image {
     text-align: center;
   }
+}
+@media screen and (max-width: 450px) {
 }
