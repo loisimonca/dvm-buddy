@@ -1,13 +1,12 @@
-/* body {
-  background-image: url("./backgroundImage1.jpg");
-  background-size: cover;
-  height: 100vh;
-} */
+html {
+  background-color: rgba(233, 216, 210, 0.3) !important;
+  /* background-size: 100vh; */
+}
 .home-wrap {
   padding-top: 80px;
   padding-bottom: 80px;
   background-image: url("./backgroundImage1.jpg");
-  background-size: contain;
+  background-size: cover;
   height: 100%;
 }
 .home-title {
@@ -60,7 +59,7 @@ h3 {
     padding-top: 50px;
     padding-bottom: 80px;
     background-image: url("./backgroundImage2.jpg");
-    background-size: contain;
+    background-size: cover;
     height: 100%;
   }
   .home-title {

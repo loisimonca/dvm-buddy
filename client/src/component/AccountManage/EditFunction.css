@@ -7,6 +7,7 @@
   border: none;
   text-align: center;
   margin: 0 10px;
+  float: right;
 }
 .editNumberBtn:hover {
   background-color: rgb(199, 110, 92) !important;

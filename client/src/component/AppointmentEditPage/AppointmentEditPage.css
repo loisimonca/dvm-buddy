@@ -1,13 +1,15 @@
 .edit__appointment__container {
   padding: 30px;
-  background: rgb(250, 243, 243);
+  /* background: rgb(250, 243, 243); */
   text-align: center;
 }
 .edit__appointment__title {
   padding-bottom: 20px;
+  font-family: Roboto Slab;
 }
 .edit__appointment__table__wrap {
   overflow-x: scroll;
+  /* display: none !important; */
 }
 table {
   border-collapse: separate !important;
@@ -23,18 +25,20 @@ th {
 }
 th {
   font-size: 18px;
-  background-color: rgb(233, 233, 124);
+  background-color: rgb(172, 172, 172);
 }
 .table__corner__top__left {
-  border-top-left-radius: 20px;
+  border-top-left-radius: 8px;
 }
 .table__corner__top__right {
-  border-top-right-radius: 20px;
+  border-top-right-radius: 8px;
 }
 .edit__appointment__button {
-  background-color: rgb(238, 230, 230);
+  background-color: rgb(207, 155, 155) !important;
   border: 1px solid rgb(207, 155, 155);
   border-radius: 4px;
+  font-weight: bold;
+  color: white;
 }
 .edit__appointment__button {
   background-color: rgb(238, 230, 230);
@@ -44,13 +48,13 @@ th {
 .edit__appointment__add__button {
   font-size: 16px;
   font-weight: 500;
-  background-color: rgba(224, 231, 158, 0.753);
-  border: 1px solid rgb(159, 161, 11);
+  background-color: rgba(160, 161, 162, 0.753);
+  border: 1px solid rgba(160, 161, 162, 0.753);
   border-radius: 4px;
 }
 .edit__appointment__add__button:hover {
-  background-color: rgba(186, 189, 15, 0.507);
-  border: 1px solid rgba(158, 161, 11, 0.664);
+  background-color: rgba(77, 77, 77, 0.507);
+  border: 1px solid rgba(77, 77, 77, 0.507);
 }
 
 .edit__appointment__button:hover {
@@ -60,4 +64,8 @@ th {
 }
 .edit__appointment__button:focus {
   outline: none;
+}
+
+.edit__appointment__button:hover {
+  background-color: rgb(184, 138, 138) !important;
 }

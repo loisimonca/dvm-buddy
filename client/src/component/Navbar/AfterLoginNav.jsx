@@ -1,16 +1,16 @@
-import React, {useContext} from "react";
+import React from "react";
 import "./Navbar.css";
 import { NavLink, Link } from "react-router-dom";
-import { UserContext } from '../../utils/UserContext'
+import { UserContext } from "../../utils/UserContext";
 
 function AfterLoginNav({ handleClick, click, closeMobileMenu }) {
   // const history = useHistory();
-  const {setValue, setToken, setUserId} = useContext(UserContext)
-  const handleLogout = (e)=>{
+  // const {setValue, setToken, setUserId} = useContext(UserContext)
+  const handleLogout = (e) => {
     e.preventDefault();
     sessionStorage.clear();
-    window.location.replace('/')
-  }
+    window.location.replace("/");
+  };
   return (
     <>
       <div
@@ -34,7 +34,11 @@ function AfterLoginNav({ handleClick, click, closeMobileMenu }) {
         className={click ? "navbar-menu is-active" : "navbar-menu"}
       >
         <div className="navbar-start is-pulled-left">
-          <Link to="/Appointments" className="navbar-item link" onClick={closeMobileMenu}>
+          <Link
+            to="/Appointments"
+            className="navbar-item link"
+            onClick={closeMobileMenu}
+          >
             Schedule Appointments
           </Link>
           <Link
@@ -45,7 +49,11 @@ function AfterLoginNav({ handleClick, click, closeMobileMenu }) {
             Pet Services
           </Link>
 
-          <Link to="/AccountManage" className="navbar-item link" onClick={closeMobileMenu}>
+          <Link
+            to="/AccountManage"
+            className="navbar-item link"
+            onClick={closeMobileMenu}
+          >
             Account
           </Link>
         </div>

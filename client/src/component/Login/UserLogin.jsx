@@ -1,16 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import UserGoogleLogin from "./UserGoogleLogin";
 // import UserGoogleLogout from './UserGoogleLogout';
 import UserFacebookLogin from "./UserFacebookLogin";
-import { UserContext } from "../../utils/UserContext";
+
 // verify login at the front
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
 function UserLogin() {
-
   const handleLogIn = (e) => {
     e.preventDefault();
     const email = document.getElementById("user-email").value;
@@ -21,32 +20,36 @@ function UserLogin() {
     })
       // redirect to the account page
       .then((res) => {
-        console.log(res.data.token)
-        console.log(res)
-        jwt.verify(res.data.token, process.env.REACT_APP_JWT_SIGNATURE, (err, decoded) =>{
-          if(err){
-            console.log(err)
-          }else{
-            if(res.data.type === 'User'){
-              console.log(res.data)
-              sessionStorage.setItem('token', JSON.stringify(res.data.token))
-              sessionStorage.setItem('type', JSON.stringify("User"))
-              sessionStorage.setItem('userId', JSON.stringify(res.data.id));
-              sessionStorage.setItem('domain', JSON.stringify("Local"));
-              sessionStorage.setItem('name', JSON.stringify(res.data.name));
-              window.location.replace('/UserHomePage')
-            }else if(res.data.type ==='Employee'){
-              // setToken(res.data.token)
-              // setValue("Employee")
-              // setUserId(res.data.id)
-              sessionStorage.setItem('token', JSON.stringify(res.data.token))
-              sessionStorage.setItem('type', JSON.stringify("Employee"))
-              sessionStorage.setItem('userId', JSON.stringify(res.data.id));
-              sessionStorage.setItem('name', JSON.stringify(res.data.name));
-              window.location.replace('/AdminHomePage')
+        console.log(res.data.token);
+        console.log(res);
+        jwt.verify(
+          res.data.token,
+          process.env.REACT_APP_JWT_SIGNATURE,
+          (err, decoded) => {
+            if (err) {
+              console.log(err);
+            } else {
+              if (res.data.type === "User") {
+                console.log(res.data);
+                sessionStorage.setItem("token", JSON.stringify(res.data.token));
+                sessionStorage.setItem("type", JSON.stringify("User"));
+                sessionStorage.setItem("userId", JSON.stringify(res.data.id));
+                sessionStorage.setItem("domain", JSON.stringify("Local"));
+                sessionStorage.setItem("name", JSON.stringify(res.data.name));
+                window.location.replace("/UserHomePage");
+              } else if (res.data.type === "Employee") {
+                // setToken(res.data.token)
+                // setValue("Employee")
+                // setUserId(res.data.id)
+                sessionStorage.setItem("token", JSON.stringify(res.data.token));
+                sessionStorage.setItem("type", JSON.stringify("Employee"));
+                sessionStorage.setItem("userId", JSON.stringify(res.data.id));
+                sessionStorage.setItem("name", JSON.stringify(res.data.name));
+                window.location.replace("/AdminHomePage");
+              }
             }
           }
-        })
+        );
       })
       .catch((err) => {
         alert("Incorrect email address or password");

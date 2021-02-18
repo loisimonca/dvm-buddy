@@ -69,6 +69,7 @@ function EmployeePage({ userData, setUserData }) {
           handleChange={handleChange}
           userData={userData.tel}
           handleSubmit={handleSubmit}
+          className="editNumberBtn"
         />
       </div>
 

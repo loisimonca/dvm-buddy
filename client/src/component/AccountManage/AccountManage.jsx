@@ -6,8 +6,8 @@ import EmployeeAccountSelectBar from "./EmployeeAccountSelectBar";
 import UserAccountSelectBar from "./UserAccountSelectBar";
 
 function AccountManage() {
-  const { value, token, userId } = useContext(UserContext);
-  const [userIdFromContext, setUserIdFromContext] = useState();
+  const { value, userId } = useContext(UserContext);
+  // const [userIdFromContext, setUserIdFromContext] = useState();
   const [userData, setUserData] = useState({});
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function AccountManage() {
   }, [userId]);
 
   return (
-    <div className='account-page-whole-container'>
+    <div className="account-page-whole-container">
       {userData.userType === "Employee" && (
         <EmployeeAccountSelectBar
           userType={value}
