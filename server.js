@@ -34,7 +34,7 @@ app.use(passport.session());
 app.use(routes);
 //add mongoDB & mongoose
 const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/dvm-buddy", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/dvmbuddy", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
