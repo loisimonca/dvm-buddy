@@ -41,7 +41,7 @@ function UserGoogleLogin() {
           sessionStorage.setItem("name", JSON.stringify(user.data.name));
         });
       }
-      window.location.replace("/");
+      window.location.replace("/UserHomePage");
     });
   };
   const onFailure = (res) => {

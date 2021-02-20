@@ -70,6 +70,11 @@ th {
 .edit__appointment__button:hover {
   background-color: rgb(184, 138, 138) !important;
 }
+
+.email-field {
+  width: 125px;
+  border: 1px solid black;
+}
 @media screen and (max-width: 970px) {
   .edit__appointment__table__wrap {
     overflow-x: scroll;

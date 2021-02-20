@@ -48,7 +48,7 @@ function UserFacebookLogin() {
   };
   let fbContent;
   if (state.isLoggedIn) {
-    window.location.replace("/");
+    window.location.replace("/UserHomePage");
     fbContent = (
       <div
         style={{

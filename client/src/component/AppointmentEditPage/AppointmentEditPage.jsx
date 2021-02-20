@@ -136,7 +136,7 @@ const AppointmentEditPage = () => {
                 <th className="table__corner__top__left">Date</th>
                 <th>Time</th>
                 <th></th>
-
+                <th></th>
                 <th className="table__corner__top__right"></th>
               </tr>
             </thead>
@@ -167,6 +167,7 @@ const AppointmentEditPage = () => {
                     Add
                   </button>
                 </td>
+                <td></td>
               </tr>
               {appointments.map((item, index) => {
                 return (
@@ -174,9 +175,10 @@ const AppointmentEditPage = () => {
                     <td>{item.apptDate}</td>
                     <td>{item.apptTime}</td>
                     {/* <td>{item.user ? item.user.email : ""}</td> */}
-                    {/* <td>
+                    <td>
                       {inEditMode.status && inEditMode.rowKey === item._id ? (
                         <input
+                          className="email-field"
                           defaultValue=""
                           onChange={(e) => setcustomerId(e.target.value)}
                         />
@@ -185,7 +187,7 @@ const AppointmentEditPage = () => {
                       ) : (
                         ""
                       )}
-                    </td> */}
+                    </td>
 
                     <td>
                       {inEditMode.status && inEditMode.rowKey === item._id ? (
